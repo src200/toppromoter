@@ -68,8 +68,5 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "none"
-  },
-  "engines": {
-    "node": "^16"
   }
 }
