@@ -1,9 +1,9 @@
 {
-  "name": "reflio-affiliate",
+  "name": "toppromoter-affiliate",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next -p 3001",
+    "dev": "next -p 4001",
     "build": "next build",
     "start": "next start"
   },

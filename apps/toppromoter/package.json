@@ -1,9 +1,9 @@
 {
-  "name": "reflio",
+  "name": "toppromoter",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "js": "uglifyjs ./scripts/reflio.js -c --mangle --no-annotations --webkit -o ./public/js/reflio.min.js"
