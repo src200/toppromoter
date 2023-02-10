@@ -1,11 +1,11 @@
 module.exports = {
   content: [
     "../ui/src/**/*.{js,ts,jsx,tsx}",
-    "../../apps/reflio/pages/**/*.{js,ts,jsx,tsx}",
-    "../../apps/reflio/templates/**/*.{js,ts,jsx,tsx}",
-    "../../apps/reflio/forms/**/*.{js,ts,jsx,tsx}",
-    "../../apps/reflio-affiliate/pages/**/*.{js,ts,jsx,tsx}",
-    "../../apps/reflio-affiliate/templates/**/*.{js,ts,jsx,tsx}"
+    "../../apps/toppromoter/pages/**/*.{js,ts,jsx,tsx}",
+    "../../apps/toppromoter/templates/**/*.{js,ts,jsx,tsx}",
+    "../../apps/toppromoter/forms/**/*.{js,ts,jsx,tsx}",
+    "../../apps/toppromoter-affiliate/pages/**/*.{js,ts,jsx,tsx}",
+    "../../apps/toppromoter-affiliate/templates/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     fontWeight: {
