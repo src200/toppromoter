@@ -32,12 +32,30 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
 
     if(password && password?.length){
       if(type === "signin"){
-        signInFunc = await signInWithPassword({ "email": email, "password": password, "shouldCreateUser": type === "signin" ? false : true, "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`});
+        signInFunc = await signInWithPassword({ 
+          "email": email, 
+          "password": password,
+          "shouldCreateUser": type === "signin" ? false : true, 
+          "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`
+        });
       } else {
-        signInFunc = await signUp({ "email": email, "password": password, "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`});
+        signInFunc = await signUp({ 
+          "email": email,
+          "password": password,
+          "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`
+        });
       }
     } else {
-      signInFunc = await signIn({ "email": email, "shouldCreateUser": type === "signin" ? false : true, "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`});
+      console.log({
+        "email": email,
+        "shouldCreateUser": type === "signin" ? false : true,
+        "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`
+      });
+      signInFunc = await signIn({ 
+        "email": email,
+        "shouldCreateUser": type === "signin" ? false : true,
+        "redirectTo": `${affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin}/dashboard`
+      });
     }
    
     if(signInFunc?.error){
