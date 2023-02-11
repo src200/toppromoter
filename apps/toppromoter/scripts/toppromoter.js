@@ -1,4 +1,4 @@
-let ToppromoterDomainRoot = 'https://toppromoter.vercel.app/';
+let ToppromoterDomainRoot = 'https://toppromoter.vercel.app';
 if(window.location.href.includes('toppromoterTestingMode=true')){
   ToppromoterDomainRoot = 'http://localhost:4000';
 }
