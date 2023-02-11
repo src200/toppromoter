@@ -6,7 +6,7 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "js": "uglifyjs ./scripts/reflio.js -c --mangle --no-annotations --webkit -o ./public/js/reflio.min.js"
+    "js": "uglifyjs ./scripts/toppromoter.js -c --mangle --no-annotations --webkit -o ./public/js/toppromoter.min.js"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",

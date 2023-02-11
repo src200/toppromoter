@@ -11,11 +11,11 @@ export default function TrackingSetupPage() {
   const { activeCompany } = useCompany();
 
   const embedCode = 
-  `<script async src='https://reflio.com/js/reflio.min.js' data-reflio='${router?.query?.companyId}'></script>`;
+  `<script async src='https://toppromoter.vercel.app/js/reflio.min.js' data-toppromoter='${router?.query?.companyId}'></script>`;
 
   const scriptCode = 
   `<script type="text/javascript">
-    await Reflio.signup('yourcustomer@email.com')
+    await Toppromoter.signup('yourcustomer@email.com')
 </script>`
   
   return (
