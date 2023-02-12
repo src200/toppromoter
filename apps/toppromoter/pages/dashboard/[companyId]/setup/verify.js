@@ -72,7 +72,7 @@ export default function TrackingSetupPage() {
                 <Button
                   large
                   primary
-                  href={`http://${activeCompany?.company_url}?reflioVerify=true`}
+                  href={`http://${activeCompany?.company_url}?toppromoterVerify=true`}
                 >
                   <span>Verify on website</span>
                 </Button>

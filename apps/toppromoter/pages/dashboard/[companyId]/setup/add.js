@@ -11,7 +11,7 @@ export default function TrackingSetupPage() {
   const { activeCompany } = useCompany();
 
   const embedCode = 
-  `<script async src='https://toppromoter.vercel.app/js/reflio.min.js' data-toppromoter='${router?.query?.companyId}'></script>`;
+  `<script async src='https://toppromoter.vercel.app/js/toppromoter.min.js' data-toppromoter='${router?.query?.companyId}'></script>`;
 
   const scriptCode = 
   `<script type="text/javascript">

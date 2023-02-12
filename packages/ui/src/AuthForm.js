@@ -56,7 +56,6 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
     if(signInFunc?.error){
       setMessage({ type: 'error', content: signInFunc?.error.message });
     } else {
-
       if(password){
         setMessage({
           type: 'note',
@@ -69,16 +68,16 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
         });
       }
       
-      if(type === "signup" && affiliate !== true){
-        console.log("Firing signup function")
-        await Reflio.signup(email);
-      }
+      // if(type === "signup" && affiliate !== true){
+      //   console.log("Firing signup function")
+      //   await Toppromoter.signup(email);
+      // }
 
-      if(campaignId){
-        if (typeof window !== "undefined") {
-          localStorage.setItem("join_campaign_details", JSON.stringify({"campaign_id": campaignId, "company_id": companyId, "campaign_handle": campaignHandle}));
-        }
-      }
+      // if(campaignId){
+      //   if (typeof window !== "undefined") {
+      //     localStorage.setItem("join_campaign_details", JSON.stringify({"campaign_id": campaignId, "company_id": companyId, "campaign_handle": campaignHandle}));
+      //   }
+      // }
     }
     setLoading(false);
   };
@@ -104,7 +103,7 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
           </div>
           
         }
-        <form onSubmit={handleSignin} className="space-y-4" data-reflio>
+        <form onSubmit={handleSignin} className="space-y-4" data-toppromoter>
           <input type="hidden" name="remember" defaultValue="true" />
           <div>
             <label htmlFor="email-address" className="sr-only">
