@@ -14,7 +14,6 @@ export default function Onboarding() {
   const [error, setError] = useState(null);
 
   const handleAddStripeAccount = async (stripeId, companyId) => {
-    console.log('running verify func')
     setRunningStripeFunction(true);
 
     try {      

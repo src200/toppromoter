@@ -104,7 +104,6 @@ export default function AddCompany() {
                             </div>
                             <input
                               minLength="3"
-                              maxLength="25"
                               required
                               placeholder="example.com"
                               type="text"
