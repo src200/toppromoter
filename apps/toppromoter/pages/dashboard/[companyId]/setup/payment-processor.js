@@ -254,11 +254,11 @@ export default function StripeSetupPage() {
                             </div>
                             <div className="pb-6 border-b-4">
                               <p className="mb-2"><strong>IMPORTANT:</strong> In Paddle, in the <strong>&ldquo;URLs for receiving webhooks&ldquo;</strong> section, add the below URL as a new endpoint. This is your unique Paddle webhook URL.</p>
-                              <CopyToClipboard text={`https://reflio.com/api/payments/paddle/${activeCompany?.company_id}/webhooks`} onCopy={() => toast.success('URL copied to clipboard')}>
+                              <CopyToClipboard text={`https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks`} onCopy={() => toast.success('URL copied to clipboard')}>
                                 <input 
                                   type="text"
                                   className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                                  value={`https://reflio.com/api/payments/paddle/${activeCompany?.company_id}/webhooks`}
+                                  value={`https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks`}
                                 />
                               </CopyToClipboard>
                             </div>
