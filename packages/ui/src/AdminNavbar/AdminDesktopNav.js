@@ -1,6 +1,5 @@
 import { LogoOriginal } from '@/components/Icons/LogoOriginal';
 import Link from 'next/link';
-import Image from 'next/Image';
 import { AdminNavItems } from './AdminNavItems';
 
 export const AdminDesktopNav = () => {
