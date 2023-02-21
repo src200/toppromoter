@@ -31,7 +31,7 @@ export default function CampaignInvite({ publicCampaignData }) {
       <div>
         {
           user &&
-          <div className="w-full bg-gray-200 border-b-4 border-gray-300 py-4">
+          <div className="w-full  border-b-4 border-gray-300 py-4">
             <div className="wrapper">
               <a className="font-semibold flex items-center" href="/dashboard">
                 <ArrowNarrowLeftIcon className="w-7 h-auto"/>

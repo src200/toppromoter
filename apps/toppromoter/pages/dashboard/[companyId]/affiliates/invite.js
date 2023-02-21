@@ -179,7 +179,7 @@ ${activeCompany?.company_name}`}
                     primary
                     disabled={loading}
                   >
-                    <span>{loading ? 'Sending invites...' : 'Send invites'}</span>
+                    <span className='text-white'>{loading ? 'Sending invites...' : 'Send invites'}</span>
                   </Button>
                 </div>
               </form>

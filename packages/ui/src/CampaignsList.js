@@ -23,7 +23,7 @@ const CampaignsList = (props) => {
                   <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                     <div className="overflow-hidden shadow-md rounded-lg border-4 border-gray-300">
                       <table className="min-w-full divide-y divide-gray-300">
-                        <thead className="bg-gray-200">
+                        <thead className="">
                           <tr className="divide-x-4 divide-gray-300">
                             <th scope="col" className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold sm:pl-6">
                               Campaign

@@ -54,7 +54,7 @@ const CommissionsPage = () => {
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                       <div className="overflow-hidden shadow-md border-4 border-gray-300 rounded-lg">
                         <table className="min-w-full divide-y divide-gray-300">
-                          <thead className="bg-gray-200">
+                          <thead className="">
                             <tr>
                               <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
                                 Referral ID

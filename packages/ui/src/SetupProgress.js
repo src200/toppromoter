@@ -53,7 +53,7 @@ export const SetupProgress = (props) => {
                   {step.status === 'complete' ? (
                     <a
                       href={step.href}
-                      className="group pl-4 py-2 flex flex-col border-l-4 border-green-500 hover:border-green-600 md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-[12px]"
+                      className="group pl-4 py-2 flex flex-col border-l-4 rounded-md border-green-500 hover:border-green-600 md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-[12px]"
                     >
                       <span className="text-xs font-semibold tracking-wide uppercase">
                         {step.id}

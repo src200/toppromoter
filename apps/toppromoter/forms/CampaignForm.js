@@ -135,7 +135,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                               autoComplete="commission_value"
                               className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none rounded-br-none border-gray-300"
                             />
-                            <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none bg-gray-200 rounded-bl-none border-gray-300">%</span>
+                            <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none  rounded-bl-none border-gray-300">%</span>
                           </div>
                         </div>
                       }
@@ -147,7 +147,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                             Amount
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm items-center justify-between">
-                            <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none bg-gray-200 rounded-br-none border-gray-300">{activeCompany?.company_currency}</span>
+                            <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none  rounded-br-none border-gray-300">{activeCompany?.company_currency}</span>
                             <input
                               minLength="1"
                               maxLength="100"
@@ -182,7 +182,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                                   defaultValue={edit?.cookie_window ? edit?.cookie_window : 60}
                                   className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none rounded-br-none border-gray-300"
                                 />
-                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none bg-gray-200 rounded-bl-none border-gray-300">days</span>
+                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none  rounded-bl-none border-gray-300">days</span>
                               </div>
                             </div>
                             <div className="sm:col-span-12">
@@ -201,7 +201,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                                   defaultValue={edit && edit?.commission_period}
                                   className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none rounded-br-none border-gray-300"
                                 />
-                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none bg-gray-200 rounded-bl-none border-gray-300">months after the first sale</span>
+                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none  rounded-bl-none border-gray-300">months after the first sale</span>
                               </div>
                             </div>
                             <div className="sm:col-span-12">
@@ -220,7 +220,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                                   defaultValue={edit?.minimum_days_payout ? edit?.minimum_days_payout : 30}
                                   className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-r-0 rounded-tr-none rounded-br-none border-gray-300"
                                 />
-                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none bg-gray-200 rounded-bl-none border-gray-300">days</span>
+                                <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none  rounded-bl-none border-gray-300">days</span>
                               </div>
                             </div>
                           </>
@@ -273,7 +273,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
               </button>
             </div>
 
-            <div className="bg-gray-200 border-t-4 px-6 py-10 space-y-8">
+            <div className=" border-t-4 px-6 py-10 space-y-8">
               <div className="sm:col-span-12">
                 <div>
                   <p className="text-xl font-bold mb-1">Give new customers a discount (optional)</p>
@@ -317,7 +317,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                             autoComplete="discount_value"
                             className="flex-1 block w-full min-w-0 p-3 focus:outline-none sm:text-md border-2 border-r-0 rounded-none border-gray-300"
                           />
-                          <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none bg-gray-200 rounded-bl-none border-gray-300">%</span>
+                          <span className="min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 rounded-tl-none  rounded-bl-none border-gray-300">%</span>
                         </div>
                       }
 
@@ -365,7 +365,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
               </div>
             </div>
 
-            <div className="border-t-4 px-6 py-8 bg-white flex items-center justify-start relative">
+            <div className="border-t-4 px-6 py-8 bg-white flex items-center text-white justify-start relative">
               <Button
                 large
                 primary

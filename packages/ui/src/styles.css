@@ -39,14 +39,21 @@
 }
 
 :root {
-  --primary: #ffaf45;
-  --primary-2: #e99c36;
-  --primary-3: #b66e11;
-  --secondary: #915ff2;
-  --secondary-2: #7a48dd;
-  --secondary-3: #2a1368;
+  --primary: #40BDFF;
+  --primary-2: #39baff;
+  --primary-3: #7FBDFF;
+  --secondary: #6c757d;
+  --secondary-2: #545B62;
+  --secondary-3: #494F54;
   --text-primary: #1b1b1b;
   --text-secondary: #ffffff;
+
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
 
   --accents-0: #212529;
   --accents-1: #343a40;
@@ -123,10 +130,6 @@ body {
   margin: 0;
 }
 
-body {
-  @apply bg-gray-50;
-}
-
 /* p, a, span {
   letter-spacing: -0.025em;
 } */
@@ -197,20 +200,20 @@ a {
 }
 
 .content-block h1 {
-  @apply mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl;
+  @apply mt-3 text-3xl font-extrabold tracking-tight;
 }
 
 .content-block h2 {
-  @apply mt-5 text-2xl font-extrabold tracking-tight sm:text-2xl;
+  @apply mt-5 text-2xl font-extrabold tracking-tight;
 }
 
 .content-block h3,
 .content-block h4 {
-  @apply mt-3 text-xl font-extrabold tracking-tight sm:text-xl;
+  @apply mt-3 text-xl font-extrabold tracking-tight;
 }
 
 .content-block p {
-  @apply mt-4 text-sm md:text-lg;
+  @apply mt-4 text-sm;
 }
 
 .content-block ul {
@@ -218,11 +221,11 @@ a {
 }
 
 .content-block li {
-  @apply mt-3 text-sm md:text-lg mt-1;
+  @apply mt-3 text-sm mt-1;
 }
 
 .content-block a {
-  @apply mt-3 font-bold text-sm md:text-lg mt-4;
+  @apply mt-3 font-bold text-sm mt-4;
 }
 
 .loom-sdk-record-overlay-shadow-root-id {

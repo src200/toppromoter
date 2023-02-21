@@ -15,6 +15,7 @@
 .next/**
 dist/**
 build/**
+packages/ui/dist/**
 
 # production
 /build

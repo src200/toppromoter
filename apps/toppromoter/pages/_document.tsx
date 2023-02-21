@@ -19,7 +19,7 @@ class MyDocument extends Document {
             }}
           /> */}
         </Head>
-        <body className="loading bg-gray-50">
+        <body className="loading">
           <Main />
           <NextScript />
         </body>

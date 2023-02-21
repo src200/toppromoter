@@ -37,7 +37,7 @@ export const AdminNavItems = () => {
     { name: 'Referrals', href: `/dashboard/${activeCompany?.company_id}/referrals`, icon: SparklesIcon },
     { name: 'Sales & Commissions', href: `/dashboard/${activeCompany?.company_id}/commissions`, icon: CurrencyDollarIcon },
     // { name: 'Apps', href: `/dashboard/${activeCompany?.company_id}/apps`, icon: ChipIcon },
-    { name: 'Analytics', href: `/dashboard/${activeCompany?.company_id}/analytics`, icon: ChartBarIcon }
+    // { name: 'Analytics', href: `/dashboard/${activeCompany?.company_id}/analytics`, icon: ChartBarIcon }
   ];
 
   const settingsNavigation = [
@@ -46,7 +46,7 @@ export const AdminNavItems = () => {
     { name: 'Billing / Plans', href: `/dashboard/billing`, icon: CreditCardIcon }
   ];
 
-  const navItemClass = 'flex items-center py-1.5 px-2 my-0.5 text-base font-semibold rounded-lg hover:bg-gray-300';
+  const navItemClass = 'flex items-center py-1.5 px-2 my-0.5 text-base font-semibold rounded-lg hover:bg-gray-200';
 
   const handleCompanySwitch = async (companyId) => {
     if(!companyId) return false;
@@ -76,7 +76,7 @@ export const AdminNavItems = () => {
             {({ open }) => (
               <>
                 <div className="relative">
-                  <Listbox.Button className="relative w-full bg-white rounded-xl font-semibold pl-3 pr-10 py-3 flex text-left cursor-pointer focus:outline-none sm:text-sm border-2 border-gray-300">
+                  <Listbox.Button className="relative w-full bg-white rounded-xl font-semibold pl-3 pr-10 py-3 flex text-left cursor-pointer focus:outline-none sm:text-sm shawdow-md border-2 border-gray-100">
                     <span className="relative w-5 h-5 rounded-full flex items-center mr-2">
                       {
                         activeCompany?.company_url &&
@@ -139,7 +139,7 @@ export const AdminNavItems = () => {
                       <Link 
                         passHref 
                         href="/dashboard/add-company"
-                        className="block bg-gray-200 cursor-pointer select-none font-semibold relative py-3 px-5 -mt-1"
+                        className="block  cursor-pointer select-none font-semibold relative py-3 px-5 -mt-1"
                       >
                         + Add company
                       </Link>
@@ -159,7 +159,7 @@ export const AdminNavItems = () => {
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
-                router?.asPath?.includes(item.href) && 'bg-gray-300',
+                router?.asPath?.includes(item.href) && 'bg-gray-200',
                 navItemClass
               )}
             >
@@ -177,7 +177,7 @@ export const AdminNavItems = () => {
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
-                router?.asPath?.includes(item.href) && 'bg-gray-300',
+                router?.asPath?.includes(item.href) && 'bg-gray-200',
                 navItemClass
               )}
             >
@@ -229,32 +229,8 @@ export const AdminNavItems = () => {
             <BookOpenIcon className="mr-2 flex-shrink-0 h-5 w-5" aria-hidden="true" />
             <span>Docs & Guides</span>
           </Link>
-          <Link
-            passHref
-            href="https://reflio.canny.io/"
-            className={classNames(
-              navItemClass
-            )} 
-            rel="noreferrer"
-            target="_blank"
-          >
-            <MapIcon className="mr-2 flex-shrink-0 h-5 w-5" aria-hidden="true" />
-            <span>Roadmap</span>
-          </Link>
-          <Link
-            passHref
-            href="https://reflio.canny.io/feature-requests"
-            className={classNames(
-              navItemClass
-            )} 
-            rel="noreferrer"
-            target="_blank"
-          >
-            <SupportIcon className="mr-2 flex-shrink-0 h-5 w-5" aria-hidden="true" />
-            <span>Give Feedback</span>
-          </Link>
         </div>
-        <div className="pt-3 mt-auto border-t-4 border-gray-300 sticky bottom-0 left-0 bg-gray-200">
+        <div className="pt-3 mt-auto border-t-2 border-gray-100 sticky bottom-0 left-0 bg-white">
           <div className="px-4 space-y-1">
             {/* {secondaryNavigation.map((item) => (
               <a

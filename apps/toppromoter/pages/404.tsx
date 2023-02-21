@@ -25,7 +25,7 @@ export default function FourOhFour() {
             {links.map((link, linkIdx) => (
               <li key={linkIdx} className="relative flex items-start space-x-4 py-6">
                 <div className="flex-shrink-0">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-lg ">
                     <link.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                 </div>

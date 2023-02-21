@@ -96,7 +96,7 @@ export default function BillingPage() {
             {usageData[type]} <span className="text-gray-500">/ {unlimited === true ? '∞' : plans[planDetails][type]}</span>
           </span>
         </div>
-        <div className="h-6 w-full overflow-hidden rounded-full bg-gray-200">
+        <div className="h-6 w-full overflow-hidden rounded-full ">
           <div
             className="h-full rounded-full bg-gradient-to-r from-primary to-primary-2"
             style={{ width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` }}
@@ -152,7 +152,7 @@ export default function BillingPage() {
                     commissions !== null && commissions?.data?.length ?
                       <div>
                         <table className="min-w-full divide-y divide-gray-300">
-                          <thead className="bg-gray-200">
+                          <thead className="">
                             <tr>      
                               <th data-tip="The total amount received, after any deductions for refunds and discounts." scope="col" className="px-3 py-3.5 text-sm text-left font-semibold">
                                 Sale Amount

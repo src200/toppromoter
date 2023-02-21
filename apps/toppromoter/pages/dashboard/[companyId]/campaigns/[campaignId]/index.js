@@ -44,13 +44,12 @@ export default function SingleCampaignPage() {
                     <div>
                       <div className="flex flex-col items-start mb-6">
                         <div className="mb-3">
-                          {
-                            activeCampaign?.default_campaign === true &&
-                            <div className="text-xs font-semibold mb-2 bg-gray-600 text-white inline-flex px-3 py-1.5 rounded-full">
-                              Default Campaign
-                            </div>
-                          }
                           <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">{activeCampaign?.campaign_name}</h1>
+                          {activeCampaign?.default_campaign === true &&
+                            <span className="text-xs font-semibold mb-2 ml-3 bg-gray-300 no-underline inline-flex px-3 py-1.5 rounded-full">
+                              Default
+                            </span>
+                          }
                         </div>
                         <div>
                           <Button

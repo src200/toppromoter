@@ -25,14 +25,14 @@ export default function CampaignsPage() {
     <>
       <SEOMeta title="Campaigns"/>
       <div className="mb-12">
-        <div className="pt-10 wrapper flex items-center justify-between">
+        <div className="pt-12 wrapper flex items-center justify-between">
           <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Campaigns</h1>
           <Button
             href={`/dashboard/${router?.query?.companyId}/campaigns/new`}
             medium
             primary
           >
-            <span>Create campaign</span>
+            <span className='text-white'>Create campaign</span>
           </Button>
         </div>
       </div>
@@ -45,10 +45,10 @@ export default function CampaignsPage() {
                 <div className="flex flex-col">
                   <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                      <div className="overflow-hidden shadow-md rounded-lg border-4 border-gray-300">
-                        <table className="min-w-full divide-y divide-gray-300">
+                      <div className="overflow-hidden shadow shadow-md rounded-lg">
+                        <table className="min-w-full">
                           <thead className="bg-gray-200">
-                            <tr className="divide-x-4 divide-gray-300">
+                            <tr className="">
                               <th scope="col" className="py-3.5 pl-4 pr-4 text-left text-sm font-semibold sm:pl-6">
                                 Campaign
                               </th>
@@ -60,16 +60,11 @@ export default function CampaignsPage() {
                               </th>
                             </tr>
                           </thead>
-                          <tbody className="divide-y divide-gray-200 bg-white">
+                          <tbody className="bg-white">
                             {userCampaignDetails?.map((campaign) => (
-                              <tr key={campaign?.campaign_id} className="divide-x-4 divide-gray-200">
+                              <tr key={campaign?.campaign_id} className="">
                                 <td className="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium sm:pl-6">
-                                  {
-                                    campaign?.default_campaign === true &&
-                                    <div className="text-xs font-semibold mb-2 bg-gray-600 text-white inline-flex px-3 py-1.5 rounded-full">
-                                      Default Campaign
-                                    </div>
-                                  }
+                                  
                                   <p className="text-xl mb-2 font-semibold">
                                     <Link
                                       passHref
@@ -78,6 +73,11 @@ export default function CampaignsPage() {
                                     >
                                       {campaign?.campaign_name}
                                     </Link>
+                                    {campaign?.default_campaign === true &&
+                                      <span className="text-xs font-semibold mb-2 ml-3 bg-gray-300 no-underline inline-flex px-3 py-1.5 rounded-full">
+                                        Default
+                                      </span>
+                                    }
                                   </p>
                                   <p className="text-md">{campaign?.commission_type === 'percentage' ? `${campaign?.commission_value}% commission on all paid referrals` : `${priceString(campaign?.commission_value, activeCompany?.company_currency)} commission on all paid referrals`}</p>
                                   <div className="mt-3">
@@ -100,6 +100,9 @@ export default function CampaignsPage() {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="mt-2">
+                  <span className="text-xs">{`Showing ${userCampaignDetails?.length} of ${userCampaignDetails?.length} total campaigns.`}</span>
                 </div>
               </div>
             :

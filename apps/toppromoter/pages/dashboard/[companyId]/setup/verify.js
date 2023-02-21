@@ -39,7 +39,7 @@ export default function TrackingSetupPage() {
       </div>
       <div className="wrapper">
         <div className="rounded-xl bg-white max-w-2xl overflow-hidden shadow-lg border-4 border-gray-300">
-          <div className="p-6 bg-gray-200">
+          <div className="p-6 ">
             {
               activeCompany?.domain_verified === true ?
                 <div className="flex items-center">

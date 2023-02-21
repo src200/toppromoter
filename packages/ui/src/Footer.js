@@ -19,9 +19,6 @@ export const Footer = () => {
           <div>
             <ul className="sm:flex sm:space-x-4 sm:justify-center">
               <li><a className="mt-2 underline text-gray-500" href="/terms">Terms</a></li>
-              <li><a className="mt-2 underline text-gray-500" href="https://reflio.canny.io/" target="_blank" rel=" noreferrer">Roadmap</a></li>
-              <li><a className="mt-2 underline text-gray-500" href="https://reflio.canny.io/feature-requests" target="_blank" rel=" noreferrer">Feedback</a></li>
-              <li><a className="mt-2 underline text-gray-500" href="https://affiliates.reflio.com/invite/reflio">Affiliate Program</a></li>
             </ul>
           </div>
         </div>

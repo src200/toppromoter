@@ -78,7 +78,7 @@ export const ReferralsTemplate = ({ page }) => {
             medium
             primary
           >
-            <span>Create referral</span>
+            <span className='text-white'>Create referral</span>
           </Button>
         </div>
       </div>
@@ -111,7 +111,7 @@ export const ReferralsTemplate = ({ page }) => {
                       <a
                         href={option.href}
                         className={classNames(
-                          option.href === router.asPath ? 'bg-gray-200 font-semibold' : '',
+                          option.href === router.asPath ? ' font-semibold' : '',
                           'block px-4 py-3 text-gray-900'
                         )}
                       >
@@ -132,8 +132,8 @@ export const ReferralsTemplate = ({ page }) => {
                 <div className="flex flex-col">
                   <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                      <div className="overflow-hidden shadow-md border-4 border-gray-300 rounded-lg">
-                        <table className="min-w-full divide-y divide-gray-300">
+                      <div className="overflow-hidden shadow-md rounded-lg">
+                        <table className="min-w-full">
                           <thead className="bg-gray-200">
                             <tr>
                               <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
@@ -159,7 +159,7 @@ export const ReferralsTemplate = ({ page }) => {
                               </th>
                             </tr>
                           </thead>
-                          <tbody className="divide-y divide-gray-200 bg-white text-sm ">
+                          <tbody className=" bg-white text-sm ">
                             {referrals?.data?.map((referral) => (
                               <tr key={referral?.referral_id}>
                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
@@ -189,7 +189,7 @@ export const ReferralsTemplate = ({ page }) => {
                                         Converted
                                       </div>
                                     : referral?.referral_reference_email !== null ?
-                                      <div className={`bg-orange-400 text-orange-900 inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
+                                      <div className={`bg-orange-400 text-white inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
                                         Signed up
                                       </div>
                                     :

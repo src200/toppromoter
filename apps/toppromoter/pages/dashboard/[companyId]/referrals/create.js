@@ -194,7 +194,7 @@ export default function ReferralCreatePage() {
                     primary
                     disabled={loading}
                   >
-                    <span>{loading ? 'Creating referral...' : 'Create referral'}</span>
+                    <span className='text-white'>{loading ? 'Creating referral...' : 'Create referral'}</span>
                   </Button>
                 </div>
               </form>

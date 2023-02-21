@@ -44,7 +44,7 @@ export default function InnerDashboardPage() {
             medium
             primary
           >
-            <span>Invite affiliates</span>
+            <span className='text-white'>Invite affiliates</span>
           </Button>
         </div>
       </div>
@@ -56,8 +56,8 @@ export default function InnerDashboardPage() {
                 <div className="flex flex-col">
                   <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                      <div className="overflow-hidden shadow-md border-4 border-gray-300 rounded-lg">
-                        <table className="min-w-full divide-y divide-gray-300">
+                      <div className="overflow-hidden shadow shadow-md rounded-lg">
+                        <table className="min-w-full">
                           <thead className="bg-gray-200">
                             <tr>
                               <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
@@ -85,7 +85,7 @@ export default function InnerDashboardPage() {
                               </th>
                             </tr>
                           </thead>
-                          <tbody className="divide-y divide-gray-200 bg-white">
+                          <tbody className="bg-white">
                             {mergedAffiliateDetails?.map((affiliate) => (
                               <tr key={affiliate?.affiliate_id}>
                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
@@ -133,6 +133,9 @@ export default function InnerDashboardPage() {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="mt-2">
+                  <span className="text-xs">{`Showing ${mergedAffiliateDetails?.length} of ${mergedAffiliateDetails?.length} total affilates.`}</span>
                 </div>
               </div>
             :

@@ -116,7 +116,7 @@ export default function CampaignCustomizerPage() {
         <div className="flex w-full h-full overflow-hidden">
           <div className="w-[500px] border-r-4 border-gray-200 bg-white overflow-y-scroll">
             <div className="flex h-full">
-              <div className="w-14 h-full bg-gray-200">
+              <div className="w-14 h-full ">
                 <div className="pt-4 flex flex-col items-center justify-center space-y-2">
                   <button onClick={e=>{setTabType("details")}} className={`${tabType === "details" && "bg-white border-gray-300"} w-10 h-10 border-2 rounded-xl flex justify-center items-center`}>
                     <PencilIcon className="w-6 h-6"/>
