@@ -26,7 +26,7 @@ module.exports = {
         '8xl': '1920px'
       },
       fontFamily: {
-        primary: ["TT Interfaces"]
+        primary: ["Poppins"]
       },
       colors: {
         primary: 'var(--primary)',
