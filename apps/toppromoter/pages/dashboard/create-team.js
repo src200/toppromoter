@@ -28,7 +28,7 @@ export default function CreateTeam() {
     setLoading(true);
 
     await newTeam(user, data).then((result) => {
-      if(result === "success"){
+      if(result === 'success'){
         router.push('/dashboard/add-company');
 
       } else {
@@ -46,14 +46,18 @@ export default function CreateTeam() {
 
   return (
     <>
-      <SEOMeta title="Create Team"/>
+      <SEOMeta title="Create Team" />
       
       <div className="pt-12 wrapper">
         <div>
-          <form className="rounded-xl bg-white max-w-2xl overflow-hidden shadow-lg border-4 border-gray-300 mx-auto" action="#" method="POST" onSubmit={handleSubmit}>
+          <form className="rounded-xl bg-white max-w-2xl overflow-hidden shadow-lg border-4 border-gray-300 mx-auto" action="#" method="POST" onSubmit={ handleSubmit }>
             <div className="py-6 text-center border-b-4">
-              <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold mb-2">Create a team</h1>
-              <p>Firstly, please create a team to get started. You can invite members to it later.</p>
+              <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold mb-2">
+                Create a team
+              </h1>
+              <p>
+                Firstly, please create a team to get started. You can invite members to it later.
+              </p>
             </div>
             <div className="p-6">
               <div className="space-y-8 divide-y divide-gray-200">
@@ -87,9 +91,10 @@ export default function CreateTeam() {
               <Button
                 large
                 secondary
-                disabled={loading}
-              >
-                <span>{loading ? 'Creating Team...' : 'Create Team'}</span>
+                disabled={ loading }>
+                <span>
+                  { loading ? 'Creating Team...' : 'Create Team' }
+                </span>
               </Button>
             </div>
           </form>

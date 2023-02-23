@@ -42,7 +42,7 @@ export default function InnerDashboardPage() {
             small
             outline>
             <span className='flex items-center'>
-              <PlusCircleIcon className="h-5 w-5" />
+              <PlusCircleIcon className="h-5 w-5 mr-1" />
               { ' ' }
               Invite affiliates
             </span>
@@ -61,28 +61,28 @@ export default function InnerDashboardPage() {
                       <table className="min-w-full">
                         <thead className="border-b-2 border-gray-100">
                           <tr>
-                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs font-black sm:pl-6">
+                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-bold sm:pl-6">
                               User
                             </th>
-                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-xs font-black sm:pl-6">
+                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-bold sm:pl-6">
                               Affiliate ID
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Campaign
                             </th>
-                            <th data-tip="Impressions are counted and tracked when a cookie was successfully set on the users device." scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th data-tip="Impressions are counted and tracked when a cookie was successfully set on the users device." scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Impressions
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Revenue Contributed
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Signup Method
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Status
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-xs font-black">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                             </th>
                           </tr>
                         </thead>

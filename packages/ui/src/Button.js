@@ -20,19 +20,19 @@ export const Button = (props) => {
 
   //Color styles
   if(props.secondary){
-    styles = styles + ' text-white bg-secondary hover:bg-secondary-2'
+    styles = styles + ' text-white font-bold bg-secondary hover:bg-secondary-2'
   } else if(props.gray){
-    styles = styles + ' text-gray-800 bg-gray-300 hover:bg-gray-400'
+    styles = styles + ' text-gray-800 font-bold bg-gray-300 hover:bg-gray-400'
   } else if(props.white){
-    styles = styles + ' bg-white hover:bg-gray-100'
+    styles = styles + ' bg-white font-bold hover:bg-gray-100'
   } else if(props.red){
-    styles = styles + ' text-white bg-red-500 hover:bg-red-600'
+    styles = styles + ' text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-red-100'
   } else if(props.ghost){
-    styles = styles + ' text-primary px-0 py-0 focus:none'
+    styles = styles + ' text-primary font-bold px-0 py-0'
   } else if(props.outline){
     styles = styles + ' text-primary font-bold bg-white border-2 border-primary-3'
   } else {
-    styles = styles + ' bg-primary hover:bg-primary-2'
+    styles = styles + ' bg-primary font-bold hover:bg-primary-2'
   }
 
   if(props.mobileFull){

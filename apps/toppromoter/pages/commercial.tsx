@@ -20,13 +20,13 @@ export const Commercial = () => {
 
   return(
     <>
-      <SEOMeta title="Commercial"/>
+      <SEOMeta title="Commercial" />
       <div className="content-block">
-          <div className="max-w-5xl mx-auto px-6">
-            <div>
-              <div id="my-reform"></div>
-            </div>
+        <div className="max-w-5xl mx-auto px-6">
+          <div>
+            <div id="my-reform"></div>
           </div>
+        </div>
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useUser, getReflioCommissionsDue } from '@/utils/useUser';
 import { useCompany } from '@/utils/CompanyContext';
 import SEOMeta from '@/templates/SEOMeta'; 
-import { postData, prettyMonthStartAndEnd, priceStringDivided, checkUTCDateExpired, UTCtoString } from '@/utils/helpers';
+import { postData, priceStringDivided, checkUTCDateExpired, UTCtoString } from '@/utils/helpers';
 import Button from '@/components/Button'; 
 import Card from '@/components/Card'; 
 import { PricingParams, PricingFeatures } from '@/components/PricingFeatures'; 
@@ -46,12 +46,12 @@ export default function BillingPage() {
         token: session.access_token
       });
 
-      if(response !== "error"){
+      if(response !== 'error'){
         console.log(response);
       }
 
-      if(response === "above_50"){
-        toast.error("You are trying to pay for more than 50 commissions, please contact support, or upgrade your plan to remove all outstanding fees.")
+      if(response === 'above_50'){
+        toast.error('You are trying to pay for more than 50 commissions, please contact support, or upgrade your plan to remove all outstanding fees.')
       }
 
       if(response?.invoice_url){
@@ -66,18 +66,18 @@ export default function BillingPage() {
     }
   };
   
-  if(commissions?.length === 0 && planDetails === "free"){
+  if(commissions?.length === 0 && planDetails === 'free'){
     getReflioCommissionsDue(team?.team_id).then(results => {
-      if(results !== "error" && results?.data?.length){
+      if(results !== 'error' && results?.data?.length){
         setCommissions(results);
       }
 
-      if(results === "error"){
-        console.warn("There was an error when getting data");
+      if(results === 'error'){
+        console.warn('There was an error when getting data');
       }
 
       if(results?.data?.length === 0){
-        setCommissions({"data": []});
+        setCommissions({'data': []});
       }
     })
   }
@@ -91,16 +91,23 @@ export default function BillingPage() {
     return(
       <div>
         <div className="flex items-center justify-between mb-2">
-          <h3 className="capitalize">{type}</h3>
+          <h3 className="capitalize">
+            { type }
+          </h3>
           <span>
-            {usageData[type]} <span className="text-gray-500">/ {unlimited === true ? '∞' : plans[planDetails][type]}</span>
+            { usageData[type] } 
+            { ' ' }
+            <span className="text-gray-500">
+              /
+              { unlimited === true ? '∞' : plans[planDetails][type] }
+            </span>
           </span>
         </div>
         <div className="h-6 w-full overflow-hidden rounded-md ">
           <div
             className="h-full rounded-md bg-gradient-to-r from-primary to-primary-2"
-            style={{ width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` }}
-          ></div>
+            style={ { width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` } }>
+          </div>
         </div>
       </div>
     )
@@ -117,7 +124,7 @@ export default function BillingPage() {
           token: session.access_token
         });
   
-        if(response !== "error"){
+        if(response !== 'error'){
           setUsageData(response);
         }
         
@@ -133,10 +140,12 @@ export default function BillingPage() {
 
   return (
     <>
-      <SEOMeta title="Billing"/>
-      <div className="pb-10 mb-12 border-b-4">
+      <SEOMeta title="Billing" />
+      <div className="mb-12">
         <div className="pt-10 wrapper">
-          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Billing / Plans</h1>
+          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
+            Billing / Plans
+          </h1>
         </div>
       </div>
       <div className="wrapper">
@@ -145,14 +154,16 @@ export default function BillingPage() {
             <div className="mb-6">
               <Card className="w-full max-w-full">
                 <div className="flex items-center mb-4">
-                  <h2 className="text-xl leading-6 font-semibold text-gray-900">Commission payments owed to Reflio</h2>
+                  <h2 className="text-xl leading-6 font-semibold text-gray-900">
+                    Commission payments owed to Toppromoter
+                  </h2>
                 </div>
                 <div>
                   {
                     commissions !== null && commissions?.data?.length ?
-                      <div>
-                        <table className="min-w-full divide-y divide-gray-300">
-                          <thead className="">
+                      <div className="overflow-hidden border-2 border-gray-100 rounded-lg">
+                        <table className="min-w-full">
+                          <thead className="border-b-2 border-gray-100">
                             <tr>      
                               <th data-tip="The total amount received, after any deductions for refunds and discounts." scope="col" className="px-3 py-3.5 text-sm text-left font-semibold">
                                 Sale Amount
@@ -172,25 +183,31 @@ export default function BillingPage() {
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-gray-200 bg-white text-sm">
-                            {commissions?.data?.map((sale) => (
-                              <tr key={sale?.commission_id}>  
+                            { commissions?.data?.map((sale) => (
+                              <tr key={ sale?.commission_id }>  
                                 <td className="whitespace-nowrap px-3 py-4 text-sm sm:pl-6">
-                                  <span>{priceStringDivided(sale?.commission_sale_value, activeCompany?.company_currency)}</span>
+                                  <span>
+                                    { priceStringDivided(sale?.commission_sale_value, activeCompany?.company_currency) }
+                                  </span>
                                 </td>
-                                <td className={`whitespace-nowrap px-3 py-4 font-semibold ${checkUTCDateExpired(sale?.commission_due_date) === true && 'text-red-500'}`}>
-                                  <span>{priceStringDivided(((9/100)*sale?.commission_sale_value).toFixed(2), activeCompany?.company_currency)}</span>
+                                <td className={ `whitespace-nowrap px-3 py-4 font-semibold ${checkUTCDateExpired(sale?.commission_due_date) === true && 'text-red-500'}` }>
+                                  <span>
+                                    { priceStringDivided(((9/100)*sale?.commission_sale_value).toFixed(2), activeCompany?.company_currency) }
+                                  </span>
                                 </td>   
                                 <td className="px-3 py-4 text-sm max-w-xs break-all">
-                                  {sale?.commission_description ?? 'N/A'}
+                                  { sale?.commission_description ?? 'N/A' }
                                 </td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm">
-                                  {sale?.referral_id}
+                                  { sale?.referral_id }
                                 </td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm">
-                                  <div data-tip={sale?.created}>{UTCtoString(sale?.created)}</div>
+                                  <div data-tip={ sale?.created }>
+                                    { UTCtoString(sale?.created) }
+                                  </div>
                                 </td>
                               </tr>
-                            ))}
+                            )) }
                           </tbody>
                         </table>
                         <div className="mt-6">
@@ -201,33 +218,41 @@ export default function BillingPage() {
                                 mobileFull
                                 red
                                 className="mb-2"
-                                href={receivedInvoiceUrl}
-                                target="_blank"
-                              >
+                                href={ receivedInvoiceUrl }
+                                target="_blank">
                                 Pay invoice
                               </Button>
                             :
                               <Button
-                                loading={invoiceLoading}
+                                loading={ invoiceLoading }
                                 medium
                                 mobileFull
                                 red
                                 className="mb-2"
-                                onClick={e=>{generateInvoice()}}
-                              >
-                                {invoiceLoading ? 'Generating invoice...' : 'Pay Reflio fees'}
+                                onClick={ e=>{generateInvoice()} }>
+                                { invoiceLoading ? 'Generating invoice...' : 'Pay Reflio fees' }
                               </Button>
                           }
-                          <p>Or, <a className="underline font-bold" href="/pricing">Upgrade your plan</a> to remove all existing and future commission fees.</p>
+                          <p>
+                            Or,
+                            { ' ' }
+                            <a className="underline font-bold" href="/pricing">
+                              Upgrade your plan
+                            </a>
+                            { ' ' }
+                            to remove all existing and future commission fees.
+                          </p>
                         </div>
                       </div>
                     : 
                       commissions?.data?.length === 0 ?
-                        <p>You currently have no due commissions.</p>
+                        <p className='test-sm text-gray-500'>
+                          You currently have no due commissions.
+                        </p>
                     :
-                      <div className="my-6">
-                        <LoadingDots/>
-                      </div>
+                        <div className="my-6">
+                          <LoadingDots />
+                        </div>
                       
                   }
                 </div>
@@ -237,46 +262,52 @@ export default function BillingPage() {
         <div className="grid grid-cols-1 space-y-6 md:space-y-0 md:grid-cols-2 md:space-x-6">
           <Card>
             <div className="flex items-center mb-4">
-              <h2 className="text-xl leading-6 font-semibold text-gray-900">Current Plan: <span className="capitalize font-medium">{planDetails === 'free' ? 'Pay As You Go (9% fee)' : planDetails}</span></h2>
+              <h2 className="text-xl leading-6 font-semibold text-gray-900">
+                Current Plan:
+                { ' ' }
+                <span className="capitalize font-medium">
+                  { planDetails === 'free' ? 'Pay As You Go (9% fee)' : planDetails }
+                </span>
+              </h2>
             </div>
             <div className="bg-gray-100 rounded-xl p-6">
-              <PricingFeatures normal productName={planDetails}/>
+              <PricingFeatures normal productName={ planDetails } />
             </div>
-            <div className="mt-6 pt-6 border-t-4 bg-white sm:flex sm:items-center sm:justify-start">
+            <div className="mt-6 pt-6 bg-white sm:flex sm:items-center sm:justify-start">
               <Button
-                medium
+                small
                 mobileFull
-                secondary
-                href="/pricing"
-              >
+                primary
+                href="/pricing">
                 Upgrade Plan
               </Button>
               <Button
                 className="mt-3 ml-0 sm:ml-3 sm:mt-0"
                 mobileFull
-                medium
+                small
                 gray
-                onClick={e=>{redirectToCustomerPortal()}}
-              >
-                {loading ? 'Loading...' : 'Manage Billing'}
+                onClick={ e=>{redirectToCustomerPortal()} }>
+                { loading ? 'Loading...' : 'Manage Billing' }
               </Button>
             </div>
           </Card>
           <Card>
             <div>
-              <h2 className="text-xl leading-6 font-semibold text-gray-900 mb-5">Usage Metrics</h2>
+              <h2 className="text-xl leading-6 font-semibold text-gray-900 mb-5">
+                Usage Metrics
+              </h2>
               {
                 usageData !== null ?
                   <div className="space-y-5">
-                    <ProgressBar type="companies"/>
-                    <ProgressBar type="campaigns"/>
-                    <ProgressBar type="affiliates"/>
-                    <ProgressBar type="referrals" unlimited={true}/>
-                    <ProgressBar type="commissions" unlimited={true}/>
+                    <ProgressBar type="companies" />
+                    <ProgressBar type="campaigns" />
+                    <ProgressBar type="affiliates" />
+                    <ProgressBar type="referrals" unlimited={ true } />
+                    <ProgressBar type="commissions" unlimited={ true } />
                   </div>
                 :
                   <div className="flex items-center justify-center mt-24">
-                    <LoadingDots/>
+                    <LoadingDots />
                   </div>
               }
             </div>

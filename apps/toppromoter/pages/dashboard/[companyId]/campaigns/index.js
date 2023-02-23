@@ -33,7 +33,7 @@ export default function CampaignsPage() {
             small
             outline>
             <span className='flex items-center'>
-              <PlusCircleIcon className="h-5 w-5" />
+              <PlusCircleIcon className="h-5 w-5 mr-1" />
               { ' ' }
               Create campaign
             </span>
@@ -53,13 +53,13 @@ export default function CampaignsPage() {
                         <table className="min-w-full">
                           <thead className='border-b-2 border-gray-100'>
                             <tr className="">
-                              <th scope="col" className="py-3.5 pl-4 pr-4 text-left text-xs font-black sm:pl-6">
+                              <th scope="col" className="py-3.5 pl-4 pr-4 text-left text-sm font-bold sm:pl-6">
                                 Campaign
                               </th>
-                              <th scope="col" className="px-4 py-3.5 text-xs font-black text-center">
+                              <th scope="col" className="px-4 py-3.5 text-sm font-bold text-center">
                                 Affiliates
                               </th>
-                              <th scope="col" className="px-4 py-3.5 text-xs font-black text-center">
+                              <th scope="col" className="px-4 py-3.5 text-sm font-bold text-center">
                                 Revenue
                               </th>
                             </tr>

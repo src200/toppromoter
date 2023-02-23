@@ -1,6 +1,6 @@
 export const Card = (props) => {
 
-  let styles = 'shadow-lg rounded-xl max-w-3xl border-4';
+  let styles = 'max-w-3xl border-2 border-gray-100 rounded-lg';
 
   if(props.secondary){
     styles = styles + ' bg-secondary border-secondary-2';
@@ -13,9 +13,9 @@ export const Card = (props) => {
   }
 
   return(
-    <div className={styles}>
+    <div className={ styles }>
       <div className="p-6 sm:p-8">
-        {props.children}
+        { props.children }
       </div>
     </div>
   )

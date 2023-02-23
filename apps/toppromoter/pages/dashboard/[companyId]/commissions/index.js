@@ -4,8 +4,8 @@ import { CommissionsTemplate } from '@/components/CommissionsTemplate';
 export default function CommissionsPage() {
   return (
     <>
-      <SEOMeta title="All Commissions & Sales"/>
-      <CommissionsTemplate page="index"/>
+      <SEOMeta title="All Commissions & Sales" />
+      <CommissionsTemplate page="index" />
     </>
   );
 }

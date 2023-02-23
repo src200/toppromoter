@@ -264,19 +264,19 @@ export const CampaignForm = ({ edit, setupMode }) => {
               <Button
                 className='-ml-4 mt-5'
                 onClick={ e => {
-                showAdvancedOptions ? setShowAdvancedOptions(false) : setShowAdvancedOptions(true);
-                e.preventDefault();
-              } }
+                  showAdvancedOptions ? setShowAdvancedOptions(false) : setShowAdvancedOptions(true);
+                  e.preventDefault();
+                } }
                 small
                 ghost>
                 <span>
                   { showAdvancedOptions ? 
-                    <span className='flex items-center'>
+                    <span className='flex ml-4 mt-2'>
                       Hide advanced options
                       { ' ' }
                       <ChevronUpIcon className='w-5 h-5 mt-1' />
                     </span> : (
-                      <span className='flex'>
+                      <span className='flex ml-4 mt-2'>
                         Show advanced options
                         { ' ' }
                         <ChevronDownIcon className='w-5 h-5 mt-1' />

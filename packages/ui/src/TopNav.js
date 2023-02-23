@@ -1,18 +1,23 @@
 import { useCompany } from '@/utils/CompanyContext';
 import { classNames } from '@/utils/helpers';
 import { useUser, handleActiveCompany } from '@/utils/useUser';
+import Modal from '@/components/Modal';
+import Button from '@/components/Button';
 import { Menu, Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon, ChevronDownIcon, PlusIcon  } from '@heroicons/react/solid';
 import {  UserCircleIcon, GiftIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment } from 'react';
+import { useState, Fragment } from 'react';
+import dynamic from 'next/dynamic';
+
 
 export const TopNav = () => {
   const router = useRouter();
   const { signOut, userDetails, planDetails } = useUser();
   const { activeCompany, userCompanyDetails } = useCompany();
-
+  const [showModal, setShowModal] = useState(false);
+  const Company = dynamic(() => import('@/components/AddCompany'));
 
   const handleCompanySwitch = async (companyId) => {
     if(!companyId) return false;
@@ -48,7 +53,7 @@ export const TopNav = () => {
             { ({ open }) => (
               <>
                 <div className="relative">
-                  <Listbox.Button className="relative w-[200px] bg-white rounded-md font-semibold pl-3 pr-10 py-2 flex text-left cursor-pointer focus:outline-none sm:text-sm shawdow-md border-2 border-gray-100">
+                  <Listbox.Button className="relative w-[200px] bg-white rounded-md font-semibold pl-3 pr-10 py-2 flex text-left cursor-pointer focus:outline-none sm:text-sm border-2 border-gray-100">
                     <span className="flex items-center truncate text-primary font-bold">
                       { activeCompany?.company_name }
                     </span>
@@ -67,7 +72,7 @@ export const TopNav = () => {
                     leaveTo="transform opacity-0 scale-95">
                     <Listbox.Options
                       static
-                      className="absolute rounded-md z-10 w-full bg-white max-h-60 text-base overflow-auto focus:outline-none sm:text-sm shadow-md ">
+                      className="absolute rounded-md z-10 w-full bg-white max-h-60 text-base overflow-auto focus:outline-none sm:text-sm  border-2 border-gray-100 ">
                       { userCompanyDetails?.map((company) => (
                         <Listbox.Option
                           key={ company?.company_id }
@@ -96,16 +101,14 @@ export const TopNav = () => {
                           ) }
                         </Listbox.Option>
                       )) }
-                      <Link 
-                        passHref 
-                        href="/dashboard/add-company"
-                        className="block font-extra-bold cursor-pointer select-none border-t-2 relative py-3 px-5 -mt-1">
-                        <span className='flex '>
-                          <PlusIcon className="h-5 w-5 text-primary" />
+                      <a onClick={ ()=> setShowModal(true) }
+                        className="block font-extra-bold  py-3 px-3 cursor-pointer select-none border-t-2 relative -mt-1 hover:text-primary-2 hover:bg-primary-3">
+                        <span className='flex text-primary font-black'>
+                          <PlusIcon className="h-5 w-5" />
                           { ' ' }
                           Add company
                         </span>
-                      </Link>
+                      </a>
                     </Listbox.Options>
                   </Transition>
                 </div>
@@ -133,24 +136,24 @@ export const TopNav = () => {
                 leave="transition ease-in duration-75"
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right border-2 border-gray-100 rounded-md bg-white ">
                   <div className="py-1">
                     <Menu.Item>
-                      { ({ active }) => (
+                      { () => (
                         <a
                           href="#"
                           onClick={ signOut }
-                          className="block text-black hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
+                          className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
                           Sign Out
                         </a>
                 ) }
                     </Menu.Item>
                     <Menu.Item>
-                      { ({ active }) => (
+                      { () => (
                         <a
                           href={ process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL }
                           target="_blank"
-                          className="block text-black hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2"
+                          className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2"
                           rel="noreferrer">
                           Affiliate Dashboard 
                           { ' ' }
@@ -164,6 +167,11 @@ export const TopNav = () => {
           </div>
         }
       </div>
+      { showModal && 
+        <Modal modalOpen={ showModal } setModalOpen={ setShowModal }>
+          <Company />
+        </Modal>
+      }
     </div>
   );
 };

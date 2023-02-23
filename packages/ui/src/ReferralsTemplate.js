@@ -82,7 +82,7 @@ export const ReferralsTemplate = ({ page }) => {
             small
             outline>
             <span className='flex items-center'>
-              <PlusCircleIcon className="h-5 w-5" />
+              <PlusCircleIcon className="h-5 w-5 mr-1" />
               Create referral
             </span>
           </Button>
@@ -92,8 +92,8 @@ export const ReferralsTemplate = ({ page }) => {
         <div className="mb-5">
           <Menu as="div" className="relative z-10 inline-block text-left">
             <div>
-              <Menu.Button className="group inline-flex items-center justify-center text-sm bg-white rounded-md py-2 px-5 border-2 border-gray-100">
-                <span className="font-semibold text-primary">
+              <Menu.Button className="group inline-flex items-center justify-center bg-white rounded-md py-2 px-5 border-2 border-gray-100">
+                <span className="font-bold text-primary">
                   Filter
                 </span>
                 <ChevronDownIcon
@@ -117,7 +117,7 @@ export const ReferralsTemplate = ({ page }) => {
                       <a
                         href={ option.href }
                         className={ classNames(
-                          option.href === router.asPath ? ' font-semibold' : '',
+                          option.href === router.asPath ? 'text-primary bg-primary-3 font-semibold' : '',
                           'block px-3 py-2 hover:text-primary-2 hover:bg-primary-3 cursor-pointer'
                         ) }>
                         { option.name }
@@ -141,25 +141,25 @@ export const ReferralsTemplate = ({ page }) => {
                       <table className="min-w-full">
                         <thead className="border-b-2 border-gray-100">
                           <tr>
-                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
+                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-bold sm:pl-6">
                               Referral ID
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Referrer
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Signup Email/ID
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Campaign
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Commission Amount
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Status
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Date Created
                             </th>
                           </tr>

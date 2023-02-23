@@ -29,23 +29,25 @@ export default function Products() {
       <div className="relative bg-gradient-to-b from-white to-gray-200 py-24">
         <div className="wrapper">
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Pricing</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+              Pricing
+            </h1>
           </div>
           <div>
             {
               products !== null ?
-                <Pricing products={products}/>
+                <Pricing products={ products } />
               :
                 <div className="flex items-center justify-center">
-                  <LoadingTile/>
+                  <LoadingTile />
                 </div>
             }
           </div>
           <div className="py-14 md:pt-32 md:pb-24">
-            <Testimonials small/>
+            <Testimonials small />
           </div>
           <div className="py-14 md:py-24">
-            <Features/>
+            <Features />
           </div>
         </div>
       </div>
