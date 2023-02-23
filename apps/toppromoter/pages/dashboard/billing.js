@@ -96,9 +96,9 @@ export default function BillingPage() {
             {usageData[type]} <span className="text-gray-500">/ {unlimited === true ? '∞' : plans[planDetails][type]}</span>
           </span>
         </div>
-        <div className="h-6 w-full overflow-hidden rounded-full ">
+        <div className="h-6 w-full overflow-hidden rounded-md ">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-primary to-primary-2"
+            className="h-full rounded-md bg-gradient-to-r from-primary to-primary-2"
             style={{ width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` }}
           ></div>
         </div>

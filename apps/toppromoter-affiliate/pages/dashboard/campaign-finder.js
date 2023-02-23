@@ -8,7 +8,7 @@ const CampaignFinder = () => {
       <div className="pb-10 mb-12 border-b-4">
         <div className="pt-10 wrapper flex items-center">
           <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Campaign Finder</h1>
-          <div className="bg-red-400 text-white inline-flex py-1.5 px-4 text-sm font-bold rounded-full ml-3">
+          <div className="bg-red-400 text-white inline-flex py-1.5 px-4 text-sm font-bold rounded-md ml-3">
             COMING SOON
           </div>
         </div>

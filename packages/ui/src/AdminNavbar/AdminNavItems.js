@@ -77,7 +77,7 @@ export const AdminNavItems = () => {
               <>
                 <div className="relative">
                   <Listbox.Button className="relative w-full bg-white rounded-xl font-semibold pl-3 pr-10 py-3 flex text-left cursor-pointer focus:outline-none sm:text-sm shawdow-md border-2 border-gray-100">
-                    <span className="relative w-5 h-5 rounded-full flex items-center mr-2">
+                    <span className="relative w-5 h-5 rounded-md flex items-center mr-2">
                       {
                         activeCompany?.company_url &&
                         <img 

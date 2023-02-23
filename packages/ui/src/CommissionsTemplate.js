@@ -375,7 +375,7 @@ export const CommissionsTemplate = ({ page }) => {
                                 {
                                   page !== 'due' && page !== 'paid' &&
                                   <td className="whitespace-nowrap px-3 py-4 text-sm">
-                                    <div data-tip={`${sale?.paid_at !== null ? 'Paid at '+sale?.paid_at+'' : checkUTCDateExpired(sale?.commission_due_date) === true ? 'Unpaid' : 'Not valid to be paid out yet, due '+sale?.commission_due_date+''}`} className={`${sale?.paid_at !== null ? 'bg-secondary-2 text-white' : checkUTCDateExpired(sale?.commission_due_date) === true ? 'bg-red-500 text-white' : 'bg-gray-400 text-white'} 'bg-gray-400 text-gray-900'} inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
+                                    <div data-tip={`${sale?.paid_at !== null ? 'Paid at '+sale?.paid_at+'' : checkUTCDateExpired(sale?.commission_due_date) === true ? 'Unpaid' : 'Not valid to be paid out yet, due '+sale?.commission_due_date+''}`} className={`${sale?.paid_at !== null ? 'bg-secondary-2 text-white' : checkUTCDateExpired(sale?.commission_due_date) === true ? 'bg-red-500 text-white' : 'bg-gray-400 text-white'} 'bg-gray-400 text-gray-900'} inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5`}>
                                       {sale?.paid_at !== null ? 'Paid' : checkUTCDateExpired(sale?.commission_due_date) === true ? 'Unpaid' : 'Not payable yet'}
                                     </div>
                                   </td>

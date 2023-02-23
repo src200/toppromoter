@@ -44,12 +44,12 @@ export default function TrackingSetupPage() {
               activeCompany?.domain_verified === true ?
                 <div className="flex items-center">
                   <h2 className="text-lg font-semibold">Domain verified</h2>
-                  <span className="h-2 w-2 bg-green-500 inline-block rounded-full ml-3 animate-pulse"></span>
+                  <span className="h-2 w-2 bg-green-500 inline-block rounded-md ml-3 animate-pulse"></span>
                 </div>
               :
                 <div className="flex items-center">
                   <h2 className="text-lg font-semibold">Waiting for data</h2>
-                  <span className="h-2 w-2 bg-red-500 inline-block rounded-full ml-3 animate-pulse"></span>
+                  <span className="h-2 w-2 bg-red-500 inline-block rounded-md ml-3 animate-pulse"></span>
                 </div>
             }
           </div>

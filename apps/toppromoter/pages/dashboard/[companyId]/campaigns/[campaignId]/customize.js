@@ -163,7 +163,7 @@ export default function CampaignCustomizerPage() {
                                   id="campaign_hide_attribution"
                                   name="campaign_hide_attribution"
                                   type="checkbox"
-                                  className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-full cursor-pointer"
+                                  className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-md cursor-pointer"
                                   defaultChecked={campaignEditData?.campaign_hide_attribution && campaignEditData?.campaign_hide_attribution}
                                   // defaultChecked={campaignEditData?.campaign_hide_attribution === true ? true : false}
                                   onInput={e=>{liveEditForm(e)}}

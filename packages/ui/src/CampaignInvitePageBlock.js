@@ -57,7 +57,7 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
       <div>
         {
           editor &&
-          <div className="bg-red-400 text-white inline-flex py-1.5 px-4 text-lg font-bold rounded-full">
+          <div className="bg-red-400 text-white inline-flex py-1.5 px-4 text-lg font-bold rounded-md">
             PREVIEW MODE
           </div>
         }

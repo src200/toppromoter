@@ -116,7 +116,7 @@ export default function InnerDashboardPage() {
                                   {affiliate?.invite_email === 'manual' ? 'Public signup' : 'Manual invite'}
                                 </td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm">
-                                  <span className={`${affiliate?.accepted === true ? 'bg-secondary text-white' : 'bg-gray-500 text-white'} inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
+                                  <span className={`${affiliate?.accepted === true ? 'bg-secondary text-white' : 'bg-gray-500 text-white'} inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5`}>
                                     {affiliate?.accepted === true ? 'Active' : 'Invited' }
                                   </span>
                                 </td>

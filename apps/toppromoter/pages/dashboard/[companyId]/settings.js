@@ -226,7 +226,7 @@ export default function CompanySettingsPage() {
               onChange={e=>{handleDisableEmails(activeCompany?.disable_emails ? false  : true)}}
               className={classNames(
                 !activeCompany?.disable_emails ? 'bg-green-600' : 'bg-red-600',
-                'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200'
+                'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-md cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200'
               )}
             >
               <span className="sr-only">Use setting</span>
@@ -234,7 +234,7 @@ export default function CompanySettingsPage() {
                 aria-hidden="true"
                 className={classNames(
                   !activeCompany?.disable_emails ? 'translate-x-5' : 'translate-x-0',
-                  'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'
+                  'pointer-events-none inline-block h-5 w-5 rounded-md bg-white shadow transform ring-0 transition ease-in-out duration-200'
                 )}
               />
             </Switch>

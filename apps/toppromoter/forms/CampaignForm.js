@@ -249,7 +249,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                           id="campaign_public"
                           name="campaign_public"
                           type="checkbox"
-                          className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-full cursor-pointer"
+                          className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-md cursor-pointer"
                           defaultChecked={edit && edit?.campaign_public === false ? false : true}
                         />
                       </div>
@@ -352,7 +352,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                       id="default_campaign"
                       name="default_campaign"
                       type="checkbox"
-                      className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-400 rounded-full cursor-pointer"
+                      className="focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-400 rounded-md cursor-pointer"
                       defaultChecked={setupMode === true ? true : edit && edit?.default_campaign ? true : false}
                     />
                   </div>

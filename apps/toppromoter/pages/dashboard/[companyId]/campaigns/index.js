@@ -74,7 +74,7 @@ export default function CampaignsPage() {
                                       {campaign?.campaign_name}
                                     </Link>
                                     {campaign?.default_campaign === true &&
-                                      <span className="text-xs font-semibold mb-2 ml-3 bg-gray-300 no-underline inline-flex px-3 py-1.5 rounded-full">
+                                      <span className="text-xs font-semibold mb-2 ml-3 bg-gray-300 no-underline inline-flex px-3 py-1.5 rounded-md">
                                         Default
                                       </span>
                                     }

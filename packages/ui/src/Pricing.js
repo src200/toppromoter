@@ -79,7 +79,7 @@ export const Pricing = ({ products }) => {
                   <div className="p-6">
                     {
                       product?.name === "Pro" &&
-                      <div className="py-1.5 px-3 bg-white absolute top-3 right-3 rounded-full text-xs uppercase font-bold">
+                      <div className="py-1.5 px-3 bg-white absolute top-3 right-3 rounded-md text-xs uppercase font-bold">
                         Recommended
                       </div>
                     }

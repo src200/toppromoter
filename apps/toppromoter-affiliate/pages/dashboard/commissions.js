@@ -93,11 +93,11 @@ const CommissionsPage = () => {
                                 <td className="whitespace-nowrap px-3 py-4 text-sm">
                                   {
                                     commission?.paid_at !== null ?
-                                      <div className={`bg-green-500 text-white inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
+                                      <div className={`bg-green-500 text-white inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5`}>
                                         Paid
                                       </div>
                                     :
-                                      <div data-tip={`Eligible to be paid at ${UTCtoString(commission?.commission_due_date)}`} className={`${commission?.payout_eligible === true ? 'bg-orange-400 text-orange-900' : 'bg-gray-400 text-gray-900' } inline-flex rounded-full px-3 py-1 text-xs font-semibold leading-5`}>
+                                      <div data-tip={`Eligible to be paid at ${UTCtoString(commission?.commission_due_date)}`} className={`${commission?.payout_eligible === true ? 'bg-orange-400 text-orange-900' : 'bg-gray-400 text-gray-900' } inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5`}>
                                         {commission?.payout_eligible === true ? 'Eligible' : 'Pending'}
                                       </div>
                                   }
