@@ -4,8 +4,8 @@ import { ReferralsTemplate } from '@/components/ReferralsTemplate';
 export default function ReferralsPage() {
   return (
     <>
-      <SEOMeta title="All Referrals"/>
-      <ReferralsTemplate page="index"/>
+      <SEOMeta title="All Referrals" />
+      <ReferralsTemplate page="index" />
     </>
   );
 }

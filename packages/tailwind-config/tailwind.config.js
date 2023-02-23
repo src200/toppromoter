@@ -1,11 +1,14 @@
 module.exports = {
   content: [
-    "../ui/src/**/*.{js,ts,jsx,tsx}",
-    "../../apps/toppromoter/pages/**/*.{js,ts,jsx,tsx}",
-    "../../apps/toppromoter/templates/**/*.{js,ts,jsx,tsx}",
-    "../../apps/toppromoter/forms/**/*.{js,ts,jsx,tsx}",
-    "../../apps/toppromoter-affiliate/pages/**/*.{js,ts,jsx,tsx}",
-    "../../apps/toppromoter-affiliate/templates/**/*.{js,ts,jsx,tsx}"
+    '../ui/src/**/*.{js,ts,jsx,tsx}',
+    '../../apps/toppromoter/pages/**/*.{js,ts,jsx,tsx}',
+    '../../apps/toppromoter/templates/**/*.{js,ts,jsx,tsx}',
+    '../../apps/toppromoter/forms/**/*.{js,ts,jsx,tsx}',
+    '../../apps/toppromoter-affiliate/pages/**/*.{js,ts,jsx,tsx}',
+    '../../apps/toppromoter-affiliate/templates/**/*.{js,ts,jsx,tsx}'
+  ],
+  plugins: [
+    require('@tailwindcss/forms')
   ],
   theme: {
     fontWeight: {
@@ -16,17 +19,20 @@ module.exports = {
       normal: 300,
       medium: 400,
       semibold: 500,
-      bold: 500,
+      bold: 700,
       extrabold: 500,
       'extra-bold': 500,
-      black: 500,
+      black: 800,
     },
     extend: {
       maxWidth: {
         '8xl': '1920px'
       },
+      spacing: {
+        '128': '32rem',
+      },
       fontFamily: {
-        primary: ["Poppins"]
+        primary: ['Poppins']
       },
       colors: {
         primary: 'var(--primary)',
@@ -47,6 +53,10 @@ module.exports = {
         'accents-7': 'var(--accents-7)',
         'accents-8': 'var(--accents-8)',
         'accents-9': 'var(--accents-9)',
+        success: 'var(--success)',
+        info: 'var(--info)',
+        warning: 'var(--warning)',
+        danger: 'var(--danger)'
       },
       textColor: {
         primary: 'var(--text-primary)',
@@ -54,8 +64,7 @@ module.exports = {
       },
       boxShadow: {
         'outline-2': '0 0 0 2px var(--accents-2)',
-        magical:
-          'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px'
+        magical:'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px'
       },
       lineHeight: {
         'extra-loose': '2.2'

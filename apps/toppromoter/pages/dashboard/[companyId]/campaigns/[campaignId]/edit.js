@@ -14,28 +14,32 @@ export default function EditCampaignPage() {
 
   return (
     <>
-      <SEOMeta title="Edit campaign"/>
+      <SEOMeta title="Edit campaign" />
       <div>
-        <div className="py-8 border-b-4">
-          <div className="wrapper">
+        <div className="py-8">
+          <div className="wrapper p-0">
             <Button
-              href={`/dashboard/${router?.query?.companyId}/campaigns`}
+              href={ `/dashboard/${router?.query?.companyId}/campaigns` }
+              className='p-0'
               small
-              gray
-            >
-              <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto"/>
-              <span>Back to campaigns</span>
+              ghost>
+              <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto" />
+              <span>
+                Back to campaigns
+              </span>
             </Button>
           </div>
         </div>
-        <div className="wrapper pt-12">
-          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold mb-6">Edit campaign</h1>
+        <div className="wrapper">
+          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold mb-6">
+            Edit campaign
+          </h1>
           {
             activeCampaign !== null && activeCampaign !== 'none' ?
-              <CampaignForm edit={activeCampaign}/>
+              <CampaignForm edit={ activeCampaign } />
             :
               <div>
-                <LoadingTile/>
+                <LoadingTile />
               </div>
           }
         </div>

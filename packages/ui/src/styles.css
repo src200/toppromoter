@@ -40,8 +40,8 @@
 
 :root {
   --primary: #625afa;
-  --primary-2: #5A64B5;
-  --primary-3: #7F77D3;
+  --primary-2: #4e48c8;
+  --primary-3: #F1F1FF;
   --secondary: #6c757d;
   --secondary-2: #545B62;
   --secondary-3: #494F54;
@@ -237,6 +237,33 @@ a {
   background: linear-gradient(60deg, #1d638a, #2d7aa5, #1e648b, #1a6e9e, #1d638a, #1d798a, #1d8a63, #1d8a40);
   animation: animatedgradient 3s ease infinite alternate;
   background-size: 300% 300%;
+}
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext.light {
+  @apply border-2 border-gray-100 p-2 rounded-md bg-primary-3 shadow-md text-primary;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-right {
+  top: -9px;
+  left: 125%;
 }
 
 @keyframes animatedgradient {

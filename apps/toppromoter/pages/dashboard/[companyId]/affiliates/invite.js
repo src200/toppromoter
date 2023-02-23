@@ -54,13 +54,13 @@ export default function AffiliateInvitePage() {
         token: session.access_token
       });
 
-      if(response === "success"){
+      if(response === 'success'){
         setLoading(false);
         setErrorMessage(false);
         router.replace(`/dashboard/${router?.query?.companyId}/affiliates`);
       }
 
-      if(response === "limit reached"){
+      if(response === 'limit reached'){
         setLoading(false);
         setErrorMessage(true);
       }
@@ -74,41 +74,46 @@ export default function AffiliateInvitePage() {
 
   return (
     <>
-      <SEOMeta title="Invite affiliates"/>
-      <div className="py-8 border-b-4">
+      <SEOMeta title="Invite affiliates" />
+      <div className="py-8">
         <div className="wrapper">
           <Button
-            href={`/dashboard/${router?.query?.companyId}/affiliates`}
+            href={ `/dashboard/${router?.query?.companyId}/affiliates` }
             small
-            gray
-          >
-            <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto"/>
-            <span>Back to affilates</span>
+            ghost>
+            <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto" />
+            <span>
+              Back to affilates
+            </span>
           </Button>
         </div>
       </div>
-      <div className="pt-12 mb-6">
+      <div className="mb-6">
         <div className="wrapper">
-          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Invite affiliates</h1>
+          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
+            Invite affiliates
+          </h1>
         </div>
       </div>
       <div className="wrapper">
         {
           activeCompany ?
-            <div>
-              <form className="rounded-xl bg-white max-w-2xl overflow-hidden shadow-lg border-4 border-gray-300" action="#" method="POST" onSubmit={handleSubmit}>
+            <div className='w-128'>
+              <form className="bg-white shadow sm:overflow-hidden rounded-md" action="#" method="POST" onSubmit={ handleSubmit }>
                 <div className="p-6">
                   <div className="space-y-5">
                     <div>
-                      <label htmlFor="campaign_id" className="text-xl font-semibold text-gray-900 mb-3 block">
+                      <label htmlFor="campaign_id" className="font-bold text-gray-900 mb-3 block">
                         Select a campaign for the affiliates to join
                       </label>
                       <div className="mt-1 flex rounded-md shadow-sm">
-                        <select className="w-full rounded-xl border-2 border-gray-300 outline-none p-4" required="required" name="campaign_id" id="campaign_id">
+                        <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required="required" name="campaign_id" id="campaign_id">
                           {
                             userCampaignDetails?.map(campaign => {
                               return(
-                                <option value={campaign?.campaign_id}>{campaign?.campaign_name}</option>
+                                <option value={ campaign?.campaign_id }>
+                                  { campaign?.campaign_name }
+                                </option>
                               )
                             })
                           }
@@ -116,77 +121,91 @@ export default function AffiliateInvitePage() {
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="invite_emails" className="text-xl font-semibold text-gray-900 block">
+                      <label htmlFor="invite_emails" className="font-bold text-gray-900 block">
                         Emails to invite
                       </label>
-                      <p className="mb-1">Separate multiple emails with commas.</p>
-                      <p className="text-gray-500 italic mb-3 text-sm">You can send to a maximum of <span className="font-semibold">30 emails per invite</span>. To send more than 30 at once, please contact support.</p>
+                      <p className="mb-1">
+                        Separate multiple emails with commas.
+                      </p>
+                      <p className="text-gray-500 italic mb-3 text-sm">
+                        You can send to a maximum of
+                        { ' ' }
+                        <span className="font-bold">
+                          30 emails per invite
+                        </span>
+                        . To send more than 30 at once, please contact support.
+                      </p>
                       <div className="mt-1 flex rounded-md shadow-sm">
                         <textarea
                           required
                           placeholder="user1@email.com, user2@email.com"
                           name="invite_emails"
                           id="invite_emails"
-                          className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300"
-                        ></textarea>
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </textarea>
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="email_subject" className="text-xl font-semibold text-gray-900 mb-3 block">
+                      <label htmlFor="email_subject" className="font-bold text-gray-900 mb-3 block">
                         Email subject
                       </label>
                       <div className="mt-1 flex rounded-md shadow-sm">
                         <input
-                          defaultValue={`Join the ${activeCompany?.company_name} affiliate program`}
+                          defaultValue={ `Join the ${activeCompany?.company_name} affiliate program` }
                           name="email_subject"
                           id="email_subject"
                           type="text"
-                          className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300"
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="email_content" className="text-xl font-semibold text-gray-900 block">
+                      <label htmlFor="email_content" className="font-bold text-gray-900 block">
                         Email content
                       </label>
-                      <p className="mb-2">The invite link will automatically be included in the email.</p>
+                      <p className="mb-2">
+                        The invite link will automatically be included in the email.
+                      </p>
                       <div className="mt-1 flex rounded-md shadow-sm">
                         <textarea
-                          defaultValue={`Hey! I'd like to invite you to join our referral program. 
+                          defaultValue={ `Hey! I'd like to invite you to join our referral program. 
 
 Follow the link below to create your account and you'll be earning in no time. If you have any questions, please reply to this email. 
 
 Kind regards, 
-${activeCompany?.company_name}`}
+${activeCompany?.company_name}` }
                           name="email_content"
                           id="email_content"
                           rows="8"
-                          className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300"
-                        ></textarea>
+                          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        </textarea>
                       </div>
                     </div>
                     {
                       errorMessage &&
                       <div className="bg-red-500 text-center p-4 mt-8 rounded-lg">
-                        <p className="text-white text-md font-medium">There was an error when inviting, please try again later.</p>
+                        <p className="text-white text-md font-medium">
+                          There was an error when inviting, please try again later.
+                        </p>
                       </div>
                     }
                   </div>
                 </div>
-                <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+                <div className="p-6 bg-white flex items-center justify-start">
                   <Button
-                    large
+                    small
                     primary
-                    disabled={loading}
-                  >
-                    <span className='text-white'>{loading ? 'Sending invites...' : 'Send invites'}</span>
+                    disabled={ loading }>
+                    <span className='text-white'>
+                      { loading ? 'Sending invites...' : 'Send invites' }
+                    </span>
                   </Button>
                 </div>
               </form>
             </div>
           :
             <div>
-              <LoadingDots/>
+              <LoadingDots />
             </div>
         }
       </div>

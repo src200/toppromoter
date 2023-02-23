@@ -7,15 +7,15 @@ export const Button = (props) => {
 
   //Sizing styles
   if(props.small){
-    styles = styles + ' px-4 py-2 text-sm md:text-base'
+    styles = styles + ' text-white px-4 py-2 text-sm md:text-base'
   } else if(props.xsmall){
-    styles = styles + ' px-4 py-2 text-sm md:text-xs'
+    styles = styles + ' text-white px-4 py-2 text-sm md:text-xs'
   } else if(props.medium){
-    styles = styles + ' px-6 py-3 text-sm md:text-lg'
+    styles = styles + ' text-white px-6 py-3 text-sm md:text-lg'
   } else if(props.xlarge){
-    styles = styles + ' px-8 py-4 text-base md:text-2xl'
+    styles = styles + ' text-white px-8 py-4 text-base md:text-2xl'
   } else {
-    styles = styles + ' px-8 py-3 text-sm md:text-xl'
+    styles = styles + ' text-white px-8 py-3 text-sm md:text-xl'
   }
 
   //Color styles
@@ -27,6 +27,10 @@ export const Button = (props) => {
     styles = styles + ' bg-white hover:bg-gray-100'
   } else if(props.red){
     styles = styles + ' text-white bg-red-500 hover:bg-red-600'
+  } else if(props.ghost){
+    styles = styles + ' text-primary p-0 focus:ring-0 focus:ring-offset-0'
+  } else if(props.outline){
+    styles = styles + ' text-primary font-bold bg-white border-2 border-primary-3'
   } else {
     styles = styles + ' bg-primary hover:bg-primary-2'
   }
@@ -39,22 +43,20 @@ export const Button = (props) => {
     return(
       <Link
         passHref
-        href={props.href}
-        className={`${styles} ${props.className ? props.className : ''}`}
-        onClick={props.onClick && props.onClick}
-        target={props.external ? '_blank' : ''}
-      >
-        {props.children && props.children}
+        href={ props.href }
+        className={ `${styles} ${props.className ? props.className : ''}` }
+        onClick={ props.onClick && props.onClick }
+        target={ props.external ? '_blank' : '' }>
+        { props.children && props.children }
       </Link>
     )
   } else {
     return(
       <button 
-        disabled={props.disabled && props.disabled}
-        onClick={props.onClick && props.onClick}
-        className={`${styles} ${props.className ? props.className : ''}`}
-      >
-        {props.children && props.children}
+        disabled={ props.disabled && props.disabled }
+        onClick={ props.onClick && props.onClick }
+        className={ `${styles} ${props.className ? props.className : ''}` }>
+        { props.children && props.children }
       </button>
     )
   }

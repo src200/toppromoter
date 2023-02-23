@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Button } from '@/components/Button';
+import { Github } from '@/components/Icons/Github';
 import { Logo } from '@/components/Icons/Logo';
 import { useUser } from '@/utils/useUser';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
-import { Button } from '@/components/Button'; 
-import { Github } from '@/components/Icons/Github'; 
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
   const { user } = useUser();
@@ -14,16 +14,16 @@ export const Navbar = () => {
   const router = useRouter();
   const navClass = `text-xl font-medium hover:underline mx-3 ${router?.pathname === '/' && 'text-white'}`;
 
-  if(router.asPath === '/'){
-    useEffect(() => {
+  useEffect(() => {
+    if(router.asPath === '/') {
       window.addEventListener("scroll", () => {
         setScroll(window.scrollY > 50);
       });
       if(window.scrollY > 50 && scroll === false){
         setScroll(true);
       }
-    }, []);
-  }
+    }
+  }, []);
 
   return (
     <>
