@@ -2147,6 +2147,11 @@ select {
   padding-right: 0.5rem;
 }
 
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .pl-4 {
   padding-left: 1rem;
 }

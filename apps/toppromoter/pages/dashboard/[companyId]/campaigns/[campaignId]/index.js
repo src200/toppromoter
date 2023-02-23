@@ -37,10 +37,9 @@ export default function SingleCampaignPage() {
             </Button>
           </div>
         </div>
-        <div>
-          <div className="py-12 bg-white wrapper shadow-md rounded-lg">
-            <div className="wrapper">
-              {
+        <div className="py-12 bg-white wrapper rounded-md border-2 border-gray-100">
+          <div className="wrapper">
+            {
                 activeCompany && activeCampaign !== null && activeCampaign !== 'none' ?
                   <div>
                     <div className="flex flex-col items-start mb-6">
@@ -104,7 +103,6 @@ export default function SingleCampaignPage() {
                 :
                   <LoadingTile />
               }
-            </div>
           </div>
         </div>
       </div>

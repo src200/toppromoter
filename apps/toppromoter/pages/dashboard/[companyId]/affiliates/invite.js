@@ -98,8 +98,8 @@ export default function AffiliateInvitePage() {
       <div className="wrapper">
         {
           activeCompany ?
-            <div className='w-128'>
-              <form className="bg-white shadow sm:overflow-hidden rounded-md" action="#" method="POST" onSubmit={ handleSubmit }>
+            <div className='w-128 border-2 border-gray-100 rounded-md'>
+              <form className="bg-white sm:overflow-hidden" action="#" method="POST" onSubmit={ handleSubmit }>
                 <div className="p-6">
                   <div className="space-y-5">
                     <div>

@@ -81,7 +81,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
     <div className='w-128'>
       {
         activeCompany?.company_name ?
-          <form className="bg-white shadow sm:overflow-hidden rounded-md" action="#" method="POST" onSubmit={ handleSubmit }>
+          <form className="bg-white sm:overflow-hidden rounded-md border-2 border-gray-100" action="#" method="POST" onSubmit={ handleSubmit }>
             <div className="px-6 pt-8 pb-8">
               <div className="space-y-8">
                 <div>
