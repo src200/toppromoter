@@ -7,12 +7,17 @@ import { useUser } from '@/utils/useUser';
 import { Button } from '@/components/Button';
 import LoadingDots from '@/components/LoadingDots';
 
+let toast;
+if (typeof window !== 'undefined' ) {
+  import('react-hot-toast').then(({ toast: t }) => {
+    toast = t;
+  })
+}
 export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliate, hideDetails, editor }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState(''); 
   const [showPasswordInput, setShowPasswordInput] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ type: '', content: '' });
   const router = useRouter();
   const { signIn, signInWithPassword, signUp } = useUser();
 
@@ -20,52 +25,43 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
     type === 'signup';
   }
 
-  let authState = type === 'signin' ? "Sign in" : type === "signup" ? "Sign up" : "Sign in";
+  let authState = type === 'signin' ? 'Sign in' : type === 'signup' ? 'Sign up' : 'Sign in';
 
   const handleSignin = async (e) => {
     e.preventDefault();
-
     setLoading(true);
-    setMessage({});
-
     let signInFunc;
 
     if(password && password?.length){
-      if(type === "signin"){
+      if(type === 'signin'){
         signInFunc = await signInWithPassword({ 
-          "email": email, 
-          "password": password,
-          "shouldCreateUser": type === "signin" ? false : true, 
-          "redirectTo": affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
+          'email': email, 
+          'password': password,
+          'shouldCreateUser': type === 'signin' ? false : true, 
+          'redirectTo': affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
         });
       } else {
         signInFunc = await signUp({ 
-          "email": email,
-          "password": password,
-          "redirectTo": affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
+          'email': email,
+          'password': password,
+          'redirectTo': affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
         });
       }
     } else {
       signInFunc = await signIn({ 
-        "email": email,
-        "shouldCreateUser": type === "signin" ? false : true,
-        "redirectTo": affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
+        'email': email,
+        'shouldCreateUser': type === 'signin' ? false : true,
+        'redirectTo': affiliate === true ? process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL : window.location.origin
       });
     }
    
     if(signInFunc?.error){
-      setMessage({ type: 'error', content: signInFunc?.error.message });
+      toast.error(signInFunc?.error.message || 'Something went wrong. Please try again!')
     } else {
       if(password){
-        setMessage({
-          type: 'note',
-          content: 'Check your email for your confirmation email.'
-        });
+        toast.success('Check your email for your confirmation email.')
       } else {
-        setMessage({
-          type: 'note',
-          content: 'Check your email for the magic link.'
-        });
+        toast.success('Check your email for the magic link!')
       }
       
       // if(type === "signup" && affiliate !== true){
@@ -94,19 +90,27 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
   return(
     <div className="flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-12">
-
         {
           !hideDetails &&
           <div className="text-center">
-            <h1 className="text-center text-3xl font-extrabold text-gray-900 capitalize mb-3">{authState}</h1>
-            <p className="text-sm">Enter your email below and you'll be sent your magic <span className="lowercase">{authState}</span> link.</p>
+            <h1 className="text-center text-xl font-extrabold text-gray-900 capitalize mb-3">
+              { authState }
+            </h1>
+            <p className="text-sm">
+              Enter your email below and you'll be sent your magic
+              { ' ' }
+              <span className="lowercase">
+                { authState }
+              </span>
+              { ' ' }
+              link.
+            </p>
           </div>
-          
         }
-        <form onSubmit={handleSignin} className="space-y-4" data-toppromoter>
+        <form onSubmit={ handleSignin } className="space-y-4" data-toppromoter>
           <input type="hidden" name="remember" defaultValue="true" />
           <div>
-            <label htmlFor="email-address" className="sr-only">
+            <label htmlFor="email-address" className="sr-only block text-sm font-bold text-gray-700">
               Email address
             </label>
             <input
@@ -115,16 +119,16 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
               type="email"
               autoComplete="email"
               required
-              className="appearance-none rounded-lg relative block w-full p-4 border-2 border-gray-200 placeholder-gray-500 focus:outline-none focus:z-10 text-base"
+              className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               placeholder="Email address"
-              onChange={e=>{setEmail(e.target.value)}}
+              onChange={ e=>{setEmail(e.target.value)} }
             />
           </div>
 
           {
             showPasswordInput &&
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="sr-only block text-sm font-bold text-gray-700">
                 Password
               </label>
               <input
@@ -133,41 +137,43 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
                 type="password"
                 autoComplete="password"
                 required
-                className="appearance-none rounded-lg relative block w-full p-4 border-2 border-gray-200 placeholder-gray-500 focus:outline-none focus:z-10 text-base"
+                className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 placeholder="*********"
-                onChange={e=>{setPassword(e.target.value)}}
+                onChange={ e=>{setPassword(e.target.value)} }
               />
             </div>
           }
 
           <div>
             <Button
-              disabled={loading}
+              disabled={ loading }
               type="submit"
-              medium
-              secondary
-              className="w-full"
-            >
-              {
-                loading ? <LoadingDots/> : showPasswordInput ? authState : 'Send magic link'
-              }
+              small
+              primary
+              className="w-full">
+              { loading && <LoadingDots width={ 24 } height={ 24 } className='mr-2' /> }
+              { showPasswordInput ? authState : 'Send magic link' }
             </Button>
           </div>
 
           {
-            type === "signin" ?
+            type === 'signin' ?
               <div className="mt-3 text-center text-sm">
-                <span className="text-accents-2">Don&apos;t have an account?</span>
-                {` `}
+                <span className="text-accents-2">
+                  Don&apos;t have an account?
+                </span>
+                { ' ' }
                 <Link href="/signup" className="text-accents-1 font-bold hover:underline cursor-pointer">
                   Sign up.
                 </Link>
               </div>
             :
               <div className="mt-3 text-center text-sm">
-                <span className="text-accents-2">Already have an account?</span>
-                {` `}
-                <Link href={'/signin'} className="text-accents-1 font-bold hover:underline cursor-pointer">
+                <span className="text-accents-2">
+                  Already have an account?
+                </span>
+                { ' ' }
+                <Link href={ '/signin' } className="text-accents-1 font-bold hover:underline cursor-pointer">
                   Sign in.
                 </Link>
               </div>
@@ -177,18 +183,16 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
             <button
               type="button"
               className="text-sm text-accents-1 font-bold hover:underline"
-              onClick={() => {
+              onClick={ () => {
                 if (showPasswordInput) setPassword('');
                 setShowPasswordInput(!showPasswordInput);
-                setMessage({});
-              }}
-            >
-              {`Or ${authState} with ${
+              } }>
+              { `Or ${authState} with ${
                 showPasswordInput ? 'magic link' : 'password'
-              }.`}
+              }.` }
             </button>
           </div>
-{/* 
+          { /* 
           <div className="mb-6 space-y-2">
             <button
               type="button"
@@ -209,15 +213,15 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
               <Google />
               <span className="ml-2">{authState} with Google</span>
             </button>
-          </div> */}
+          </div> */ }
 
-          {message.content && (
+          { /* { message.content && (
             <div>
-              <div className={`${message.type === 'error' ? 'bg-red-500 border-red-600 text-white' : ' border-gray-300' } border-4 p-4 rounded-xl text-center text-lg mt-8`}>
-                {message.content === 'Signups not allowed for otp' ? 'We could not find an account with this email address.' : message.content}
+              <div className={ `${message.type === 'error' ? 'bg-red-500 border-red-600 text-white' : ' border-gray-300' } border-4 p-4 rounded-xl text-center text-lg mt-8` }>
+                { message.content === 'Signups not allowed for otp' ? 'We could not find an account with this email address.' : message.content }
               </div>
             </div>
-          )}
+          ) } */ }
         </form>
       </div>
     </div>

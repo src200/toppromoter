@@ -22,7 +22,7 @@ export const CompanyContextProvider = (props) => {
   if(userCompanyDetails !== null && userCompanyDetails?.length === 0 && !router?.asPath?.includes('add-company') && router?.pathname !== '/dashboard/create-team'){
     if(team === 'none' && router?.pathname !== '/dashboard/create-team' && creatingTeam === false){
       setCreatingTeam(true);
-      newTeam(user, {"team_name": "My team"}).then((result) => {
+      newTeam(user, {'team_name': 'My team'}).then((result) => {
         router.replace('/dashboard/add-company');
       });
     }
@@ -49,13 +49,13 @@ export const CompanyContextProvider = (props) => {
     userCompanyDetails
   };
 
-  return <CompanyContext.Provider value={value} {...props}  />;
+  return <CompanyContext.Provider value={ value } { ...props }  />;
 }
 
 export const useCompany = () => {
   const context = useContext(CompanyContext);
   if (context === undefined) {
-    throw new Error(`useUser must be used within a CompanyContextProvider.`);
+    throw new Error('useUser must be used within a CompanyContextProvider.');
   }
   return context;
 };

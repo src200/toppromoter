@@ -89,8 +89,8 @@ export default function CreateTeam() {
             </div>
             <div className="border-t-4 p-6 bg-white flex items-center justify-start">
               <Button
-                large
-                secondary
+                small
+                primary
                 disabled={ loading }>
                 <span>
                   { loading ? 'Creating Team...' : 'Create Team' }

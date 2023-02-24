@@ -3,93 +3,79 @@ import { useCompany } from '@/utils/CompanyContext';
 import { useCampaign } from '@/utils/CampaignContext';
 import LoadingDots from '@/components/LoadingDots';
 import setupStepCheck from '@/utils/setupStepCheck';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { OfficeBuildingIcon, CreditCardIcon, CurrencyDollarIcon, CollectionIcon, ClipboardCheckIcon, BadgeCheckIcon } from '@heroicons/react/outline';
 
-export const SetupProgress = (props) => {
+const Step = ({ step }) => (
+  <div className="w-full">
+    <a href={ step.href }>
+      <div className="relative mb-2">
+        { (step.name !== 'Add Company' && step.name !== 'Edit Company') && 
+          <div className="absolute flex align-center items-center align-middle content-center" style={ { width: 'calc(100% - 2.5rem - 1rem)', top: '50%', transform: 'translate(-50%, -50%)'} }>
+            <div className="w-full rounded bg-primary-3 items-center align-middle align-center flex-1">
+              <div className="h-1 bg-primary rounded" style={ { width: step.status === 'complete' ? '100%' : '20%' } }></div>
+            </div>
+          </div> 
+        }
+        <div className={ classNames('w-12 h-12 mx-auto rounded-full text-lg flex items-center justify-center', { 'bg-primary text-white': step.status === 'complete' }) }>
+          <step.icon className='h-6 w-6' />
+        </div>
+      </div>
+      <div className="text-sm font-bold text-center">
+        { step.name }
+      </div>
+    </a>
+  </div>
+);
+
+export const SetupProgress = () => {
   setupStepCheck('light');
 
   const router = useRouter();
   const { activeCompany } = useCompany();
   const { userCampaignDetails } = useCampaign();
-  const companyId = router?.query?.companyId ? router?.query?.companyId : null;
-  let editCompany, connectPaymentProcessor, chooseCurrency, createCampaign, companyVerified = null;
+  const [steps, setSteps] = useState([]);
+  const companyId = router?.query?.companyId || null;
 
-  if(activeCompany){
-    editCompany = 'complete';
+  useEffect(() => {
+    let editCompany, connectPaymentProcessor, chooseCurrency, createCampaign, companyVerified = null;
+    if(activeCompany) {
+      editCompany = 'complete';
 
-    if(activeCompany?.payment_integration_type !== null){
-      connectPaymentProcessor = 'complete';
-    }
-  
-    if(activeCompany?.payment_integration_type !== null && activeCompany?.company_currency !== null){
-      chooseCurrency = 'complete';
-    }
-  
-    if(activeCompany?.payment_integration_type !== null && activeCompany?.company_currency !== null && userCampaignDetails?.length > 0){
-      createCampaign = 'complete';
+      if(activeCompany?.payment_integration_type !== null){
+        connectPaymentProcessor = 'complete';
+      }
+    
+      if(activeCompany?.payment_integration_type !== null && activeCompany?.company_currency !== null){
+        chooseCurrency = 'complete';
+      }
+    
+      if(activeCompany?.payment_integration_type !== null && activeCompany?.company_currency !== null && userCampaignDetails?.length > 0){
+        createCampaign = 'complete';
+      }
+
+      if(activeCompany?.domain_verified === true){
+        companyVerified = 'complete';
+      }
     }
 
-    if(activeCompany?.domain_verified === true){
-      companyVerified = 'complete';
-    }
-  }
-  
-  let steps = [
-    { name: !activeCompany ? 'Add Company' : 'Edit company', href: !activeCompany ? '/dashboard/add-company' : `/dashboard/${activeCompany?.company_id}/settings`, status: editCompany},
-    { name: 'Connect payment processor', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/payment-processor`, status: connectPaymentProcessor },
-    { name: 'Choose a currency', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/currency`, status: chooseCurrency },
-    { name: 'Create a campaign', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/campaign`, status: createCampaign },
-    { name: 'Setup Reflio', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/add`, status: companyVerified },
-    { name: 'Verify setup', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/verify`, status: companyVerified },
-  ]
+    setSteps([
+      { name: !activeCompany ? 'Add Company' : 'Edit Company', href: !activeCompany ? '/dashboard/add-company' : `/dashboard/${activeCompany?.company_id}/settings`, status: editCompany, icon: OfficeBuildingIcon},
+      { name: 'Connect payment processor', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/payment-processor`, status: connectPaymentProcessor, icon: CreditCardIcon },
+      { name: 'Choose a currency', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/currency`, status: chooseCurrency, icon: CurrencyDollarIcon },
+      { name: 'Create a campaign', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/campaign`, status: createCampaign, icon: CollectionIcon },
+      { name: 'Setup Toppromoter', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/add`, status: companyVerified, icon: ClipboardCheckIcon },
+      { name: 'Verify setup', href: !companyId ? '/dashboard' : `/dashboard/${companyId}/setup/verify`, status: companyVerified, icon: BadgeCheckIcon },
+    ]);
+  }, [activeCompany, userCampaignDetails, companyId]);
 
-  return(
-    <>
-      {
-        activeCompany ?
-          <nav aria-label="Progress">
-            <ol role="list" className="space-y-4 md:flex md:space-y-0 md:space-x-8">
-              {steps.map((step) => (
-                <li key={step.name} className="md:flex-1">
-                  {step.status === 'complete' ? (
-                    <a
-                      href={step.href}
-                      className="group pl-4 py-2 flex flex-col border-l-4 rounded-md border-green-500 hover:border-green-600 md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-[12px]"
-                    >
-                      <span className="text-xs font-semibold tracking-wide uppercase">
-                        {step.id}
-                      </span>
-                      <span className="text-sm font-medium">{step.name}</span>
-                    </a>
-                  ) : step.href === router?.asPath ? (
-                    <a
-                      href={step.href}
-                      className="pl-4 py-2 flex flex-col border-l-4 border-primary md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-[12px]"
-                      aria-current="step"
-                    >
-                      <span className="text-xs font-semibold tracking-wide uppercase">{step.id}</span>
-                      <span className="text-sm font-medium">{step.name}</span>
-                    </a>
-                  ) : (
-                    <a
-                      href={step.href}
-                      className="group pl-4 py-2 flex flex-col border-l-4 border-gray-300 hover:border-gray-400 md:pl-0 md:pt-4 md:pb-0 md:border-l-0 md:border-t-[12px]"
-                    >
-                      <span className="text-xs text-gray-500 font-semibold tracking-wide uppercase group-hover:text-gray-700">
-                        {step.id}
-                      </span>
-                      <span className="text-sm font-medium">{step.name}</span>
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ol>
-          </nav>
-        :
-          <div className="py-4">
-            <LoadingDots/>
-          </div>
-      }  
-    </>
+  return (
+    <div className="w-full">
+      <div className="flex">
+        { activeCompany ? steps?.map((step, index) => <Step key={ `${step?.name}-${index}` } step={ step } />) : <LoadingDots /> }  
+      </div>
+    </div>
   )
 };
 

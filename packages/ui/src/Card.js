@@ -1,11 +1,10 @@
 export const Card = (props) => {
-
   let styles = 'max-w-3xl border-2 border-gray-100 rounded-lg';
 
   if(props.secondary){
     styles = styles + ' bg-secondary border-secondary-2';
   } else {
-    styles = styles + ' bg-white border-gray-200';
+    styles = styles + ' bg-white';
   }
 
   if(props.className){

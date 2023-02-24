@@ -59,7 +59,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Toaster
-        position="bottom-center"
+        position="top-center"
         reverseOrder={ true }
         gutter={ 20 }
         toastOptions={ {
@@ -69,7 +69,6 @@ export default function Layout({ children }) {
               background: '#fff',
               color: '#111827',
             },
-            // Default options for specific types
             success: {
               theme: {
                 primary: 'green',
@@ -82,12 +81,11 @@ export default function Layout({ children }) {
                 color: 'white',
               },
             },
-          } }
+        } }
       />
-      { defaultPage === true && <Navbar /> }
       { simplePage === true && <SimpleNav /> }
       { defaultPage === true ? (
-        <main id="skip">
+        <main id="skip" className='bg-white'>
           { children }
         </main>) : simplePage === true ? (
           <main id="skip">
@@ -96,11 +94,11 @@ export default function Layout({ children }) {
           : dashboardPage === true ?
             <div>
               <TopNav />
-              <div className="h-screen flex overflow-hidden">
+              <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 50px)'} }>
                 <AdminDesktopNav />
                 <div className="flex-1 overflow-auto focus:outline-none">
                   <AdminMobileNav />
-                  <main className="h-screen flex-1 relative pb-8 z-0 overflow-y-auto">
+                  <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
                     <>
                       { children }
                     </>
@@ -122,10 +120,6 @@ export default function Layout({ children }) {
             <main id="skip">
               { children }
             </main>)
-        }
-      {
-          defaultPage === true &&
-          <Footer />
         }
     </>
   );

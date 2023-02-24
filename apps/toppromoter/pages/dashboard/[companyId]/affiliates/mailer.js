@@ -194,7 +194,7 @@ ${activeCompany?.company_name}` }
                 </div>
                 <div className="border-t-4 p-6 bg-white flex items-center justify-start">
                   <Button
-                    large
+                    small
                     primary
                     disabled={ loading }>
                     <span>

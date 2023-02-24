@@ -28,7 +28,7 @@ export const Button = (props) => {
   } else if(props.red){
     styles = styles + ' text-white font-bold bg-red-500 hover:bg-red-600 focus:ring-red-100'
   } else if(props.ghost){
-    styles = styles + ' text-primary font-bold px-0 py-0'
+    styles = styles + ' text-primary font-bold px-0 py-0 focus:outline-none focus:ring-0 focus:ring-offset-0'
   } else if(props.outline){
     styles = styles + ' text-primary font-bold bg-white border-2 border-gray-100'
   } else {

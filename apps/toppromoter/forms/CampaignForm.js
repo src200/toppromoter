@@ -6,7 +6,6 @@ import Button from '@/components/Button';
 import LoadingDots from '@/components/LoadingDots';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
-import ReactTooltip from 'react-tooltip';
 
 export const CampaignForm = ({ edit, setupMode }) => {
   const router = useRouter();
@@ -88,7 +87,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                   <div>
                     <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                       <div className="sm:col-span-12">
-                        <label data-tip="The name of your campaign" htmlFor="campaign_name" className="block text-sm font-bold text-gray-700">
+                        <label htmlFor="campaign_name" className="block text-sm font-bold text-gray-700">
                           Campaign Name
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
@@ -106,7 +105,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
                       </div>
 
                       <div className="sm:col-span-12">
-                        <label data-tip="The type of reward you want to give to your affiliate for each successful referral" htmlFor="commission_type" className="block text-sm font-bold text-gray-700">
+                        <label htmlFor="commission_type" className="block text-sm font-bold text-gray-700">
                           Reward type
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
@@ -423,7 +422,6 @@ export const CampaignForm = ({ edit, setupMode }) => {
         :
           <LoadingDots />
       }
-      <ReactTooltip />
     </div>
   )
 };

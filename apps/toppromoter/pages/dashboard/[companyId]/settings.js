@@ -155,7 +155,7 @@ export default function CompanySettingsPage() {
               websiteUrlInput !== null && websiteUrlInput !== activeCompany?.company_url && urlValid &&
               <div className="border-t-4 p-6 bg-white flex items-center justify-start">
                 <Button
-                  medium
+                  small
                   primary
                   disabled={ urlLoading }>
                   <span>
@@ -211,7 +211,7 @@ export default function CompanySettingsPage() {
               companyHandleInput !== null && companyHandleInput !== activeCompany?.company_handle &&
               <div className="border-t-4 p-6 bg-white flex items-center justify-start">
                 <Button
-                  medium
+                  small
                   primary
                   disabled={ handleLoading }>
                   <span>

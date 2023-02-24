@@ -54,10 +54,8 @@ export default function Onboarding() {
   return(
     <>
       <SEOMeta title="Verifying Stripe Account" />
-      <div className="py-12 border-b-4 border-gray-300">
-        <div className="wrapper">
-          <SetupProgress />
-        </div>
+      <div className="py-12 border-b-2 border-gray-100">
+        <SetupProgress />
       </div>
       <div className="pt-12 mb-6">
         <div className="wrapper">
