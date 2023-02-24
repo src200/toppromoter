@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import Pricing from '@/components/Pricing';
 import { getActiveProductsWithPrices } from '@/utils/supabase-client';
 import { SEOMeta } from '@/templates/SEOMeta'; 
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import Features from '@/components/Features';
 import Testimonials from '@/components/Testimonials';
 
@@ -39,7 +39,7 @@ export default function Products() {
                 <Pricing products={ products } />
               :
                 <div className="flex items-center justify-center">
-                  <LoadingTile />
+                  <LoadingDots />
                 </div>
             }
           </div>

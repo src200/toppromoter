@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 export const Button = (props) => {
   const Link = dynamic(() => import('next/link'));
 
-  let styles = 'relative inline-flex items-center justify-center font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all';
+  let styles = 'relative inline-flex items-center justify-center font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all';
 
   //Sizing styles
   if(props.small){
@@ -30,7 +30,7 @@ export const Button = (props) => {
   } else if(props.ghost){
     styles = styles + ' text-primary font-bold px-0 py-0'
   } else if(props.outline){
-    styles = styles + ' text-primary font-bold bg-white border-2 border-primary-3'
+    styles = styles + ' text-primary font-bold bg-white border-2 border-gray-100'
   } else {
     styles = styles + ' bg-primary font-bold hover:bg-primary-2'
   }

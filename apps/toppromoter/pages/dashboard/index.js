@@ -1,4 +1,4 @@
-import { LoadingTile } from '@/components/LoadingTile';
+import { LoadingDots } from '@/components/LoadingDots';
 import SEOMeta from '@/templates/SEOMeta'; 
 
 export default function DashboardPage() {
@@ -6,7 +6,7 @@ export default function DashboardPage() {
     <>
       <SEOMeta title="Dashboard" />
       <div className="pt-12 wrapper">
-        <LoadingTile />
+        <LoadingDots />
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCompany } from '@/utils/CompanyContext';
 import { deleteAffiliate } from '@/utils/useUser';
 import { useAffiliate } from '@/utils/AffiliateContext';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button'; 
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import { UserGroupIcon } from '@heroicons/react/solid';
@@ -165,7 +165,7 @@ export default function InnerDashboardPage() {
               </a>
             </div>
           :
-            <LoadingTile />
+            <LoadingDots />
         }
       </div>
     </>

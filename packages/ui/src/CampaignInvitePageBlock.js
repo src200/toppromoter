@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import AuthForm from '@/components/AuthForm';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button';  
 import toast from 'react-hot-toast';
 import AffiliateInvites from '@/components/AffiliateInvites'; 
@@ -30,18 +30,18 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
         token: session.access_token
       });
       
-      if(status === "success"){
+      if(status === 'success'){
         setLoading(false);
         toast.success(`Congratulations! You have joined campaign ${publicCampaignData?.campaign_name}`)
         router.replace(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
       }
 
-      if(status === "private"){
+      if(status === 'private'){
         setLoading(false);
         toast.error('This campaign is private. Please contact the campaign owner for an invite.')
       }
 
-      if(status === "error"){
+      if(status === 'error'){
         setLoading(false);
         toast.error('There was an error when joining the campaign. Please try again later, or contact support.')
       }
@@ -67,13 +67,17 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
               <div>
                 {
                   publicCampaignData?.company_image !== null ?
-                    <img alt={`${publicCampaignData?.company_name} Logo`} src={process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL+publicCampaignData?.company_image} className="h-12 w-auto mx-auto mb-2"/>
+                    <img alt={ `${publicCampaignData?.company_name} Logo` } src={ process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL+publicCampaignData?.company_image } className="h-12 w-auto mx-auto mb-2" />
                   :
-                    <h1 className="text-4xl font-semibold mb-2">{publicCampaignData?.company_name}</h1>
+                    <h1 className="text-4xl font-semibold mb-2">
+                      { publicCampaignData?.company_name }
+                    </h1>
                 }
                 <>
                   <div className="mb-12">
-                    <h2 className="text-xl text-gray-400">{publicCampaignData?.campaign_name}</h2>
+                    <h2 className="text-xl text-gray-400">
+                      { publicCampaignData?.campaign_name }
+                    </h2>
                   </div>
                   <div className="p-8 rounded-xl bg-white shadow-lg border-4 border-gray-200 max-w-2xl mx-auto">
                     {
@@ -81,10 +85,20 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
                       <div>
                         {
                           customCampaignData !== null && customCampaignData?.campaign_welcome_message !== null ?
-                            <p className="text-lg mb-5 text-gray-500">{customCampaignData?.campaign_welcome_message}</p>
+                            <p className="text-lg mb-5 text-gray-500">
+                              { customCampaignData?.campaign_welcome_message }
+                            </p>
                           :
                             <p className="text-lg mb-5 text-gray-500">
-                              Join <span className="font-semibold text-gray-700">{publicCampaignData?.campaign_name}</span> and get {publicCampaignData?.commission_type === 'percentage' ? `${publicCampaignData?.commission_value}% commission on all paid referrals.` : `${publicCampaignData?.company_currency}${publicCampaignData?.commission_value} commission on all paid referrals.`}
+                              Join 
+                              { ' ' }
+                              <span className="font-semibold text-gray-700">
+                                { publicCampaignData?.campaign_name }
+                              </span>
+                              { ' ' }
+                              and get
+                              { ' ' }
+                              { publicCampaignData?.commission_type === 'percentage' ? `${publicCampaignData?.commission_value}% commission on all paid referrals.` : `${publicCampaignData?.company_currency}${publicCampaignData?.commission_value} commission on all paid referrals.` }
                             </p> 
                         }
                       </div>
@@ -94,35 +108,44 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
                         <div>
                           {
                             campaignAlreadyJoined === true ?
-                              <div className="p-3 rounded-xl bg-green-600 text-white text-lg font-semibold">You have already joined this campaign.</div>
+                              <div className="p-3 rounded-xl bg-green-600 text-white text-lg font-semibold">
+                                You have already joined this campaign.
+                              </div>
                             : publicCampaignData?.campaign_public === true ?
                               <Button
-                                onClick={e=>{handleCampaignJoin(publicCampaignData?.company_id, publicCampaignData?.campaign_id)}}
-                                disabled={loading}
+                                onClick={ e=>{handleCampaignJoin(publicCampaignData?.company_id, publicCampaignData?.campaign_id)} }
+                                disabled={ loading }
                                 secondary
-                                large
-                              >
-                                {loading ? 'Joining campaign...' : 'Join campaign'}
+                                large>
+                                { loading ? 'Joining campaign...' : 'Join campaign' }
                               </Button>
                             :
-                              <AffiliateInvites campaignId={publicCampaignData?.campaign_id}/>
+                              <AffiliateInvites campaignId={ publicCampaignData?.campaign_id } />
                           }
                         </div>
                       :
                         <div>
-                          <AuthForm editor={editor} affiliate={true} type="signup" campaignId={publicCampaignData?.campaign_id} companyId={publicCampaignData?.company_id} campaignHandle={router?.query?.handle} hideDetails={true}/>
+                          <AuthForm editor={ editor } affiliate={ true } type="signup" campaignId={ publicCampaignData?.campaign_id } companyId={ publicCampaignData?.company_id } campaignHandle={ router?.query?.handle } hideDetails={ true } />
                         </div>
                     }
                   </div>
                 </>
               </div>
               <div className="mt-12">
-                <p className="text-sm text-gray-500">{publicCampaignData?.campaign_name} is powered by <a target="_blank" className="font-semibold underline" href={`https://reflio.com?ref=${publicCampaignData?.campaign_name}`} rel="noreferrer">Reflio</a></p>
+                <p className="text-sm text-gray-500">
+                  { publicCampaignData?.campaign_name }
+                  { ' ' }
+                  is powered by
+                  { ' ' }
+                  <a target="_blank" className="font-semibold underline" href={ `https://reflio.com?ref=${publicCampaignData?.campaign_name}` } rel="noreferrer">
+                    Reflio
+                  </a>
+                </p>
               </div>
             </div>
           : 
             <div>
-              <LoadingTile/>
+              <LoadingDots />
             </div>
         }
       </div>

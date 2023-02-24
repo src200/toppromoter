@@ -6,7 +6,7 @@ import Button from '@/components/Button';
 import {
   ArrowNarrowLeftIcon
 } from '@heroicons/react/outline';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 
 export default function EditCampaignPage() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function EditCampaignPage() {
               <CampaignForm edit={ activeCampaign } />
             :
               <div>
-                <LoadingTile />
+                <LoadingDots />
               </div>
           }
         </div>

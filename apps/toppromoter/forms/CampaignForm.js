@@ -411,7 +411,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
 
             <div className="px-6 py-8 bg-white flex items-center text-white justify-start relative">
               <Button
-                medium
+                small
                 primary
                 disabled={ loading }>
                 <span>

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import { getReferrals } from '@/utils/useUser';
 import { useCompany } from '@/utils/CompanyContext';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button'; 
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import { EmojiSadIcon, ChevronDownIcon  } from '@heroicons/react/solid';
@@ -259,7 +259,7 @@ export const ReferralsTemplate = ({ page }) => {
                   </div>
                 </div>
           :
-                <LoadingTile />
+                <LoadingDots />
         }
       </div>
       {

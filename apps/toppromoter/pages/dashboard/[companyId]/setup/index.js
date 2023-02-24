@@ -1,12 +1,12 @@
 import setupStepCheck from '@/utils/setupStepCheck';
-import LoadingTile from '@/components/LoadingTile'; 
+import LoadingDots from '@/components/LoadingDots'; 
 
 export default function SetupPage() {
   setupStepCheck('normal');
 
   return (
     <div className="pt-12 wrapper">
-      <LoadingTile/>
+      <LoadingDots />
     </div>
   );
 }

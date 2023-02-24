@@ -1452,6 +1452,22 @@ select {
   gap: 1.25rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-y-6 {
   row-gap: 1.5rem;
 }
@@ -2291,7 +2307,7 @@ select {
 }
 
 .font-extrabold {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .font-bold {
@@ -2312,10 +2328,6 @@ select {
 
 .font-black {
   font-weight: 800;
-}
-
-.font-extra-bold {
-  font-weight: 500;
 }
 
 .uppercase {
@@ -2763,7 +2775,7 @@ a {
   margin-top: 0.75rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.025em;
 }
 
@@ -2771,7 +2783,7 @@ a {
   margin-top: 1.25rem;
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.025em;
 }
 
@@ -2780,7 +2792,7 @@ a {
   margin-top: 0.75rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.025em;
 }
 

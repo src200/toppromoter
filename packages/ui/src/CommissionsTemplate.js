@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from 'react';
 import { getSales, payCommissions, useUser } from '@/utils/useUser';
 import { useCompany } from '@/utils/CompanyContext';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button'; 
 import {
   EmojiSadIcon
@@ -459,7 +459,7 @@ export const CommissionsTemplate = ({ page }) => {
                 </div>
               </div>
           :
-              <LoadingTile />
+              <LoadingDots />
         }
       </div>
       {

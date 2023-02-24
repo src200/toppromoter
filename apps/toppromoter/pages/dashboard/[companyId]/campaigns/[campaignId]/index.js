@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCompany } from '@/utils/CompanyContext';
 import { useCampaign } from '@/utils/CampaignContext';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import Button from '@/components/Button'; 
 import {
@@ -101,7 +101,7 @@ export default function SingleCampaignPage() {
                     </div> 
                   </div>
                 :
-                  <LoadingTile />
+                  <LoadingDots />
               }
           </div>
         </div>

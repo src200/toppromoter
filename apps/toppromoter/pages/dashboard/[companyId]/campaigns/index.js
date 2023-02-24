@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCompany } from '@/utils/CompanyContext';
 import { useCampaign } from '@/utils/CampaignContext';
-import LoadingTile from '@/components/LoadingTile';
+import LoadingDots from '@/components/LoadingDots';
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import Button from '@/components/Button'; 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -134,7 +134,7 @@ export default function CampaignsPage() {
                 </a>
               </div>
           :
-              <LoadingTile />
+              <LoadingDots />
         }
       </div>
     </>

@@ -2,7 +2,7 @@ import { useCompany } from '@/utils/CompanyContext';
 import { classNames } from '@/utils/helpers';
 import { useUser, handleActiveCompany } from '@/utils/useUser';
 import Modal from '@/components/Modal';
-import Button from '@/components/Button';
+import Logo from './Icons/Logo';
 import { Menu, Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon, ChevronDownIcon, PlusIcon  } from '@heroicons/react/solid';
 import {  UserCircleIcon, GiftIcon } from '@heroicons/react/outline';
@@ -30,11 +30,13 @@ export const TopNav = () => {
   };
 
   return (
-    <div className="flex items-center justify-between flex-shrink-0 px-4 py-4 border-b-2 border-gray-100">
+    <div className="flex items-center justify-between flex-shrink-0 px-6 py-4 border-b-2 border-gray-100">
       <div className='flex items-end'>
         <Link href="/dashboard">
-          <img width={ 250 } height={ 150 } src="https://static.wixstatic.com/media/8b35eb_bb2204e7332b4ba5a286e4d4d84758fb~mv2.png/v1/crop/x_0,y_230,w_1640,h_391/fill/w_562,h_134,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Toppromoter.png" alt='logo' />
+          <Logo width={ 180 } height={ 55 } />
         </Link>
+      </div>
+      <div className="flex justify-between items-center gap-3">
         { planDetails === 'free' &&
           <Link
             passHref
@@ -46,8 +48,6 @@ export const TopNav = () => {
             </span>
           </Link>
         }
-      </div>
-      <div className="flex justify-between items-center">
         { activeCompany &&
           <Listbox onChange={ value=>{handleCompanySwitch(value)} } value={ activeCompany?.company_id }>
             { ({ open }) => (
