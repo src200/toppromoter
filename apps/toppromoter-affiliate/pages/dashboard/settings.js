@@ -16,46 +16,52 @@ const SettingsPage = () => {
   const handlePaypalEmail = async (email) => {    
     await paypalEmail(user?.id, email).then((result) => {
       console.log(result);
-      if(result === "success"){
+      if(result === 'success'){
         setErrorMessage(null);
         router.reload();
       } else {
-        setErrorMessage("Unable to change your PayPal email. Please contact support, or try again later.");
+        setErrorMessage('Unable to change your PayPal email. Please contact support, or try again later.');
       }
     });
   };
   
   return (
     <>
-      <SEOMeta title="Settings"/>
-      <div className="pb-10 mb-12 border-b-4">
+      <SEOMeta title="Settings" />
+      <div className="mb-8">
         <div className="pt-10 wrapper">
-          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Settings</h1>
+          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
+            Settings
+          </h1>
         </div>
       </div>
       <div className="wrapper">
-        <div className="bg-white shadow-lg rounded-xl mt-5 max-w-3xl border-4 border-gray-200">
+        <div className="bg-white rounded-lg mt-5 max-w-3xl border-2 border-gray-100">
           <div className="p-6 sm:p-8">
             <div>
-              <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">PayPal Payout Email</h3>
+              <h3 className="text-lg leading-6 font-semibold text-gray-900 mb-2">
+                PayPal Payout Email
+              </h3>
               <div>
                 <div className="mt-1 flex items-center mb-3">
                   <input
                     minLength="3"
                     maxLength="50"
                     required
-                    defaultValue={userDetails?.paypal_email && userDetails?.paypal_email}
+                    defaultValue={ userDetails?.paypal_email && userDetails?.paypal_email }
                     placeholder="youremail@email.com"
                     type="email"
                     name="paypal_email"
                     id="paypal_email"
                     autoComplete="paypal_email"
-                    onInput={e=>{setEmailInput(e.target.value)}}
-                    className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300"
-                    onChange={e=>{setEmailValid(checkValidEmail(e.target.value)), emailValid ? setEmailInput(e.target.value) : setEmailInput(null)}}
+                    onInput={ e=>{setEmailInput(e.target.value)} }
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    onChange={ e=>{setEmailValid(checkValidEmail(e.target.value)), emailValid ? setEmailInput(e.target.value) : setEmailInput(null)} }
                   />
                 </div>
-                <p className="text-gray-500">This is the email that your affiliate payout payments will be sent to. Please make sure that it&apos;s the correct email.</p>
+                <p className="text-gray-500">
+                  This is the email that your affiliate payout payments will be sent to. Please make sure that it&apos;s the correct email.
+                </p>
               </div>
             </div>
           </div>
@@ -65,10 +71,11 @@ const SettingsPage = () => {
               <Button
                 medium
                 primary
-                disabled={loading}
-                onClick={e=>{handlePaypalEmail(emailInput)}}
-              >
-                <span>{loading ? 'Saving Changes...' : 'Save Changes'}</span>
+                disabled={ loading }
+                onClick={ e=>{handlePaypalEmail(emailInput)} }>
+                <span>
+                  { loading ? 'Saving Changes...' : 'Save Changes' }
+                </span>
               </Button>
             </div>
           }
@@ -76,7 +83,9 @@ const SettingsPage = () => {
             !emailValid && emailValid !== null && emailInput?.length > 4 &&
             <div className="border-t-4 p-6 bg-white flex items-center justify-start">
               <div className="bg-red-600 text-center p-4 rounded-lg">
-                <p className="text-white text-sm font-medium">The email you entered is not valid. Please check it and try again.</p>
+                <p className="text-white text-sm font-medium">
+                  The email you entered is not valid. Please check it and try again.
+                </p>
               </div>
             </div>
           }
@@ -84,7 +93,9 @@ const SettingsPage = () => {
         {
           errorMessage !== null &&
           <div className="bg-red-600 text-center p-4 mt-5 rounded-lg">
-            <p className="text-white text-sm font-medium">{errorMessage}</p>
+            <p className="text-white text-sm font-medium">
+              { errorMessage }
+            </p>
           </div>
         }
       </div>

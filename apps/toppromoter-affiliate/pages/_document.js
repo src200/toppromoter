@@ -9,7 +9,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script defer data-domain="affiliates.reflio.com" src="https://plausible.io/js/plausible.js"></script>
+          <link rel="icon" href="/tpr-favicon.svg" type="image/x-icon" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/tpr-favicon.svg" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/tpr-favicon.svg" />
+          <link rel="manifest" href="/site.webmanifest" />
         </Head>
         <body className="loading affiliate-body">
           <Main />

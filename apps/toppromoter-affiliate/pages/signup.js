@@ -4,8 +4,8 @@ import SEOMeta from '@/templates/SEOMeta';
 export default function SignUp() {
   return (
     <>
-      <SEOMeta title="Sign Up"/>
-      <Auth type="signup"/>
+      <SEOMeta title="Sign Up" />
+      <Auth type="signup" />
     </>
   );
 }

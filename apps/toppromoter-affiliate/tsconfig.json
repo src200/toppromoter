@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,14 +20,34 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/dist/*": ["../../packages/ui/dist/*"],
-      "@/components/*": ["../../packages/ui/src/*"],
-      "@/templates/*": ["./templates/*"],
-      "@/utils/*": ["utils/*"],
-      "@/affiliate-utils/*": ["utils/*"],
-      "@/public/js/*": ["public/js/*"]
+      "@/dist/*": [
+        "../../packages/ui/dist/*"
+      ],
+      "@/components/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@/templates/*": [
+        "./templates/*"
+      ],
+      "@/utils/*": [
+        "../../apps/toppromoter/utils/*"
+      ],
+      "@/affiliate-utils/*": [
+        "utils/*"
+      ],
+      "@/public/js/*": [
+        "public/js/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

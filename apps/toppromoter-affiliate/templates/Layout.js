@@ -1,18 +1,18 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useUser } from '@/utils/useUser';
 import { postData } from '@/utils/helpers';
+import { SimpleNav } from '@/components/SimpleNav';
 
 function Layout({ children }) {
   const { user, session, userFinderLoaded } = useUser();
   const Toaster = dynamic(() =>
-    import("react-hot-toast").then((module) => module.Toaster)
+    import('react-hot-toast').then((module) => module.Toaster)
   );
   const AdminMobileNav = dynamic(() => import('@/templates/AdminNavbar/AdminMobileNav'));
   const AdminDesktopNav = dynamic(() => import('@/templates/AdminNavbar/AdminDesktopNav'));
+
   const router = useRouter();
   const [inviteLoading, setInviteLoading] = useState(false);
 
@@ -59,10 +59,7 @@ function Layout({ children }) {
         token: session.access_token
       });
       
-      console.log('status:')
-      console.log(status)
-
-      if(status === "success"){
+      if(status === 'success'){
         setInviteLoading(false);
         router.replace(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
         localStorage.removeItem('join_campaign_details');
@@ -75,7 +72,7 @@ function Layout({ children }) {
   };
 
   if(!router?.asPath.includes('/invite/') && !router?.asPath.includes('inviteRefresh=true')){
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       if(localStorage.getItem('join_campaign_details')){
         if(user && session){          
           let details = localStorage.getItem('join_campaign_details');
@@ -100,9 +97,9 @@ function Layout({ children }) {
     <>
       <Toaster
         position="bottom-center"
-        reverseOrder={true}
-        gutter={20}
-        toastOptions={{
+        reverseOrder={ true }
+        gutter={ 20 }
+        toastOptions={ {
           className: '',
           duration: 5000,
           style: {
@@ -122,29 +119,40 @@ function Layout({ children }) {
               color: 'white',
             },
           },
-        }}
+        } }
       />
       {
         defaultPage === true ?
-          <main id="skip">{children}</main>
+          <main id="skip">
+            { children }
+          </main>
         : simplePage === true ?
-          <main id="skip">{children}</main>
+          <main id="skip">
+            { children }
+          </main>
         : dashboardPage === true ?
-          <div className="h-screen flex overflow-hidden">
-            <AdminDesktopNav/>
-            <div className="flex-1 overflow-auto focus:outline-none">
-              <AdminMobileNav/>
-              <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
-                <>
-                  {children}
-                </>
-              </main>
+          <>
+            <SimpleNav logo='affiliate' />
+            <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 100px)'} }>
+              <AdminDesktopNav />
+              <div className="flex-1 overflow-auto focus:outline-none">
+                <AdminMobileNav />
+                <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
+                  <>
+                    { children }
+                  </>
+                </main>
+              </div>
             </div>
-          </div>
-        : <main id="skip">{children}</main>
+          </>
+        : (
+          <main id="skip">
+            { children }
+          </main>
+        )
       }
     </>
   );
-};
+}
 
 export default Layout;

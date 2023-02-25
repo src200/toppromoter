@@ -73,9 +73,9 @@ const ReferralsPage = () => {
               <div className="flex flex-col">
                 <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                    <div className="overflow-hidden shadow-md border-4 border-gray-300 rounded-lg">
-                      <table className="min-w-full divide-y divide-gray-300">
-                        <thead className="">
+                    <div className="overflow-hidden border-2 border-gray-100 rounded-lg">
+                      <table className='min-w-full'>
+                        <thead className="border-b-2 border-gray-100">
                           <tr>
                             <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
                               Referral ID
@@ -94,7 +94,7 @@ const ReferralsPage = () => {
                             </th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-200 bg-white text-sm ">
+                        <tbody className="g-white text-sm ">
                           { referrals?.map((referral) => (
                             <tr key={ referral?.referral_id }>
                               <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">

@@ -39,85 +39,97 @@ const AffiliateInvites = (props) => {
         token: session.access_token
       });
 
-      if(status === "success"){
+      if(status === 'success'){
         setLoading(false);
         router.replace(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
-        toast.success(type === "accept" ? 'Congratulations! The invitation was accepted.' : 'The invitation was declined.')
+        toast.success(type === 'accept' ? 'Congratulations! The invitation was accepted.' : 'The invitation was declined.')
       }
   
     } catch (error) {
       setLoading(false);
-      toast.error(type === "accept" ? 'The invitation could not be accepted. Please try again later.' : 'The invitation could not be declined. Please try again later.')
+      toast.error(type === 'accept' ? 'The invitation could not be accepted. Please try again later.' : 'The invitation could not be declined. Please try again later.')
     }
   };
 
   return(
-    <div className="wrapper">
+    <div className={ props.className || '' }>
       {
-        affiliateInvitePage === false &&
-        <div className="mb-5">
-          <h2 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Campaign Invites</h2>
-        </div> 
-      }
-      <div>
-        {
           userAffiliateInvites !== null && userAffiliateInvites?.length > 0 ?
-            <div>
+            <div className='bg-primary-3 border-2 border-gray-200 rounded-lg'>
               {
                 affiliateInvitePage === true ?
                   <div>
                     {
                       campaignInviteData !== null ?
                         <Button
-                          onClick={e=>{handleInviteDecision('accept', campaignInviteData?.affiliate_id)}}
-                          disabled={loading}
+                          onClick={ e=>{handleInviteDecision('accept', campaignInviteData?.affiliate_id)} }
+                          disabled={ loading }
                           secondary
-                          large
-                        >
-                          {loading ? 'Joining campaign...' : 'Accept Campaign Invite'}
+                          large>
+                          { loading ? 'Joining campaign...' : 'Accept Campaign Invite' }
                         </Button>
                       :
-                        <p className="text-lg">This campaign is not public, and requires a manual invite for you to join.</p>
+                        <p className="text-lg">
+                          This campaign is not public, and requires a manual invite for you to join.
+                        </p>
                     }
                   </div>
                 :
                   <div className="space-y-4">
-                    {userAffiliateInvites?.map(invite => {
+                    { userAffiliateInvites?.map(invite => {
                       return(
-                        <div className="rounded-lg bg-secondary p-6">
+                        <div className="rounded-lg border-2 border-gray-100 p-2 my-2">
                           <div className="flex">
                             <div className="xl:ml-3 flex-1 xl:flex xl:justify-between xl:items-center">
-                              <p className="mb-3 xl:mb-0 text-md text-white font-semibold">You have been invited to join campaign <span className="font-bold underline">{invite?.campaign_name}</span> by <span className="font-bold underline">{invite?.company_name}</span></p>
-                              <div className="xl:flex xl:flex-col xl:items-center xl:justify-center">
-                                <Button
-                                  onClick={e=>{handleInviteDecision('accept', invite?.affiliate_id)}}
-                                  large
-                                  primary
-                                  disabled={loading}
-                                >
-                                  <span>Accept invite</span>
+                              <p className="mb-3 xl:mb-0 text-md font-semibold">
+                                You have been invited to join campaign
+                                { ' ' }
+                                <span className="font-bold underline">
+                                  { invite?.campaign_name }
+                                </span>
+                                { ' ' }
+                                by
+                                { ' ' }
+                                <span className="font-bold underline">
+                                  { invite?.company_name }
+                                </span>
+                              </p>
+                              <div className="flex items-center justify-between space-x-5">
+                                <Button 
+                                  disabled={ loading }
+                                  ghost
+                                  onClick={ e=>{handleInviteDecision('decline', invite?.affiliate_id)} }
+                                  className="ml-3 xl:ml-0 xl:mt-2 font-semibold !text-red-700 text-xs xl:text-sm hover:underline">
+                                  Decline
                                 </Button>
-                                <button disabled={loading} onClick={e=>{handleInviteDecision('decline', invite?.affiliate_id)}} className="ml-3 xl:ml-0 xl:mt-2 text-white font-semibold underline text-xs xl:text-sm">Decline invite</button>
+                                <Button
+                                  onClick={ e=>{handleInviteDecision('accept', invite?.affiliate_id)} }
+                                  small
+                                  primary
+                                  disabled={ loading }>
+                                  <span>
+                                    Accept
+                                  </span>
+                                </Button>
                               </div>
                             </div>
                           </div>
                         </div>
                       )
-                    })}
+                    }) }
                   </div>
               }              
             </div>
           :
             <div>
               {
-                affiliateInvitePage === true ?
-                  <p className="text-lg">This campaign is not public, and requires a manual invite for you to join.</p>
-                :
-                  <p>You have no new invites.</p>
+                affiliateInvitePage === true &&
+                  <p className="text-lg">
+                    This campaign is not public, and requires a manual invite for you to join.
+                  </p>
               }
             </div>
         }
-      </div>
     </div>
   );
 }

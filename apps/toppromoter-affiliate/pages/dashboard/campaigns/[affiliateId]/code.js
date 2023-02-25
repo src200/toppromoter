@@ -44,15 +44,15 @@ const AffiliateCodePage = () => {
       token: session.access_token
     });
 
-    if(response === "success"){
+    if(response === 'success'){
       setErrorMessage(null);
       window.location.href = '/dashboard/campaigns';
-    } else if(response === "match"){
-      setErrorMessage("You already have already used this code for a different campaign with the same company. Please user a unique referral code per campaign for the same company.")
+    } else if(response === 'match'){
+      setErrorMessage('You already have already used this code for a different campaign with the same company. Please user a unique referral code per campaign for the same company.')
     } else {
       console.log('Error when saving:')
       console.error(response)
-      setErrorMessage("There was an error when saving your new referral code. Please try again later.");
+      setErrorMessage('There was an error when saving your new referral code. Please try again later.');
     }
 
     setLoading(false);
@@ -69,53 +69,64 @@ const AffiliateCodePage = () => {
 
   return (
     <>
-      <SEOMeta title="Code Settings"/>
-      <div className="pb-10 mb-12 border-b-4">
-        <div className="pt-10 wrapper">
-          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">Edit Referral Code</h1>
+      <SEOMeta title="Code Settings" />
+      <div className="mb-8">
+        <div className='pt-10 wrapper'>
+          <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
+            Edit Referral Code
+          </h1>
         </div>
       </div>
       <div className="wrapper">
         {
           affiliateFiltered === null ?
-            <LoadingDots/>
+            <LoadingDots />
           :
-            <form action="#" method="POST" onSubmit={handleSubmit} className="bg-white shadow-lg rounded-xl mt-5 max-w-3xl border-4 border-gray-200">
+            <form action="#" method="POST" onSubmit={ handleSubmit } className="bg-white rounded-lg mt-5 max-w-3xl border-2 border-gray-100">
               <div className="p-6 sm:p-8">
                 <div>
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">Your unique referral code for {affiliateFiltered?.campaign_name}</h3>
+                  <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">
+                    Your unique referral code for
+                    { ' ' }
+                    { affiliateFiltered?.campaign_name }
+                  </h3>
                   <div>
                     <div className="mt-1 flex items-center mb-3">
                       <input
                         minLength="3"
                         maxLength="20"
                         required
-                        defaultValue={affiliateFiltered?.referral_code ? affiliateFiltered?.referral_code : affiliateFiltered?.affiliate_id}
+                        defaultValue={ affiliateFiltered?.referral_code ? affiliateFiltered?.referral_code : affiliateFiltered?.affiliate_id }
                         type="text"
                         name="referral_code"
                         id="referral_code"
                         autoComplete="referral_code"
-                        className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                       />
                     </div>
-                    <p className="text-gray-500">This is your unique code that tracks your referral when linking to a campaign&apos;s website. By default, it&apos;s a unique 15-digit ID code.</p>
+                    <p className="text-gray-500">
+                      This is your unique code that tracks your referral when linking to a campaign&apos;s website. By default, it&apos;s a unique 15-digit ID code.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+              <div className="p-6 bg-white flex items-center justify-start">
                 <Button
-                  medium
+                  small
                   primary
-                  disabled={loading}
-                >
-                  <span>{loading ? 'Saving Changes...' : 'Save Changes'}</span>
+                  disabled={ loading }>
+                  <span>
+                    { loading ? 'Saving Changes...' : 'Save Changes' }
+                  </span>
                 </Button>
               </div>
               {
                 errorMessage !== null &&
                 <div className="p-6 pt-3">
                   <div className="bg-red-600 text-center p-4 rounded-lg">
-                    <p className="text-white text-sm font-medium">{errorMessage}</p>
+                    <p className="text-white text-sm font-medium">
+                      { errorMessage }
+                    </p>
                   </div>
                 </div>
               }

@@ -20,7 +20,6 @@ export const Logo = ({ width=150, height=42, ...props }) => {
         </clipPath>
       </defs>
     </svg>
-
   );
 };
 
