@@ -18,7 +18,7 @@ function CampaignInviteIndex({ publicCampaignData }){
       <CampaignInvite publicCampaignData={publicCampaignData} />
     </>
   )
-};
+}
 
 export async function getServerSideProps({ query }) {
   

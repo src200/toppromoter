@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { useUser } from '@/utils/useUser';
 import { postData } from '@/utils/helpers';
 import { SimpleNav } from '@/components/SimpleNav';
-import AdminMobileNav from '@/components/AdminNavbar/AdminMobileNav';
-import AdminDesktopNav from '@/components/AdminNavbar/AdminDesktopNav';
+import AdminMobileNav from './AdminNavbar/AdminMobileNav';
+import AdminDesktopNav from './AdminNavbar/AdminDesktopNav';
 
 function Layout({ children }) {
   const { user, session, userFinderLoaded } = useUser();
@@ -123,33 +123,22 @@ function Layout({ children }) {
       />
       {
         defaultPage === true ?
-          <main id="skip">
-            { children }
-          </main>
+          <main id="skip">{children}</main>
         : simplePage === true ?
-          <main id="skip">
-            { children }
-          </main>
+          <main id="skip">{children}</main>
         : dashboardPage === true ?
-          <>
-            <SimpleNav logo='affiliate' />
-            <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 100px)'} }>
-              <AdminDesktopNav />
-              <div className="flex-1 overflow-auto focus:outline-none">
-                <AdminMobileNav />
-                <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
-                  <>
-                    { children }
-                  </>
-                </main>
-              </div>
+          <div className="h-screen flex overflow-hidden">
+            <AdminDesktopNav/>
+            <div className="flex-1 overflow-auto focus:outline-none">
+              <AdminMobileNav/>
+              <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
+                <>
+                  {children}
+                </>
+              </main>
             </div>
-          </>
-        : (
-          <main id="skip">
-            { children }
-          </main>
-        )
+          </div>
+        : <main id="skip">{children}</main>
       }
     </>
   );

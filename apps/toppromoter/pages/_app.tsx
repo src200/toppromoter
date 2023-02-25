@@ -5,9 +5,7 @@ import { useRouter } from 'next/router';
 import SEOMeta from '@/templates/SEOMeta';
 import { UserContextProvider } from '@/utils/useUser';
 import { CompanyContextProvider } from '@/utils/CompanyContext';
-
 import '@/dist/styles.css';
-import '@tremor/react/dist/esm/tremor.css';
 
 export default function MyApp({ Component, pageProps: { ...pageProps }, }: AppProps<{}>) {
   const router = useRouter();

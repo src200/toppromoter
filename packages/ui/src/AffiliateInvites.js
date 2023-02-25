@@ -22,10 +22,6 @@ const AffiliateInvites = (props) => {
     }
   }, [userAffiliateInvites]);
 
-
-  console.log('campaignInviteData:')
-  console.log(campaignInviteData)
-
   const handleInviteDecision = async (type, affiliateId) => {    
     setLoading(true);
 

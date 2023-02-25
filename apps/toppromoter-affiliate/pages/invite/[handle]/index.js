@@ -17,7 +17,7 @@ export default function CampaignInviteIndex({ publicCampaignData }){
       <CampaignInvite publicCampaignData={publicCampaignData} />
     </>
   )
-};
+}
 
 export async function getServerSideProps({ req, res, query }) {  
   const { handle } = query

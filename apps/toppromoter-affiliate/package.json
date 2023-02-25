@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next -p 4001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",

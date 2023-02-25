@@ -82,4 +82,4 @@ export default async function campaignHandler(req: NextApiRequest, res: NextApiR
     res.setHeader('Allow', 'POST');
     return res.status(405).end('Method Not Allowed');
   }
-};
+}

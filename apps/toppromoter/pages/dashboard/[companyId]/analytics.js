@@ -25,6 +25,8 @@ import {
 import LoadingDots from '@/components/LoadingDots';
 import { createDaysArray, priceString } from '@/utils/helpers';
 
+import '@tremor/react/dist/esm/tremor.css';
+
 export default function HomePage() {
   const router = useRouter();
   const { activeCompany } = useCompany();

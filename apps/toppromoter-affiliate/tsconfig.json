@@ -30,7 +30,7 @@
         "./templates/*"
       ],
       "@/utils/*": [
-        "../../apps/toppromoter/utils/*"
+        "utils/*"
       ],
       "@/affiliate-utils/*": [
         "utils/*"

@@ -122,7 +122,7 @@ export const slugifyString = (text) => {
 };
 
 export const priceString = (price, currency) => {
-  if(price === null || !currency) return 'error';
+  if(price === null || !currency) return '0';
 
   let string = new Intl.NumberFormat('en-US', {
     style: 'currency',

@@ -10,7 +10,7 @@ export default function Index() {
 
    useEffect(() => {
     if (user) {
-      router.replace('/dashboard/campaigns');
+      router.replace('/dashboard');
     }
   }, [user]);
 
