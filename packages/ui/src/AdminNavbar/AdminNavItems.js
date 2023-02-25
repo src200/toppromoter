@@ -1,7 +1,7 @@
 import { useCompany } from '@/utils/CompanyContext';
 import { classNames } from '@/utils/helpers';
 import { Tooltip } from '@/components/Tooltip';
-import { BookOpenIcon, GiftIcon, ClipboardCheckIcon, CogIcon, CollectionIcon, CreditCardIcon, CurrencyDollarIcon, SparklesIcon, UserGroupIcon } from '@heroicons/react/outline';
+import { PresentationChartLineIcon, BookOpenIcon, GiftIcon, ClipboardCheckIcon, CogIcon, CollectionIcon, CreditCardIcon, CurrencyDollarIcon, SparklesIcon, UserGroupIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -11,12 +11,12 @@ export const AdminNavItems = () => {
 
   const manageNavigation = [
     // { name: 'Home', href: `/dashboard/${activeCompany?.company_id}/home`, icon: TemplateIcon },
+    { name: 'Dashboard', href: `/dashboard/${activeCompany?.company_id}/analytics`, icon: PresentationChartLineIcon },
     { name: 'Campaigns', href: `/dashboard/${activeCompany?.company_id}/campaigns`, icon: CollectionIcon },
     { name: 'Affiliates', href: `/dashboard/${activeCompany?.company_id}/affiliates`, icon: UserGroupIcon },
     { name: 'Referrals', href: `/dashboard/${activeCompany?.company_id}/referrals`, icon: SparklesIcon },
     { name: 'Sales & Commissions', href: `/dashboard/${activeCompany?.company_id}/commissions`, icon: CurrencyDollarIcon },
     // { name: 'Apps', href: `/dashboard/${activeCompany?.company_id}/apps`, icon: ChipIcon },
-    // { name: 'Analytics', href: `/dashboard/${activeCompany?.company_id}/analytics`, icon: ChartBarIcon }
   ];
 
   const settingsNavigation = [

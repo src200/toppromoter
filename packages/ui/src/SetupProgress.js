@@ -14,11 +14,11 @@ const Step = ({ step }) => (
         { (step.name !== 'Add Company' && step.name !== 'Edit Company') && 
           <div className="absolute flex align-center items-center align-middle content-center" style={ { width: 'calc(100% - 2.5rem - 1rem)', top: '50%', transform: 'translate(-50%, -50%)'} }>
             <div className="w-full rounded bg-primary-3 items-center align-middle align-center flex-1">
-              <div className="h-1 bg-primary rounded" style={ { width: step.status === 'complete' ? '100%' : '20%' } }></div>
+              <div className="h-1 bg-primary rounded" style={ { width: step.status === 'complete' ? '100%' : '0%' } }></div>
             </div>
           </div> 
         }
-        <div className={ classNames('w-12 h-12 mx-auto rounded-full text-lg flex items-center justify-center', { 'bg-primary text-white': step.status === 'complete' }) }>
+        <div className={ classNames('w-12 h-12 mx-auto rounded-full border-2 border-gray-100 text-lg flex items-center justify-center', { 'bg-primary text-white': step.status === 'complete' }) }>
           <step.icon className='h-6 w-6' />
         </div>
       </div>

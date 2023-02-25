@@ -1,11 +1,12 @@
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { useEffect } from 'react';
-import '@/dist/styles.css';
 import Layout from '@/templates/Layout';
 import { useRouter } from 'next/router';
 import SEOMeta from '@/templates/SEOMeta';
+
+import '@/dist/styles.css';
+import '@tremor/react/dist/esm/tremor.css';
 
 export default function MyApp({ Component, pageProps: { ...pageProps }, }: AppProps<{}>) {
   const UserContextProvider = dynamic(() =>

@@ -14,7 +14,6 @@ export const useCampaign = () => {
   useEffect(() => {
     if (userFinderLoaded && getCampaigns && user && userCampaignDetails === null && activeCompany?.company_id) {
       getCampaigns(activeCompany?.company_id).then(results => {
-        console.log('running!!!')
         setUserCampaignDetails(Array.isArray(results) ? results : [results])
 
         let newActiveCampaign = null;

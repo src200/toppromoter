@@ -58,44 +58,44 @@ export const timeSince = (date) => {
 
   if (interval > 1) {
     if(Math.floor(interval) === 1){
-      return Math.floor(interval) + " year ago";
+      return Math.floor(interval) + ' year ago';
     } else {
-      return Math.floor(interval) + " years ago";
+      return Math.floor(interval) + ' years ago';
     }
   }
   interval = seconds / 2592000;
   if (interval > 1) {
     if(Math.floor(interval) === 1){
-      return Math.floor(interval) + " month ago";
+      return Math.floor(interval) + ' month ago';
     } else {
-      return Math.floor(interval) + " months ago";
+      return Math.floor(interval) + ' months ago';
     }
   }
   interval = seconds / 86400;
   if (interval > 1) {
     if(Math.floor(interval) === 1){
-      return Math.floor(interval) + " day ago";
+      return Math.floor(interval) + ' day ago';
     } else {
-      return Math.floor(interval) + " days ago";
+      return Math.floor(interval) + ' days ago';
     }
   }
   interval = seconds / 3600;
   if (interval > 1) {
     if(Math.floor(interval) === 1){
-      return Math.floor(interval) + " hour ago";
+      return Math.floor(interval) + ' hour ago';
     } else {
-      return Math.floor(interval) + " hours ago";
+      return Math.floor(interval) + ' hours ago';
     }
   }
   interval = seconds / 60;
   if (interval > 1) {
     if(Math.floor(interval) === 1){
-      return Math.floor(interval) + " minute ago";
+      return Math.floor(interval) + ' minute ago';
     } else {
-      return Math.floor(interval) + " minutes ago";
+      return Math.floor(interval) + ' minutes ago';
     }
   }
-  return Math.floor(seconds) + " seconds ago";
+  return Math.floor(seconds) + ' seconds ago';
 }
 
 export const checkValidUrl = (str) => {
@@ -122,7 +122,7 @@ export const slugifyString = (text) => {
 };
 
 export const priceString = (price, currency) => {
-  if(price === null || !currency) return "error";
+  if(price === null || !currency) return 'error';
 
   let string = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -134,7 +134,7 @@ export const priceString = (price, currency) => {
 }
 
 export const priceStringDivided = (price, currency) => {
-  if(price === null || !currency) return "error";
+  if(price === null || !currency) return 'error';
 
   let string = priceString(price/100, currency);
 
@@ -159,35 +159,35 @@ export const LogSnagPost = async (type, message) => {
   try {
     if(process.env.NEXT_PUBLIC_LOGSNAG_TOKEN){
       let myHeaders = new Headers();
-      myHeaders.append("Authorization", `Bearer ${process.env.NEXT_PUBLIC_LOGSNAG_TOKEN}`);
-      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_LOGSNAG_TOKEN}`);
+      myHeaders.append('Content-Type', 'application/json');
     
-      const project = "reflio";
-      const fancyType = type.replace(/-/g, " ").toUpperCase(); 
+      const project = 'reflio';
+      const fancyType = type.replace(/-/g, ' ').toUpperCase(); 
     
-      let emojiType = "🔥";
+      let emojiType = '🔥';
     
-      if(type === "stripe-connected"){
-        emojiType = "💳";
-      } else if(type === "new-campaign"){
-        emojiType = "📚";
-      } else if(type === "invite-affiliate"){
-        emojiType = "🧑";
-      } else if(type === "referral-created"){
-        emojiType = "🎉";
-      } else if(type === "commission-created"){
-        emojiType = "💵";
-      } else if(type === "paddle-connected"){
-        emojiType = "🏓";
+      if(type === 'stripe-connected'){
+        emojiType = '💳';
+      } else if(type === 'new-campaign'){
+        emojiType = '📚';
+      } else if(type === 'invite-affiliate'){
+        emojiType = '🧑';
+      } else if(type === 'referral-created'){
+        emojiType = '🎉';
+      } else if(type === 'commission-created'){
+        emojiType = '💵';
+      } else if(type === 'paddle-connected'){
+        emojiType = '🏓';
       }
     
       let raw = JSON.stringify({
-        "project": project,
-        "channel": type,
-        "event": fancyType,
-        "description": message,
-        "icon": emojiType,
-        "notify": true
+        'project': project,
+        'channel': type,
+        'event': fancyType,
+        'description': message,
+        'icon': emojiType,
+        'notify': true
       });
     
       let requestOptions = {
@@ -197,26 +197,33 @@ export const LogSnagPost = async (type, message) => {
         redirect: 'follow'
       };
     
-      await fetch("https://api.logsnag.com/v1/log", requestOptions)
+      await fetch('https://api.logsnag.com/v1/log', requestOptions)
         .then(response => response.text())
-        .then(result => {return "success"})
-        .catch(error => {return "error"});
+        .then(result => {return 'success'})
+        .catch(error => {return 'error'});
     } else {
-      return "LogSnag token not found in .env file";
+      return 'LogSnag token not found in .env file';
     }
   } catch (error) {
     console.warn(error);
-    return "error"
+    return 'error'
   }
 };
 
 export const prettyMonthStartAndEnd = () => {
   const date = new Date();
-  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
-  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59).toLocaleDateString("en-US", { year: 'numeric', month: 'short', day: 'numeric' });
+  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
   return {
     firstDay,
     lastDay
   }
 }
+
+export const createDaysArray = (start, end) => {
+  for(var arr=[],dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+      arr.push(new Date(dt));
+  }
+  return arr;
+};

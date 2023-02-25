@@ -94,7 +94,7 @@ export default function Layout({ children }) {
           : dashboardPage === true ?
             <div>
               <TopNav />
-              <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 50px)'} }>
+              <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 100px)'} }>
                 <AdminDesktopNav />
                 <div className="flex-1 overflow-auto focus:outline-none">
                   <AdminMobileNav />

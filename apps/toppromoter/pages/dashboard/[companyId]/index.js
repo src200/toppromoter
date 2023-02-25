@@ -10,7 +10,7 @@ export default function InnerDashboardPage() {
   if(activeCompany?.payment_integration_type === null){
     router.replace(`/dashboard/${router?.query?.companyId}/setup`);
   } else {
-    router.replace(`/dashboard/${router?.query?.companyId}/campaigns`);
+    router.replace(`/dashboard/${router?.query?.companyId}/analytics`);
   }
   
   return (

@@ -24,7 +24,7 @@ export default function CampaignsPage() {
     <>
       <SEOMeta title="Campaigns" />
       <div className="mb-12">
-        <div className="pt-6 wrapper flex items-center justify-between">
+        <div className="pt-10 wrapper flex items-center justify-between">
           <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
             Campaigns
           </h1>
