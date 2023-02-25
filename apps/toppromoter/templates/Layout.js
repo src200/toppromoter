@@ -1,18 +1,20 @@
 import { TopNav } from '@/components/TopNav';
-import { Navbar } from '@/components/Navbar';
+// import { Navbar } from '@/components/Navbar';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useUser } from 'utils/useUser';
+import AdminMobileNav from '@/components/AdminNavbar/AdminMobileNav';
+import AdminDesktopNav from '@/components/AdminNavbar/AdminDesktopNav';
 
 export default function Layout({ children }) {
   const { user, userFinderLoaded } = useUser();
   const Toaster = dynamic(() =>
     import('react-hot-toast').then((module) => module.Toaster)
   );
-  const Footer = dynamic(() => import('@/components/Footer'));
-  const AdminMobileNav = dynamic(() => import('@/components/AdminNavbar/AdminMobileNav'));
-  const AdminDesktopNav = dynamic(() => import('@/components/AdminNavbar/AdminDesktopNav'));
+  // const Footer = dynamic(() => import('@/components/Footer'));
+  // const AdminMobileNav = dynamic(() => import('@/components/AdminNavbar/AdminMobileNav'));
+  // const AdminDesktopNav = dynamic(() => import('@/components/AdminNavbar/AdminDesktopNav'));
   const SimpleNav = dynamic(() => import('@/components/SimpleNav'));
   const router = useRouter();
   let defaultPage = true;

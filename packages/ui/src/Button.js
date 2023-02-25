@@ -1,8 +1,6 @@
-import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 export const Button = (props) => {
-  const Link = dynamic(() => import('next/link'));
-
   let styles = 'relative inline-flex items-center justify-center font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all';
 
   //Sizing styles

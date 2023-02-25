@@ -1,20 +1,15 @@
 import type { AppProps } from 'next/app';
-import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import Layout from '@/templates/Layout';
 import { useRouter } from 'next/router';
 import SEOMeta from '@/templates/SEOMeta';
+import { UserContextProvider } from '@/utils/useUser';
+import { CompanyContextProvider } from '@/utils/CompanyContext';
 
 import '@/dist/styles.css';
 import '@tremor/react/dist/esm/tremor.css';
 
 export default function MyApp({ Component, pageProps: { ...pageProps }, }: AppProps<{}>) {
-  const UserContextProvider = dynamic(() =>
-    import('@/utils/useUser').then((module) => module.UserContextProvider)
-  );
-  const CompanyContextProvider = dynamic(() =>
-    import('@/utils/CompanyContext').then((module) => module.CompanyContextProvider)
-  );
   const router = useRouter();
 
   useEffect(() => {
