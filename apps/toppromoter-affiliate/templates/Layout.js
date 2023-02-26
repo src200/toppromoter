@@ -127,15 +127,18 @@ function Layout({ children }) {
         : simplePage === true ?
           <main id="skip">{children}</main>
         : dashboardPage === true ?
-          <div className="h-screen flex overflow-hidden">
-            <AdminDesktopNav/>
-            <div className="flex-1 overflow-auto focus:outline-none">
-              <AdminMobileNav/>
-              <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
-                <>
-                  {children}
-                </>
-              </main>
+          <div>
+            <SimpleNav />
+            <div className="h-screen flex overflow-hidden">
+              <AdminDesktopNav/>
+              <div className="flex-1 overflow-auto focus:outline-none">
+                <AdminMobileNav/>
+                <main className="flex-1 relative pb-8 z-0 overflow-y-auto">
+                  <>
+                    {children}
+                  </>
+                </main>
+              </div>
             </div>
           </div>
         : <main id="skip">{children}</main>

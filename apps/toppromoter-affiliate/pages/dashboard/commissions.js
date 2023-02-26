@@ -62,19 +62,19 @@ const CommissionsPage = () => {
                       <table className="min-w-full">
                         <thead className=" border-b-2 border-gray-100">
                           <tr>
-                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
+                            <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-bold sm:pl-6">
                               Referral ID
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Campaign
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Commission Amount
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Status
                             </th>
-                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                            <th scope="col" className="px-3 py-3.5 text-left text-sm font-bold">
                               Date Created
                             </th>
                           </tr>
