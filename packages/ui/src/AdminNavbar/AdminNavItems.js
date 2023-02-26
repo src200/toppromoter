@@ -67,7 +67,7 @@ export const AdminNavItems = () => {
         <div className="p-5">
           <Link
             passHref
-            href="https://reflio.com/resources"
+            href="https://toppromoter-docs.vercel.app"
             className={ classNames(
               navItemClass
             ) } 

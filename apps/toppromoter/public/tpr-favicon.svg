@@ -1,21 +1,21 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_6_70" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+<mask id="mask0_6_70" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
 <path d="M0 0H31.9839V32H0V0Z" fill="white"/>
 </mask>
 <g mask="url(#mask0_6_70)">
-<mask id="mask1_6_70" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
+<mask id="mask1_6_70" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
 <path d="M16.3891 -7.7077L42.28 10.0496L23.3889 34.3866L-2.50201 16.6293L16.3891 -7.7077Z" fill="white"/>
 </mask>
 <g mask="url(#mask1_6_70)">
-<mask id="mask2_6_70" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
+<mask id="mask2_6_70" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
 <path d="M16.3891 -7.7077L42.28 10.0496L23.3889 34.3866L-2.50201 16.6293L16.3891 -7.7077Z" fill="white"/>
 </mask>
 <g mask="url(#mask2_6_70)">
-<mask id="mask3_6_70" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
+<mask id="mask3_6_70" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
 <path d="M16.3891 -7.7077L42.28 10.0494L23.3889 34.3866L-2.50201 16.6293L16.3891 -7.7077Z" fill="white"/>
 </mask>
 <g mask="url(#mask3_6_70)">
-<mask id="mask4_6_70" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
+<mask id="mask4_6_70" maskUnits="userSpaceOnUse" x="-3" y="-8" width="46" height="43">
 <path d="M16.3892 -7.7077L42.2801 10.0494L23.4025 34.3693L-2.48868 16.612L16.3892 -7.7077Z" fill="white"/>
 </mask>
 <g mask="url(#mask4_6_70)">

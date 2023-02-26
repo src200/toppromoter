@@ -20,6 +20,15 @@ if(process.env.SENTRY_AUTH_TOKEN){
     transpilePackages: ['ui'],
     images: {
       domains: ['s2.googleusercontent.com'],
+    },
+    async redirects() {
+      return [
+        {
+          source: '/docs',
+          destination: 'https://toppromoter-docs.vercel.app',
+          permanent: true,
+        }
+      ]
     }
   };
 }
