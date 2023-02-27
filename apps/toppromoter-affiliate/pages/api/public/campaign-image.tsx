@@ -56,7 +56,7 @@ export default async function handler(req: NextRequest) {
           :
             <div className="flex flex-col items-center justify-center">
               <h1 className="text-7xl font-semibold mb-3">
-                Get started with Reflio
+                Get started with Toppromoter
               </h1>
             </div>
         }

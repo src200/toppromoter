@@ -136,17 +136,17 @@ export default function StripeSetupPage() {
                   : activeCompany?.payment_integration_type === 'paddle' &&
                     <>
                       <p className="text-lg mb-3">
-                        Your Paddle account is connected to Reflio.
+                        Your Paddle account is connected to Toppromoter.
                       </p>
                       <div className="mb-8 pb-8 border-b-4">
                         <p className="text-lg font-semibold mb-1">
                           Your unique Paddle webhook URL:
                         </p>
-                        <CopyToClipboard text={ `https://reflio.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
+                        <CopyToClipboard text={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
                           <input 
                             type="text"
                             className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                            value={ `https://reflio.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
+                            value={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
                           />
                         </CopyToClipboard>
                       </div>
@@ -295,7 +295,7 @@ export default function StripeSetupPage() {
                               Step 2. Setup webhooks in Paddle:
                             </h3>
                             <p className="text-base mb-2">
-                              In order for Reflio to work and correctly attribute potential referrals, you need to have webhooks set up.
+                              In order for Toppromoter to work and correctly attribute potential referrals, you need to have webhooks set up.
                             </p>
                             <div className="mb-4">
                               <p className="mb-2">

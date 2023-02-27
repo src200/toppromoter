@@ -168,8 +168,8 @@ export default function BillingPage() {
                               <th data-tip="The total amount received, after any deductions for refunds and discounts." scope="col" className="px-3 py-3.5 text-sm text-left font-semibold">
                                 Sale Amount
                               </th>      
-                              <th data-tip="This is a 9% commission due to Reflio, since you are on the Pay As You Go plan. Upgrade your plan today to remove commission fees." scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
-                                Reflio Fee (9%)
+                              <th data-tip="This is a 9% commission due to Toppromoter, since you are on the Pay As You Go plan. Upgrade your plan today to remove commission fees." scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
+                                Toppromoter Fee (9%)
                               </th>             
                               <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold">
                                 Products
@@ -230,7 +230,7 @@ export default function BillingPage() {
                                 red
                                 className="mb-2"
                                 onClick={ e=>{generateInvoice()} }>
-                                { invoiceLoading ? 'Generating invoice...' : 'Pay Reflio fees' }
+                                { invoiceLoading ? 'Generating invoice...' : 'Pay Toppromoter fees' }
                               </Button>
                           }
                           <p>

@@ -15,9 +15,9 @@ const CampaignFinder = () => {
       </div>
       <div className="wrapper">
         <div className="p-8 rounded-xl bg-white shadow-lg border-4 border-gray-200 max-w-2xl mx-auto text-center">
-          <p className="text-xl mb-5">We are hard at work building <span className="font-bold">Campaign Finder</span>, a built-in service which will allow you to search for and join other Reflio powered affiliate programs directly from your dashboard.</p>
+          <p className="text-xl mb-5">We are hard at work building <span className="font-bold">Campaign Finder</span>, a built-in service which will allow you to search for and join other Toppromoter powered affiliate programs directly from your dashboard.</p>
           <Button
-            href="https://forms.reform.app/45Dbqq/reflio-campaign-finder"
+            href="https://forms.reform.app/45Dbqq/toppromoter-campaign-finder"
             external
             primary
             large

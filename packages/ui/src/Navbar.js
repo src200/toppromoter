@@ -57,7 +57,7 @@ export const Navbar = () => {
                   Pricing
                 </a>
                 <a
-                  href="https://reflio.com/resources"
+                  href="https://toppromoter.com/resources"
                   className={ navClass }>
                   Docs & Guides
                 </a>
@@ -99,7 +99,7 @@ export const Navbar = () => {
             }
 
             <div className="hidden lg:flex items-center justify-end">
-              <a className="mr-1" href="https://github.com/Reflio-com/reflio" target="_blank" rel="noreferrer">
+              <a className="mr-1" href="https://github.com/Toppromoter-com/toppromoter" target="_blank" rel="noreferrer">
                 <Github className={ `w-auto h-6 ${router?.pathname === '/' && 'text-white'}` } />
               </a>
               {

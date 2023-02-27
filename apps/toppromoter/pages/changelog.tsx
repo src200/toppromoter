@@ -11,7 +11,7 @@ export const Changelog = () => {
               Changelog
             </h1>
             <p>
-              Your source for recent updates to Reflio
+              Your source for recent updates to Toppromoter
             </p>
           </div>
           <div className="pt-5">

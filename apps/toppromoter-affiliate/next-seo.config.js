@@ -1,16 +1,16 @@
 export default {
-  title: 'Reflio: Create a privacy-friendly referral program for your SaaS.',
+  title: 'Toppromoter: Create a privacy-friendly referral program for your SaaS.',
   description: 'Create a privacy-friendly referral program for your SaaS. GDPR Friendly. Based in the UK. European-owned infrastructure.',
-  keywords: 'Reflio, Referral software, create referral program, stripe referral program',
+  keywords: 'Toppromoter, Referral software, create referral program, stripe referral program',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://www.affiliates.reflio.com',
-    site_name: 'Reflio',
+    url: 'https://www.affiliates.toppromoter.com',
+    site_name: 'Toppromoter',
   },
   twitter: {
     handle: '@useReflio',
-    site: 'https://reflio.com',
+    site: 'https://toppromoter.com',
     cardType: 'summary_large_image',
   },
   images: [

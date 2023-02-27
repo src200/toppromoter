@@ -630,7 +630,7 @@ export const billingGenerateInvoice = async (user, currency, commissions) => {
     await stripe.invoiceItems.create({
       customer: customer,
       amount: parseInt(commissionAmount),
-      description: `Reflio 9% commission payment for referral ID ${commission?.referral_id}.`,
+      description: `Toppromoter 9% commission payment for referral ID ${commission?.referral_id}.`,
       currency: currency ?? 'USD',
       metadata: {"commission_id": String(commission?.commission_id)}
     });
@@ -641,7 +641,7 @@ export const billingGenerateInvoice = async (user, currency, commissions) => {
       customer: customer,
       collection_method: 'send_invoice',
       days_until_due: 0,
-      description: `Reflio fee invoice for ${commissions?.data?.length} commissions`,
+      description: `Toppromoter fee invoice for ${commissions?.data?.length} commissions`,
       metadata: {"timestamp": String(Date.now()), "invoice_type": "reflio_fees"}
     });
     if(!createInvoice?.id) return "error";

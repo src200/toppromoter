@@ -71,7 +71,7 @@ export default function inviteUser(){
                                     <tbody>
                                       <tr id="logoContainer">
                                         <td class="shop-name__cell" style="margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Roboto&quot;, &quot;Oxygen&quot;, &quot;Ubuntu&quot;, &quot;Cantarell&quot;, &quot;Fira Sans&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;" align="center">
-                                          <img src="https://reflio.com/reflio-logo.png" alt="Reflio Logo" width="200" style="max-height: 100px; width: auto; max-width: 200px; height: auto;">
+                                          <img src="https://toppromoter.com/toppromoter-logo.png" alt="Toppromoter Logo" width="200" style="max-height: 100px; width: auto; max-width: 200px; height: auto;">
                                         </td>
                                       </tr>
                                     </tbody>

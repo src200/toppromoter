@@ -5,7 +5,7 @@ import { BookOpenIcon, CurrencyDollarIcon, TemplateIcon } from '@heroicons/react
 const links = [
   { title: 'Dashboard', href: '/dashboard', description: 'Your dashboard to control campaigns, affiliates and commissions.', icon: TemplateIcon },
   { title: 'Pricing', href: '/pricing', description: 'View our different pricing plans and see which one most suits your business.', icon: CurrencyDollarIcon },
-  { title: 'Resources', href: '/resources', description: 'Learn how to integrate Reflio into your website', icon: BookOpenIcon }
+  { title: 'Resources', href: '/resources', description: 'Learn how to integrate Toppromoter into your website', icon: BookOpenIcon }
 ];
 
 export default function FourOhFour() {

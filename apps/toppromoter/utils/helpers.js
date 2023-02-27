@@ -162,7 +162,7 @@ export const LogSnagPost = async (type, message) => {
       myHeaders.append('Authorization', `Bearer ${process.env.NEXT_PUBLIC_LOGSNAG_TOKEN}`);
       myHeaders.append('Content-Type', 'application/json');
     
-      const project = 'reflio';
+      const project = 'toppromoter';
       const fancyType = type.replace(/-/g, ' ').toUpperCase(); 
     
       let emojiType = '🔥';

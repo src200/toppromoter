@@ -185,7 +185,7 @@ export default function CampaignCustomizerPage() {
                                   onInput={ e=>{liveEditForm(e)} }
                                 />
                                 <label htmlFor="campaign_hide_attribution" className="block font-semibold ml-3">
-                                  Hide &quot;Powered by Reflio&quot; Attribution
+                                  Hide &quot;Powered by Toppromoter&quot; Attribution
                                 </label>
                               </div>
                             </>

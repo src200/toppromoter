@@ -12,19 +12,19 @@ export const Features = () => {
   const features = [
     {
       name: 'Pricing from $0/month',
-      description: "We're indie hacker friendly. Being indie hackers ourselves, we know that all new projects start from $0 MRR. Reflio starts from just $0/month with a 9% fee per successful referral.",
+      description: "We're indie hacker friendly. Being indie hackers ourselves, we know that all new projects start from $0 MRR. Toppromoter starts from just $0/month with a 9% fee per successful referral.",
       active: true,
       icon: CurrencyDollarIcon
     },
     {
       name: 'Get started in minutes',
-      description: 'Quickly connect your SaaS product to Reflio with pre-written code examples. You can instantly take advantage of word of mouth referrals to get higher quality sign ups to your app via your existing users.',
+      description: 'Quickly connect your SaaS product to Toppromoter with pre-written code examples. You can instantly take advantage of word of mouth referrals to get higher quality sign ups to your app via your existing users.',
       active: true,
       icon: SparklesIcon
     },
     {
       name: 'Subscriptions or one-time charges',
-      description: 'Reflio works with both subscriptions and one-time payments in both Stripe and Paddle. Future subscription payments that came from a referral are handled automatically and re-collected in your dashboard.',
+      description: 'Toppromoter works with both subscriptions and one-time payments in both Stripe and Paddle. Future subscription payments that came from a referral are handled automatically and re-collected in your dashboard.',
       active: true,
       icon: CreditCardIcon
     },
@@ -36,7 +36,7 @@ export const Features = () => {
     },
     {
       name: "Automated GDPR & Privacy compliance mode",
-      description: 'All data is processed through European-owned infrastructure, and our company is registered in the UK. With Reflio, you can choose for referrals located in the EU to automatically be required to confirm their consent before a cookie is set.',
+      description: 'All data is processed through European-owned infrastructure, and our company is registered in the UK. With Toppromoter, you can choose for referrals located in the EU to automatically be required to confirm their consent before a cookie is set.',
       active: true,
       icon: EyeOffIcon
     },

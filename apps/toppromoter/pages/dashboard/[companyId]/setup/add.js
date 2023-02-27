@@ -68,7 +68,7 @@ export default function TrackingSetupPage() {
                 To track a referral on your website, you need to run the below function when you are first creating the user. This process usually happens on your sign up page.
                 { ' ' }
                 <strong>
-                  You should do this for every sign up to make sure you catch all valid referrals. It doesn&rsquo;t matter if you send every single sign up to Reflio; our system will only save users who signed up after visiting a referral link, and has a valid cookie in their browser.
+                  You should do this for every sign up to make sure you catch all valid referrals. It doesn&rsquo;t matter if you send every single sign up to Toppromoter; our system will only save users who signed up after visiting a referral link, and has a valid cookie in their browser.
                 </strong>
               </p>
               <div className="w-full rounded-xl text-lg overflow-hidden shadow-lg">
@@ -83,13 +83,13 @@ export default function TrackingSetupPage() {
               {
                 activeCompany?.payment_integration_type === 'stripe' && 
                 <p className="text-lg mt-3">
-                  Reflio will automatically add the referral ID to an existing Stripe customer with the same email address, or later if the Stripe customer is created at a different time. When the user converts to a paying customer, Reflio will automatically create a commission if there was an eligible referral ID associated with that user.
+                  Toppromoter will automatically add the referral ID to an existing Stripe customer with the same email address, or later if the Stripe customer is created at a different time. When the user converts to a paying customer, Toppromoter will automatically create a commission if there was an eligible referral ID associated with that user.
                 </p>
               }
               <p className="text-lg mt-4">
-                For more detailed instructions on setting Reflio up, as well as more details on features such as Cross Sub-Domain Tracking, Auto Cookie Consent Collection, and more, visit our
+                For more detailed instructions on setting Toppromoter up, as well as more details on features such as Cross Sub-Domain Tracking, Auto Cookie Consent Collection, and more, visit our
                 { ' ' }
-                <a href="https://reflio.com/resources/quickstart-guide" target="_blank" rel="noreferrer" className="underline font-bold">
+                <a href="https://toppromoter.com/resources/quickstart-guide" target="_blank" rel="noreferrer" className="underline font-bold">
                   QuickStart Guide.
                 </a>
               </p>
@@ -128,7 +128,7 @@ export default function TrackingSetupPage() {
                 </div>
                 <p className="text-lg mt-4 mb-4">
                   <strong>
-                    You will need to update the code to include an additional passthrough parameter which contains the Reflio referral ID, the parameter should look like this:
+                    You will need to update the code to include an additional passthrough parameter which contains the Toppromoter referral ID, the parameter should look like this:
                   </strong>
                 </p>
                 <div className="w-full rounded-xl text-lg overflow-hidden shadow-lg">
@@ -137,8 +137,8 @@ export default function TrackingSetupPage() {
                       <script type="text/javascript">
                           function paddleCheckout() {
                               var reflioReferral = null;
-                              if(typeof Reflio !== "undefined"){
-                                reflioReferral = Reflio.getReferralId();
+                              if(typeof Toppromoter !== "undefined"){
+                                reflioReferral = Toppromoter.getReferralId();
                               }
                               Paddle.Checkout.open({ 
                                   product: 123,
@@ -161,10 +161,10 @@ export default function TrackingSetupPage() {
                     if typeof
                   </code>
                   { ' ' }
-                  statement, we are ensuring that the Reflio script is definitely detected, meaning we can safely run the
+                  statement, we are ensuring that the Toppromoter script is definitely detected, meaning we can safely run the
                   { ' ' }
                   <code className="text-lg tracking-tight font-bold text-pink-500">
-                    Reflio.getReferralId()
+                    Toppromoter.getReferralId()
                   </code>
                   { ' ' }
                   function. If no referral is found in the user&apos;s browser, this value will automatically default to
@@ -175,7 +175,7 @@ export default function TrackingSetupPage() {
                   .
                 </p>
                 <p className="text-lg">
-                  Once the checkout is complete, Reflio will automatically handle the commisssion creation via the Paddle webhooks you setup earlier.
+                  Once the checkout is complete, Toppromoter will automatically handle the commisssion creation via the Paddle webhooks you setup earlier.
                 </p>
               </div>
             }

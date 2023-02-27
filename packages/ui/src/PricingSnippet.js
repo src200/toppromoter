@@ -17,7 +17,7 @@ export const PricingSnippet = (props) => {
                 <li className="text-xl font-semibold">Unlimited submissions</li>
                 <li className="text-xl font-semibold">Unlimited companies</li>
                 <li className="text-xl font-semibold">Custom embed styling</li>
-                <li className="text-xl font-semibold">Remove Reflio companying</li>
+                <li className="text-xl font-semibold">Remove Toppromoter companying</li>
                 <li className="text-xl font-semibold">Automatically collect user console errors</li>
               </ul>
               <a

@@ -68,7 +68,7 @@ const customerEvents = async (req, res) => {
             await updateCustomer(event);
             break;
           case 'account.application.deauthorized':
-            if(event.data.object?.name === 'Reflio'){
+            if(event.data.object?.name === 'Toppromoter'){
               await deleteIntegrationFromDB(event?.account);
               break;
             } else {

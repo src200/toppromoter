@@ -1,12 +1,12 @@
 import Head from 'next/head';
 
 function SEOMeta({ title, description, keywords, img }) {
-  let setTitle = title ?? 'Reflio: Create a privacy-friendly referral program for your SaaS.';
+  let setTitle = title ?? 'Toppromoter: Create a privacy-friendly referral program for your SaaS.';
   let setDescription = description ?? 'Create a privacy-friendly referral program for your SaaS. GDPR Friendly. Based in the UK. European-owned infrastructure.';
-  let setKeywords = keywords ?? 'Reflio, Referral software, create referral program, stripe referral program';
+  let setKeywords = keywords ?? 'Toppromoter, Referral software, create referral program, stripe referral program';
   let setImg = img ?? '/og.png';
 
-  setTitle = setTitle + ' | Reflio Affiliates';
+  setTitle = setTitle + ' | Toppromoter Affiliates';
 
   return (
     <Head>
@@ -23,7 +23,7 @@ function SEOMeta({ title, description, keywords, img }) {
       { /* Open Graph */ }
       <meta key="ogURL" property="og:url" content={ `${process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL}` } />
       <meta key="ogImage" property="og:image" content={ `${process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL}${setImg}` } />
-      <meta key="ogSiteName" property="og:site_name" content="Reflio" />
+      <meta key="ogSiteName" property="og:site_name" content="Toppromoter" />
       <meta key="ogTitle" property="og:title" content={ setTitle } />
       <meta key="ogDescription" property="og:description" content={ setDescription } />
       <meta key="themeColor" name="theme-color" content="#ffaf45" />

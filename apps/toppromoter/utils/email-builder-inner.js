@@ -3,7 +3,7 @@ export default function emailBuilderInner(parsedDoc, type, logoUrl, subject, con
 
   let templateEmail = parsedDoc.serialize(parsedDoc);
 
-  templateEmail = templateEmail.replace(/{{logoUrl}}/g, logoUrl !== null ? logoUrl : 'https://reflio.com/reflio-logo.png');
+  templateEmail = templateEmail.replace(/{{logoUrl}}/g, logoUrl !== null ? logoUrl : 'https://toppromoter.com/toppromoter-logo.png');
   templateEmail = templateEmail.replace(/{{subject}}/g, subject);
   templateEmail = templateEmail.replace(/{{content}}/g, content);
 

@@ -137,8 +137,8 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
                   { ' ' }
                   is powered by
                   { ' ' }
-                  <a target="_blank" className="font-semibold underline" href={ `https://reflio.com?ref=${publicCampaignData?.campaign_name}` } rel="noreferrer">
-                    Reflio
+                  <a target="_blank" className="font-semibold underline" href={ `https://toppromoter.com?ref=${publicCampaignData?.campaign_name}` } rel="noreferrer">
+                    Toppromoter
                   </a>
                 </p>
               </div>

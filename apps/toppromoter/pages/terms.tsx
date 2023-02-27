@@ -19,13 +19,13 @@ export default function Terms() {
               Introduction
             </h2>
             <p>
-              Welcome to Reflio (McIlroy Limited). (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
+              Welcome to Toppromoter (McIlroy Limited). (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
             </p>
             <p>
-              These Terms of Service (&ldquo;Terms&rdquo;, &ldquo;Terms of Service&rdquo;) govern your use of our web pages located at https://reflio.com operated by Reflio (McIlroy Limited)..
+              These Terms of Service (&ldquo;Terms&rdquo;, &ldquo;Terms of Service&rdquo;) govern your use of our web pages located at https://toppromoter.com operated by Toppromoter (McIlroy Limited)..
             </p>
             <p>
-              Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here https://reflio.com/privacy.
+              Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here https://toppromoter.com/privacy.
             </p>
             <p>
               Your agreement with us includes these Terms and our Privacy Policy (&ldquo;Agreements&rdquo;). You acknowledge that you have read and understood Agreements, and agree to be bound of them.
@@ -33,8 +33,8 @@ export default function Terms() {
             <p>
               If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at
               { ' ' }
-              <a href="mailto:hello@reflio.com" className="font-semibold underline">
-                hello@reflio.com
+              <a href="mailto:hello@toppromoter.com" className="font-semibold underline">
+                hello@toppromoter.com
               </a>
               { ' ' }
               so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.
@@ -79,10 +79,10 @@ export default function Terms() {
               Some parts of Service are billed on a subscription basis (&ldquo;Subscription(s)&rdquo;). You will be billed in advance on a recurring and periodic basis (&ldquo;Billing Cycle&rdquo;). Billing cycles are set either on a monthly or annual basis, depending on the type of subscription plan you select when purchasing a Subscription.
             </p>
             <p>
-              At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or Reflio (McIlroy Limited). cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting Reflio (McIlroy Limited). customer support team.
+              At the end of each Billing Cycle, your Subscription will automatically renew under the exact same conditions unless you cancel it or Toppromoter (McIlroy Limited). cancels it. You may cancel your Subscription renewal either through your online account management page or by contacting Toppromoter (McIlroy Limited). customer support team.
             </p>
             <p>
-              A valid payment method, including credit card or PayPal, is required to process the payment for your subscription. You shall provide Reflio (McIlroy Limited). with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize Reflio (McIlroy Limited). to charge all Subscription fees incurred through your account to any such payment instruments.
+              A valid payment method, including credit card or PayPal, is required to process the payment for your subscription. You shall provide Toppromoter (McIlroy Limited). with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information. By submitting such payment information, you automatically authorize Toppromoter (McIlroy Limited). to charge all Subscription fees incurred through your account to any such payment instruments.
             </p>
             <p>
               Should automatic billing fail to occur for any reason, Meet Technologies Inc. will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.
@@ -91,25 +91,25 @@ export default function Terms() {
               Free Trial
             </h2>
             <p>
-              Reflio (McIlroy Limited). may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (&ldquo;Free Trial&rdquo;).
+              Toppromoter (McIlroy Limited). may, at its sole discretion, offer a Subscription with a free trial for a limited period of time (&ldquo;Free Trial&rdquo;).
             </p>
             <p>
               You may be required to enter your billing information in order to sign up for Free Trial.
             </p>
             <p>
-              If you do enter your billing information when signing up for Free Trial, you will not be charged by Reflio (McIlroy Limited). until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.
+              If you do enter your billing information when signing up for Free Trial, you will not be charged by Toppromoter (McIlroy Limited). until Free Trial has expired. On the last day of Free Trial period, unless you cancelled your Subscription, you will be automatically charged the applicable Subscription fees for the type of Subscription you have selected.
             </p>
             <p>
-              At any time and without notice, Reflio (McIlroy Limited). reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.
+              At any time and without notice, Toppromoter (McIlroy Limited). reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.
             </p>
             <h2>
               Fee Changes
             </h2>
             <p>
-              Reflio (McIlroy Limited)., in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.
+              Toppromoter (McIlroy Limited)., in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.
             </p>
             <p>
-              Reflio (McIlroy Limited). will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.
+              Toppromoter (McIlroy Limited). will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.
             </p>
             <p>
               Your continued use of Service after Subscription fee change comes into effect constitutes your agreement to pay the modified Subscription fee amount.
@@ -133,7 +133,7 @@ export default function Terms() {
               You retain any and all of your rights to any Content you submit, post or display on or through Service and you are responsible for protecting those rights. We take no responsibility and assume no liability for Content you or any third party posts on or through Service. However, by posting Content using Service you grant us the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such Content on and through Service. You agree that this license includes the right for us to make your Content available to other users of Service, who may also use your Content subject to these Terms.
             </p>
             <p>
-              Reflio (McIlroy Limited). has the right but not the obligation to monitor and edit all Content provided by users. In addition, Content found on or through this Service are the property of Reflio (McIlroy Limited). or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.
+              Toppromoter (McIlroy Limited). has the right but not the obligation to monitor and edit all Content provided by users. In addition, Content found on or through this Service are the property of Toppromoter (McIlroy Limited). or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.
             </p>
             <h2>
               Prohibited Uses
@@ -221,7 +221,7 @@ export default function Terms() {
               Intellectual Property
             </h2>
             <p>
-              Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Reflio (McIlroy Limited). and its licensors. Service is protected by copyright, trademark, and other laws of foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Reflio (McIlroy Limited)..
+              Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Toppromoter (McIlroy Limited). and its licensors. Service is protected by copyright, trademark, and other laws of foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Toppromoter (McIlroy Limited)..
             </p>
             <h2>
               Copyright Policy
@@ -230,7 +230,7 @@ export default function Terms() {
               We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights (&ldquo;Infringement&rdquo;) of any person or entity.
             </p>
             <p>
-              If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to dmca@reflio.com, with the subject line: &ldquo;Copyright Infringement&rdquo; and include in your claim a detailed description of the alleged Infringement as detailed below, under &ldquo;DMCA Notice and Procedure for Copyright Infringement Claims&rdquo;
+              If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to dmca@toppromoter.com, with the subject line: &ldquo;Copyright Infringement&rdquo; and include in your claim a detailed description of the alleged Infringement as detailed below, under &ldquo;DMCA Notice and Procedure for Copyright Infringement Claims&rdquo;
             </p>
             <p>
               You may be held accountable for damages (including costs and attorneys&apos; fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright.
@@ -262,7 +262,7 @@ export default function Terms() {
               </li>
             </ul>
             <p>
-              You can contact our Copyright Agent via email at dmca@reflio.com
+              You can contact our Copyright Agent via email at dmca@toppromoter.com
             </p>
             <h2>
               Error Reporting &amp; Feedback
@@ -270,8 +270,8 @@ export default function Terms() {
             <p>
               You may provide us either directly at
               { ' ' }
-              <a href="mailto:hello@reflio.com" className="font-semibold underline">
-                hello@reflio.com
+              <a href="mailto:hello@toppromoter.com" className="font-semibold underline">
+                hello@toppromoter.com
               </a>
               { ' ' }
               or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (&ldquo;Feedback&rdquo;). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.
@@ -280,7 +280,7 @@ export default function Terms() {
               Links To Other Web Sites
             </h2>
             <p>
-              Reflio (McIlroy Limited). has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.
+              Toppromoter (McIlroy Limited). has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.
             </p>
             <p>
               YOU ACKNOWLEDGE AND AGREE THAT McIlroy Limited SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.
@@ -372,8 +372,8 @@ export default function Terms() {
             <p>
               By email:
               { ' ' }
-              <a href="mailto:hello@reflio.com" className="font-semibold underline">
-                hello@reflio.com
+              <a href="mailto:hello@toppromoter.com" className="font-semibold underline">
+                hello@toppromoter.com
               </a>
               .
             </p>

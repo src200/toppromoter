@@ -50,7 +50,7 @@ export const sendEmail = async (subject, content, to, type, companyId, customId)
         recipient = affiliateFromId?.data?.details?.email;
   
       } else {      
-        subjectName = `New Reflio Commission Created: #${commissionFromId?.data?.commission_id.substring(1, 5)}`;
+        subjectName = `New Toppromoter Commission Created: #${commissionFromId?.data?.commission_id.substring(1, 5)}`;
         emailContent = `You have received a new sale from affiliate <strong>${affiliateFromId?.data?.details?.email}</strong>, with a total value of ${priceStringDivided(commissionFromId?.data?.commission_sale_value, companyFromId?.data?.company_currency)}.`;
         
         const userFromId = await supabaseAdmin
@@ -82,7 +82,7 @@ export const sendEmail = async (subject, content, to, type, companyId, customId)
     
     sendSmtpEmail.subject = subjectName;
     sendSmtpEmail.htmlContent = emailHtml;
-    sendSmtpEmail.sender = {"name": companyFromId?.data?.company_name, "email":"affiliate@reflio.com"};
+    sendSmtpEmail.sender = {"name": companyFromId?.data?.company_name, "email":"affiliate@toppromoter.com"};
     sendSmtpEmail.to = [{"email": recipient}];
     sendSmtpEmail.params = {"parameter":`${type}`,"subject":`${type}`};
     

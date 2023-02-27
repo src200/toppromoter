@@ -270,8 +270,8 @@ export default function CompanySettingsPage() {
             <p>
               Your API key is used for accessing
               { ' ' }
-              <a className="font-bold underline text-gray-900" href="https://reflio.com/resources/api-documentation" target="_blank" rel="noreferrer">
-                Reflio&apos;s API
+              <a className="font-bold underline text-gray-900" href="https://toppromoter.com/resources/api-documentation" target="_blank" rel="noreferrer">
+                Toppromoter&apos;s API
               </a>
               .
             </p>

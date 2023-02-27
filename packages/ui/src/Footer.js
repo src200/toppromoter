@@ -27,12 +27,12 @@ export const Footer = () => {
             <a href="https://twitter.com/useReflio" target="_blank" rel="noreferrer">
               <Twitter className="h-5 w-auto"/>
             </a>
-            <a href="https://github.com/Reflio-com/reflio" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Toppromoter-com/toppromoter" target="_blank" rel="noreferrer">
               <Github className="h-5 w-auto"/>
             </a>
             {/* <a href="/terms" className="hover:underline text-xs mx-1 text-gray-500 hover:text-gray-400">Terms</a> */}
           </div>
-          <p className="text-gray-500 text-sm">&copy; 2022 Reflio (McIlroy Limited).</p>
+          <p className="text-gray-500 text-sm">&copy; 2022 Toppromoter (McIlroy Limited).</p>
         </div>
       </div>
     </footer>
