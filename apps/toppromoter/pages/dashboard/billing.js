@@ -103,9 +103,9 @@ export default function BillingPage() {
             </span>
           </span>
         </div>
-        <div className="h-6 w-full overflow-hidden rounded-md ">
+        <div className="w-full bg-gray-200 rounded-full h-2.5">
           <div
-            className="h-full rounded-md bg-gradient-to-r from-primary to-primary-2"
+            className="bg-primary h-2.5 rounded-full"
             style={ { width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` } }>
           </div>
         </div>
@@ -298,7 +298,7 @@ export default function BillingPage() {
               </h2>
               {
                 usageData !== null ?
-                  <div className="space-y-5">
+                  <div className="space-y-10">
                     <ProgressBar type="companies" />
                     <ProgressBar type="campaigns" />
                     <ProgressBar type="affiliates" />

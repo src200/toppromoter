@@ -86,7 +86,7 @@ export const TopNav = () => {
                           { ({ selected, active }) => (
                             <>
                               <div className="flex">
-                                <span className={ classNames(selected ? 'font-bold' : 'font-medium', 'flex items-center truncate') }>
+                                <span className='font-semibold flex items-center truncate'>
                                   { company?.company_name }
                                 </span>
                               </div>

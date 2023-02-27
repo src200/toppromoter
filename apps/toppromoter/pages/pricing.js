@@ -37,7 +37,7 @@ export default function Products() {
               Pricing plans for teams of all sizes
             </h1>
             <p className="text-xl text-gray-500 font-semibold mt-5">
-              Choose an affordable plan that's packed with the best features and start driving sales.
+              Choose an affordable plan that&apos;s packed with the best features and start driving sales.
             </p>
           </div>
           <div>
