@@ -407,7 +407,7 @@ export const referralSignup = async (referralId, cookieDate, email) => {
         if(customer?.data?.length){
           await stripe.customers.update(
             customer?.data[0]?.id,
-            {metadata: {reflio_referral_id: referralData?.data?.referral_id}},
+            {metadata: {toppromoter_referral_id: referralData?.data?.referral_id}},
             {stripeAccount: companyData?.data?.payment_integration_field_one}
           );
         }
@@ -459,7 +459,7 @@ export const manualReferralSignup = async (identifier, referralId) => {
         if(customer?.data?.length){
           await stripe.customers.update(
             customer?.data[0]?.id,
-            {metadata: {reflio_referral_id: referralData?.data?.referral_id}},
+            {metadata: {toppromoter_referral_id: referralData?.data?.referral_id}},
             {stripeAccount: companyData?.data?.payment_integration_field_one}
           );
         }
@@ -612,7 +612,7 @@ export const billingGenerateInvoice = async (user, currency, commissions) => {
 
   if(existingInvoices?.data?.length){
     existingInvoices?.data?.map(invoice => {
-      if(invoice?.metadata?.invoice_type && invoice?.metadata?.invoice_type === "reflio_fees"){
+      if(invoice?.metadata?.invoice_type && invoice?.metadata?.invoice_type === "toppromoter_fees"){
         existingInvoicesList.push(invoice?.id)
       }
     })
@@ -642,7 +642,7 @@ export const billingGenerateInvoice = async (user, currency, commissions) => {
       collection_method: 'send_invoice',
       days_until_due: 0,
       description: `Toppromoter fee invoice for ${commissions?.data?.length} commissions`,
-      metadata: {"timestamp": String(Date.now()), "invoice_type": "reflio_fees"}
+      metadata: {"timestamp": String(Date.now()), "invoice_type": "toppromoter_fees"}
     });
     if(!createInvoice?.id) return "error";
     const finalizeInvoice = await stripe.invoices.finalizeInvoice(createInvoice?.id);
@@ -657,7 +657,7 @@ export const billingGenerateInvoice = async (user, currency, commissions) => {
 }
 
 export const invoicePaidCheck = async (invoice) => {
-  if(!invoice?.metadata?.invoice_type && !invoice?.metadata?.invoice_type === "reflio_fees") return false;
+  if(!invoice?.metadata?.invoice_type && !invoice?.metadata?.invoice_type === "toppromoter_fees") return false;
 
   if(invoice?.lines?.data?.length){
     await Promise.all(invoice?.lines?.data?.map(async (item) => {
@@ -665,7 +665,7 @@ export const invoicePaidCheck = async (invoice) => {
         await supabaseAdmin
           .from('commissions')
           .update({
-            reflio_commission_paid: true
+            toppromoter_commission_paid: true
           })
           .eq('commission_id', item?.metadata?.commission_id);
       }

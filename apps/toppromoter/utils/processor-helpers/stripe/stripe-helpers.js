@@ -14,18 +14,18 @@ export const createStripeCommission = async(data, stripeId, manualReferralId) =>
   );
 
   //Check if customer has a referral ID
-  if(customer?.metadata?.reflio_referral_id){
-    referralId = customer?.metadata?.reflio_referral_id;
+  if(customer?.metadata?.toppromoter_referral_id){
+    referralId = customer?.metadata?.toppromoter_referral_id;
     console.log('CUSTOMER HAS REFERRAL ID: ' + referralId)
 
     //If customer doesn't have a referral ID... check if the payment object does
-  } else if(paymentData?.metadata?.reflio_referral_id){
-    referralId = paymentData?.metadata?.reflio_referral_id;
+  } else if(paymentData?.metadata?.toppromoter_referral_id){
+    referralId = paymentData?.metadata?.toppromoter_referral_id;
 
     //Update customer with referral ID
     await stripe.customers.update(
       customer?.id,
-      {metadata: {reflio_referral_id: paymentData?.metadata?.reflio_referral_id}},
+      {metadata: {toppromoter_referral_id: paymentData?.metadata?.toppromoter_referral_id}},
       {stripeAccount: stripeId ? stripeId : data?.account}
     );
   }
@@ -49,7 +49,7 @@ export const createStripeCommission = async(data, stripeId, manualReferralId) =>
     }
 
     //Check if payment intent already has a commission associated with it
-    if(paymentIntent?.metadata?.reflio_commission_id){
+    if(paymentIntent?.metadata?.toppromoter_commission_id){
       console.log('COMMISSION ALREADY EXISTS: ' + referralId)
       return "commission_exists";
     }
@@ -132,11 +132,11 @@ export const editCommission = async(data) => {
     {stripeAccount: data?.account}
   );
 
-  if(paymentIntent?.metadata?.reflio_commission_id){
+  if(paymentIntent?.metadata?.toppromoter_commission_id){
     let commissionFromId = await supabaseAdmin
       .from('commissions')
       .select('referral_id')
-      .eq('commission_id', paymentIntent?.metadata?.reflio_commission_id)
+      .eq('commission_id', paymentIntent?.metadata?.toppromoter_commission_id)
       .single();
 
     if(commissionFromId?.data !== null){
@@ -174,7 +174,7 @@ export const editCommission = async(data) => {
               commission_sale_value: paymentIntentTotal,
               commission_total: commissionAmount
             })
-            .eq('commission_id', paymentIntent?.metadata?.reflio_commission_id);
+            .eq('commission_id', paymentIntent?.metadata?.toppromoter_commission_id);
 
           if (error) return "error";
 
@@ -206,11 +206,11 @@ export const findCommission = async(data) => {
     {stripeAccount: data?.account}
   );
 
-  if(customer?.metadata?.reflio_referral_id){
+  if(customer?.metadata?.toppromoter_referral_id){
     let referralFromId = await supabaseAdmin
       .from('referrals')
       .select('*')
-      .eq('referral_id', customer?.metadata?.reflio_referral_id)
+      .eq('referral_id', customer?.metadata?.toppromoter_referral_id)
       .single();
 
     if(referralFromId?.data !== null){
@@ -281,7 +281,7 @@ export const updateCustomer = async (data) => {
     //Update customer with referral ID
     await stripe.customers.update(
       customerData?.id,
-      {metadata: {reflio_referral_id: foundReferral?.referral_id}},
+      {metadata: {toppromoter_referral_id: foundReferral?.referral_id}},
       {stripeAccount: data?.account}
     );
 

@@ -70,21 +70,21 @@ export const invoicePayment = async(referralData, stripeId, referralId, paymentI
       //Add parameter to Stripe payment intent
       await stripe.paymentIntents.update(
         invoice?.payment_intent,
-        {metadata: {reflio_commission_id: newCommissionValues?.data[0]?.commission_id}},
+        {metadata: {toppromoter_commission_id: newCommissionValues?.data[0]?.commission_id}},
         {stripeAccount: stripeId}
       );
 
       //Add parameter to Stripe invoice
       await stripe.invoices.update(
         invoice?.id,
-        {metadata: {reflio_commission_id: newCommissionValues?.data[0]?.commission_id}},
+        {metadata: {toppromoter_commission_id: newCommissionValues?.data[0]?.commission_id}},
         {stripeAccount: stripeId}
       );
 
       //Add parameter to Stripe customer
       await stripe.customers.update(
         invoice?.customer,
-        {metadata: {reflio_referral_id: referralId}},
+        {metadata: {toppromoter_referral_id: referralId}},
         {stripeAccount: stripeId}
       );
 
@@ -164,14 +164,14 @@ export const chargePayment = async(referralData, stripeId, referralId, paymentIn
       //Add parameter to Stripe payment intent
       await stripe.paymentIntents.update(
         paymentIntent?.id,
-        {metadata: {reflio_commission_id: newCommissionValues?.data[0]?.commission_id}},
+        {metadata: {toppromoter_commission_id: newCommissionValues?.data[0]?.commission_id}},
         {stripeAccount: stripeId}
       );
 
       //Add parameter to Stripe payment intent
       await stripe.paymentIntents.update(
         paymentIntent?.customer,
-        {metadata: {reflio_referral_id: newCommissionValues?.data[0]?.referral_id}},
+        {metadata: {toppromoter_referral_id: newCommissionValues?.data[0]?.referral_id}},
         {stripeAccount: stripeId}
       );
 
@@ -183,7 +183,7 @@ export const chargePayment = async(referralData, stripeId, referralId, paymentIn
         //Add parameter to Stripe invoice
         await stripe.charges.update(
           charge?.id,
-          {metadata: {reflio_commission_id: newCommissionValues?.data[0]?.commission_id}},
+          {metadata: {toppromoter_commission_id: newCommissionValues?.data[0]?.commission_id}},
           {stripeAccount: stripeId}
         );
       })

@@ -8,11 +8,6 @@ export default {
     url: 'https://www.affiliates.toppromoter.com',
     site_name: 'Toppromoter',
   },
-  twitter: {
-    handle: '@useReflio',
-    site: 'https://toppromoter.com',
-    cardType: 'summary_large_image',
-  },
   images: [
     {
       url: process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'/og.pnf',

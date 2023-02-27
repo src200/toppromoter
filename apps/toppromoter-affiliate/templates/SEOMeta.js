@@ -17,7 +17,6 @@ function SEOMeta({ title, description, keywords, img }) {
 
       { /* Twitter */ }
       <meta key="twCard" name="twitter:card" content="summary_large_image" />
-      <meta key="twCreator" name="twitter:creator" content="@useReflio" />
       <meta key="twImage" name="twitter:image" content={ `${process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL}${setImg}` } />
 
       { /* Open Graph */ }

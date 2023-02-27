@@ -24,9 +24,6 @@ export const Footer = () => {
         </div>
         <div className="mt-6">
           <div className="flex items-center justify-center mb-6 space-x-4">
-            <a href="https://twitter.com/useReflio" target="_blank" rel="noreferrer">
-              <Twitter className="h-5 w-auto"/>
-            </a>
             <a href="https://github.com/Toppromoter-com/toppromoter" target="_blank" rel="noreferrer">
               <Github className="h-5 w-auto"/>
             </a>

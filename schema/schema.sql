@@ -237,7 +237,7 @@ create table commissions (
   commission_sale_value integer default null,
   commission_refund_value integer default null,
   paid_at text default null,
-  reflio_commission_paid boolean default false,
+  toppromoter_commission_paid boolean default false,
   custom_field_one text default null,
   custom_field_two text default null,
   custom_field_three text default null,

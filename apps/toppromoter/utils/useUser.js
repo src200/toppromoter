@@ -276,7 +276,7 @@ export const getSales = async (companyId, date, page) => {
   return { data, count };
 };
 
-export const getReflioCommissionsDue = async (teamId) => {
+export const getToppromoterCommissionsDue = async (teamId) => {
   let query = supabase
     .from('commissions')
     .select(`
@@ -287,7 +287,7 @@ export const getReflioCommissionsDue = async (teamId) => {
       { count: "exact" }
     )
     .eq('team_id', teamId)
-    .eq('reflio_commission_paid', false)
+    .eq('toppromoter_commission_paid', false)
     .lt('commission_due_date', [((new Date()).toISOString())])
     .is('paid_at', null)
     .order('created', { ascending: false });

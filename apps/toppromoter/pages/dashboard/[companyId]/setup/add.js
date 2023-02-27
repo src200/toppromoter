@@ -136,13 +136,13 @@ export default function TrackingSetupPage() {
                     text={ `<a href="#" id="buy-button">Buy now!</a>
                       <script type="text/javascript">
                           function paddleCheckout() {
-                              var reflioReferral = null;
+                              var toppromoterReferral = null;
                               if(typeof Toppromoter !== "undefined"){
-                                reflioReferral = Toppromoter.getReferralId();
+                                toppromoterReferral = Toppromoter.getReferralId();
                               }
                               Paddle.Checkout.open({ 
                                   product: 123,
-                                  passthrough: JSON.stringify({ referral: reflioReferral })
+                                  passthrough: JSON.stringify({ referral: toppromoterReferral })
                               });
                           }
                           document.getElementById('buy-button').addEventListener('click', paddleCheckout, false);

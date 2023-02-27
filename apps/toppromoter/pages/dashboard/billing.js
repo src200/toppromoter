@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useUser, getReflioCommissionsDue } from '@/utils/useUser';
+import { useUser, getToppromoterCommissionsDue } from '@/utils/useUser';
 import { useCompany } from '@/utils/CompanyContext';
 import SEOMeta from '@/templates/SEOMeta'; 
 import { postData, priceStringDivided, checkUTCDateExpired, UTCtoString } from '@/utils/helpers';
@@ -67,7 +67,7 @@ export default function BillingPage() {
   };
   
   if(commissions?.length === 0 && planDetails === 'free'){
-    getReflioCommissionsDue(team?.team_id).then(results => {
+    getToppromoterCommissionsDue(team?.team_id).then(results => {
       if(results !== 'error' && results?.data?.length){
         setCommissions(results);
       }

@@ -1,5 +1,5 @@
 # API Docs
-Welcome to Reflio’s API documentation. We’re still in the process of refining the examples and adding more endpoints, if you are experiencing any issues please get in touch.
+Welcome to Toppromoter’s API documentation. We’re still in the process of refining the examples and adding more endpoints, if you are experiencing any issues please get in touch.
 
 ### Getting your Auth token (POST)
 **Request URL:** https://api.toppromoter.com/auth/v1/token
@@ -69,7 +69,7 @@ const response = {
     }
 }
 
-document.cookie = `reflioData=${JSON.stringify(response.referral_details)}; expires=${response.referral_details.cookie_date}`;
+document.cookie = `toppromoterData=${JSON.stringify(response.referral_details)}; expires=${response.referral_details.cookie_date}`;
 ```
 
 ### Retrieving a referral (POST)
@@ -109,7 +109,7 @@ const response = {
     }
 }
 
-document.cookie = `reflioData=${JSON.stringify(response.referral_details)}; expires=${response.referral_details.cookie_date}`;
+document.cookie = `toppromoterData=${JSON.stringify(response.referral_details)}; expires=${response.referral_details.cookie_date}`;
 ```
 
 ### Get campaign details (POST)

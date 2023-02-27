@@ -38,8 +38,8 @@ To change the status of a referral to “Signed up”,  you need to run the belo
 With Toppromoter, there are two ways for you to track the referral conversion process. The default method is with webhooks, which were set up earlier in the process when you connected your payment processor.
 
 ##### Tracking conversions with Stripe automatically:
-By default, when your referral passes the “Signed up” stage and the signup email has been attached to the referral, we will automatically search your connected Stripe account for a customer object with the same email. If a match is found, we will add a metafield property called `reflio_referral_id`, which contains the referral ID of the referral.
-Stripe will automatically send a webhook to Toppromoter when a new payment is received. From there, we will check to see if the `reflio_referral_id` exists on the customer object.
+By default, when your referral passes the “Signed up” stage and the signup email has been attached to the referral, we will automatically search your connected Stripe account for a customer object with the same email. If a match is found, we will add a metafield property called `toppromoter_referral_id`, which contains the referral ID of the referral.
+Stripe will automatically send a webhook to Toppromoter when a new payment is received. From there, we will check to see if the `toppromoter_referral_id` exists on the customer object.
 
 ##### Tracking conversions with Stripe manually:
 Alternatively, if no metafield is found on the customer object, we will check the payment object from the incoming webhook to see if the metafield was found here instead. 
@@ -52,7 +52,7 @@ const session = await stripe.checkout.sessions.create({
   ],
   {
     metadata: {
-        reflio_referral_id: your_referral_id
+      toppromoter_referral_id: your_referral_id
     }
   },
   mode: 'payment'
@@ -68,7 +68,7 @@ For example, your signup form might look something like this:
   <button>Sign Up</button>
 </form>
 ```
-If the current visitor came to your site from an affiliate link, Toppromoter will detect the `data-toppromoter` attribute on each form and automatically insert a hidden input named `reflio_referral_id` with the unique referral ID as the value. For example:
+If the current visitor came to your site from an affiliate link, Toppromoter will detect the `data-toppromoter` attribute on each form and automatically insert a hidden input named `toppromoter_referral_id` with the unique referral ID as the value. For example:
 ``` html copy
 <form action="/signup" method="post" data-toppromoter>
   <input type="email" name="email" id="email"/>
@@ -76,10 +76,10 @@ If the current visitor came to your site from an affiliate link, Toppromoter wil
   <button>Sign Up</button>
   
   <!-- This input was inserted automatically by Toppromoter -->
-  <input type="hidden" value="78476c40-0137-11eb" name="reflio_referral_id" id="reflio_referral_id"/>
+  <input type="hidden" value="78476c40-0137-11eb" name="toppromoter_referral_id" id="toppromoter_referral_id"/>
 </form>
 ```
-When the form is submitted, the `POST` data sent to your server will include the `reflio_referral_id` parameter, along with the rest of your other form data. 
+When the form is submitted, the `POST` data sent to your server will include the `toppromoter_referral_id` parameter, along with the rest of your other form data. 
 Alternatively, you can use the `Toppromoter.checkCookie()` function on the front-end to check if a referral cookie is found. It will return `null` if there is no cookie, and a JSON object if found. The JSON object will look something like this:
 ```JSON
 {
