@@ -25,6 +25,16 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/shuding/nextra-docs-template',
   },
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Toppromoter Documentation" />
+      <meta property="og:description" content="Create an affiliate program for your SaaS in minutes" />
+      <link rel="icon" href="/tpr-favicon.svg" type="image/x-icon" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/tpr-favicon.svg" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/tpr-favicon.svg" />
+    </>
+  ),
 }
 
 export default config
