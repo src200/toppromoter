@@ -50,7 +50,7 @@ export const Features = () => {
   
   return(
     <div>
-      <dl className="gap-y-10 grid grid-cols-1 gap-x-0 md:gap-y-20 md:grid-cols-2 md:gap-x-20">
+      <dl className="gap-y-10 grid grid-cols-1 gap-x-0 md:gap-y-20 md:grid-cols-2 md:gap-x-20 text-gray-700">
         {features.map((feature) => (
           <div>
             <dt>

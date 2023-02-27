@@ -6,6 +6,13 @@ import { useCompany } from '@/utils/CompanyContext';
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import LoadingDots from '@/components/LoadingDots'; 
 
+let toast;
+if (typeof window !== 'undefined' ) {
+  import('react-hot-toast').then(({ toast: t }) => {
+    toast = t;
+  })
+}
+
 export default function Onboarding() {
   const router = useRouter();
   const { user } = useUser();
@@ -43,7 +50,7 @@ export default function Onboarding() {
       }
       
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   };
 

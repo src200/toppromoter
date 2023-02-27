@@ -1636,6 +1636,18 @@ select {
   border-radius: 0px;
 }
 
+.rounded-\[12px\] {
+  border-radius: 12px;
+}
+
+.rounded-\[18px\] {
+  border-radius: 18px;
+}
+
+.rounded-\[22px\] {
+  border-radius: 22px;
+}
+
 .rounded-r-none {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -1764,6 +1776,10 @@ select {
 
 .border-primary {
   border-color: var(--primary);
+}
+
+.border-primary-3 {
+  border-color: var(--primary-3);
 }
 
 .border-b-primary-3 {
@@ -2067,6 +2083,11 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .pt-6 {

@@ -7,18 +7,19 @@ import Features from '@/components/Features';
 import Testimonials from '@/components/Testimonials';
 
 export default function Products() {
-
   const [products, setProducts] = useState(null);
 
   const getProducts = async () => {
-    setProducts(await getActiveProductsWithPrices());
+    const productsWithPrices = await getActiveProductsWithPrices();
+    setProducts(productsWithPrices);
   };
 
   useEffect(() => {
-    {
-      products == null &&
-      getProducts();
-    }
+    (async () => {
+      if (!products) {
+        await getProducts();
+      }
+    })();
   }, [products]);
   
   return(
@@ -26,12 +27,18 @@ export default function Products() {
       <SEOMeta 
         title="Pricing"
       />
-      <div className="relative bg-gradient-to-b from-white to-gray-200 py-24">
+      <div className="relative bg-white py-5">
         <div className="wrapper">
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            <p className="text-primary text-medium font-bold mb-5">
               Pricing
+            </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+              Pricing plans for teams of all sizes
             </h1>
+            <p className="text-xl text-gray-500 font-semibold mt-5">
+              Choose an affordable plan that's packed with the best features and start driving sales.
+            </p>
           </div>
           <div>
             {
@@ -43,12 +50,12 @@ export default function Products() {
                 </div>
             }
           </div>
-          <div className="py-14 md:pt-32 md:pb-24">
+          {/* <div className="py-14 md:pt-32 md:pb-24">
             <Testimonials small />
-          </div>
-          <div className="py-14 md:py-24">
+          </div> */}
+          {/* <div className="py-14 md:py-24">
             <Features />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

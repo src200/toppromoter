@@ -6,6 +6,13 @@ import { useUser } from '@/utils/useUser';
 import Button from '@/components/Button'; 
 import PricingFeatures from '@/components/PricingFeatures'; 
 
+let toast;
+if (typeof window !== 'undefined' ) {
+  import('react-hot-toast').then(({ toast: t }) => {
+    toast = t;
+  })
+}
+
 export const Pricing = ({ products }) => {
   const router = useRouter();
   const { userDetails, session, planDetails } = useUser();
@@ -28,7 +35,7 @@ export const Pricing = ({ products }) => {
       const stripe = await getStripe();
       stripe.redirectToCheckout({ sessionId });
     } catch (error) {
-      return alert(error.message);
+      return toast.error(error.message);
     } finally {
       setPriceIdLoading(false);
     }
@@ -47,16 +54,16 @@ export const Pricing = ({ products }) => {
       <div>
         <div>
           <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
-            <div key="free" className="border-2 border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200 bg-white">
+            <div key="free" className="border-2 border-gray-100 rounded-[22px] bg-white">
               <div className="p-6">
-                <h2 className="text-2xl leading-6 font-semibold text-gray-900">*Free</h2>
+                <h2 className="text-xl font-bold leading-6 text-gray-900">Free</h2>
                 <p className="mt-8">
                   <span className="text-2xl font-extrabold text-gray-900">9%</span>
-                  <span className="text-base font-medium text-gray-500"> fee per successful referral*</span>
+                  <span className="text-medium font-semibold text-gray-600"> fee per successful referral*</span>
                 </p>
                 <Button
                   medium
-                  gray
+                  outline
                   className="mt-8 w-full"
                   href="/signup"
                 >
@@ -75,26 +82,21 @@ export const Pricing = ({ products }) => {
               }).format(product.prices[0].unit_amount / 100);
 
               return (
-                <div key={product?.name} className={`${product?.name === "Pro" ? 'bg-secondary border-secondary-2' : 'bg-white border-gray-200'} border-2 rounded-lg shadow-sm divide-y divide-gray-200 relative`}>
+                <div key={product?.name} className={`${product?.name === "Pro" ? 'border-primary' : 'bg-white'} border-2 rounded-[22px] relative`}>
                   <div className="p-6">
-                    {
-                      product?.name === "Pro" &&
-                      <div className="py-1.5 px-3 bg-white absolute top-3 right-3 rounded-md text-xs uppercase font-bold">
-                        Recommended
-                      </div>
-                    }
-                    <h2 className={`${product?.name === "Pro" ? 'text-white' : 'text-gray-900'} text-2xl leading-6 font-semibold`}>
+                    <h2 className={`${product?.name === "Pro" ? 'text-primary' : 'text-gray-900'} text-xl leading-6 font-bold`}>
                       {product?.name}
                     </h2>
                     <p className="mt-8">
-                      <span className={`${product?.name === "Pro" ? 'text-white' : 'text-gray-900'} text-4xl font-extrabold`}>{priceString}</span>
-                      <span className={`${product?.name === "Pro" ? 'text-white' : 'text-gray-500'} text-xl font-medium`}>/mo - <span className="text-base">(0% fee)</span></span>
+                      <span className='text-gray-900 text-4xl font-bold'>{priceString}</span>
+                      <span className='text-medium font-semibold text-gray-600'> /month - <span className="text-base">(0% fee)</span></span>
                     </p>
                     <Button
                       disabled={planDetails === product?.name}
                       medium
-                      secondary
-                      className={`${product?.name === "Pro" && 'bg-white border-gray-200 hover:bg-gray-100 text-black'} mt-8 w-full`}
+                      outline={product?.name !== "Pro"}
+                      primary={product?.name === "Pro"}
+                      className='mt-8 w-full'
                       onClick={() => handleCheckout(product?.prices[0].id)}
                     >
                       {planDetails === product?.name ? 'Current Plan' : priceIdLoading === product?.prices[0].id ? 'Loading...' : `Subscribe to ${product?.name}`}

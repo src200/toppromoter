@@ -196,10 +196,10 @@ export const PricingFeatures = ({ productName, normal }) => {
             <li key={index} className={`${feature.type === 'ineligible' && 'opacity-50'} flex space-x-2`}>
               {
                 feature.type === 'eligible' ?
-                  <CheckIcon className={`${capitalizedName === "Pro" && !normal ? 'text-white' : 'text-green-600'} h-6 w-6`}/>
-                : <XIcon className={`${capitalizedName === "Pro" && !normal ? 'text-white' : 'text-gray-500'} h-6 w-6`}/>
+                  <CheckIcon className= 'text-green-600 h-6 w-6'/>
+                : <XIcon className='text-gray-500 h-6 w-6'/>
               }
-              <span className={`${capitalizedName === "Pro" && !normal ? 'text-white' : 'text-gray-500'} text-base`}>{feature.text}</span>
+              <span className='text-gray-500text-base'>{feature.text}</span>
             </li>
           )
         })
