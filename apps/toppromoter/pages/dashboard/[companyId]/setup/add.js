@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import SetupProgress from '@/components/SetupProgress'; 
-import { CopyBlock, monokaiSublime } from 'react-code-blocks';
+import { CopyBlock, atomOneLight } from 'react-code-blocks';
 import Button from '@/components/Button'; 
 import Card from '@/components/Card'; 
 import { SEOMeta } from '@/templates/SEOMeta'; 
@@ -40,22 +40,22 @@ export default function TrackingSetupPage() {
               <h3 className="text-2xl font-semibold mb-1">
                 Step 1: Installing the snippet on your website
               </h3>
-              <p className="text-lg mb-5">
+              <p className="text-md mb-5">
                 Paste the following JavaScript snippet into your website&apos;s
                 { ' ' }
-                <code className="text-lg tracking-tight font-bold text-pink-500">
+                <code className="text-md tracking-tight font-bold text-pink-500">
                   { '<head>' }
                 </code>
                 { ' ' }
                 tag
               </p>
-              <div className="w-full rounded-lg text-lg overflow-hidden border-2 border-gray-100">
+              <div className="w-full rounded-lg text-md overflow-hidden border-2 border-gray-100 bg-primary-3">
                 <CopyBlock
                   text={ embedCode }
                   language='javascript'
                   showLineNumbers={ false }
                   startingLineNumber={ 1 }
-                  theme={ monokaiSublime }
+                  theme={ atomOneLight }
                   codeBlock
                 /> 
               </div>
@@ -64,32 +64,32 @@ export default function TrackingSetupPage() {
               <h3 className="text-2xl font-semibold mb-1">
                 Step 2: Tracking the referral
               </h3>
-              <p className="text-lg mb-5">
+              <p className="text-md mb-5">
                 To track a referral on your website, you need to run the below function when you are first creating the user. This process usually happens on your sign up page.
                 { ' ' }
                 <strong>
                   You should do this for every sign up to make sure you catch all valid referrals. It doesn&rsquo;t matter if you send every single sign up to Toppromoter; our system will only save users who signed up after visiting a referral link, and has a valid cookie in their browser.
                 </strong>
               </p>
-              <div className="w-full rounded-xl text-lg overflow-hidden shadow-lg">
+              <div className="w-full rounded-lg text-md overflow-hidden border-2 border-gray-100">
                 <CopyBlock
                   text={ scriptCode }
                   language='javascript'
                   showLineNumbers={ false }
-                  theme={ monokaiSublime }
+                  theme={ atomOneLight }
                   codeBlock
                 /> 
               </div>
               {
                 activeCompany?.payment_integration_type === 'stripe' && 
-                <p className="text-lg mt-3">
+                <p className="text-md mt-3">
                   Toppromoter will automatically add the referral ID to an existing Stripe customer with the same email address, or later if the Stripe customer is created at a different time. When the user converts to a paying customer, Toppromoter will automatically create a commission if there was an eligible referral ID associated with that user.
                 </p>
               }
-              <p className="text-lg mt-4">
+              <p className="text-md mt-4">
                 For more detailed instructions on setting Toppromoter up, as well as more details on features such as Cross Sub-Domain Tracking, Auto Cookie Consent Collection, and more, visit our
                 { ' ' }
-                <a href="https://toppromoter.com/resources/quickstart-guide" target="_blank" rel="noreferrer" className="underline font-bold">
+                <a href="https://docs.toppromoter.io" target="_blank" rel="noreferrer" className="underline font-bold">
                   QuickStart Guide.
                 </a>
               </p>
@@ -100,16 +100,16 @@ export default function TrackingSetupPage() {
                 <h3 className="text-2xl font-semibold mb-1">
                   Step 3: Add referral data to your Paddle checkout
                 </h3>
-                <p className="text-lg mb-1">
+                <p className="text-md mb-1">
                   For Paddle based integrations, you will need to pass the referral ID to your Paddle checkout function.
                   { ' ' }
                 </p>
-                <p className="text-lg mb-3">
+                <p className="text-md mb-3">
                   <strong>
                     Your initial Paddle checkout setup code will look something like this:
                   </strong>
                 </p>
-                <div className="w-full rounded-xl text-lg overflow-hidden shadow-lg">
+                <div className="w-full rounded-xl text-md overflow-hidden border-2 border-gray-100 bg-primary-3">
                   <CopyBlock
                     text={ 
                       `<a href="#" id="buy-button">Buy now!</a>
@@ -122,16 +122,16 @@ export default function TrackingSetupPage() {
                     }
                     language='javascript'
                     showLineNumbers={ false }
-                    theme={ monokaiSublime }
+                    theme={ atomOneLight }
                     codeBlock
                   /> 
                 </div>
-                <p className="text-lg mt-4 mb-4">
+                <p className="text-md mt-4 mb-4">
                   <strong>
                     You will need to update the code to include an additional passthrough parameter which contains the Toppromoter referral ID, the parameter should look like this:
                   </strong>
                 </p>
-                <div className="w-full rounded-xl text-lg overflow-hidden shadow-lg">
+                <div className="w-full rounded-xl text-md overflow-hidden border-2 border-gray-100">
                   <CopyBlock
                     text={ `<a href="#" id="buy-button">Buy now!</a>
                       <script type="text/javascript">
@@ -150,31 +150,31 @@ export default function TrackingSetupPage() {
                     }
                     language='javascript'
                     showLineNumbers={ false }
-                    theme={ monokaiSublime }
+                    theme={ atomOneLight }
                     codeBlock
                   /> 
                 </div>
-                <p className="text-lg mt-4 mb-4">
+                <p className="text-md mt-4 mb-4">
                   Using the
                   { ' ' }
-                  <code className="text-lg tracking-tight font-bold text-pink-500">
+                  <code className="text-mdtracking-tight font-bold text-pink-500">
                     if typeof
                   </code>
                   { ' ' }
                   statement, we are ensuring that the Toppromoter script is definitely detected, meaning we can safely run the
                   { ' ' }
-                  <code className="text-lg tracking-tight font-bold text-pink-500">
+                  <code className="text-md tracking-tight font-bold text-pink-500">
                     Toppromoter.getReferralId()
                   </code>
                   { ' ' }
                   function. If no referral is found in the user&apos;s browser, this value will automatically default to
                   { ' ' }
-                  <code className="text-lg tracking-tight font-bold text-pink-500">
+                  <code className="text-md tracking-tight font-bold text-pink-500">
                     null
                   </code>
                   .
                 </p>
-                <p className="text-lg">
+                <p className="text-md">
                   Once the checkout is complete, Toppromoter will automatically handle the commisssion creation via the Paddle webhooks you setup earlier.
                 </p>
               </div>

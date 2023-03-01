@@ -101,7 +101,7 @@ export default function SingleCampaignPage() {
                     </div> 
                   </div>
                 :
-                  <LoadingDots />
+                  <LoadingDots className='mx-auto my-0' />
               }
           </div>
         </div>

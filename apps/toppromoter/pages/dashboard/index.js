@@ -6,7 +6,7 @@ export default function DashboardPage() {
     <>
       <SEOMeta title="Dashboard" />
       <div className="pt-12 wrapper">
-        <LoadingDots />
+        <LoadingDots className='mx-auto my-0' />
       </div>
     </>
   );

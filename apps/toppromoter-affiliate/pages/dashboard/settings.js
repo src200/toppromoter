@@ -13,14 +13,15 @@ const SettingsPage = () => {
   const [emailInput, setEmailInput] = useState(null);
   const [emailValid, setEmailValid] = useState(null);
 
-  const handlePaypalEmail = async (email) => {    
+  const handlePaypalEmail = async (email) => {  
+    setLoading(true);  
     await paypalEmail(user?.id, email).then((result) => {
-      console.log(result);
       if(result === 'success'){
         setErrorMessage(null);
-        router.reload();
+        setLoading(false);
       } else {
         setErrorMessage('Unable to change your PayPal email. Please contact support, or try again later.');
+        setLoading(false);
       }
     });
   };
@@ -65,11 +66,9 @@ const SettingsPage = () => {
               </div>
             </div>
           </div>
-          {
-            emailInput !== null && emailValid && emailInput?.length > 4 && emailInput?.includes('@') &&
-            <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+            <div className="p-6 bg-white flex items-center justify-start">
               <Button
-                medium
+                small
                 primary
                 disabled={ loading }
                 onClick={ e=>{handlePaypalEmail(emailInput)} }>
@@ -78,7 +77,6 @@ const SettingsPage = () => {
                 </span>
               </Button>
             </div>
-          }
           {
             !emailValid && emailValid !== null && emailInput?.length > 4 &&
             <div className="border-t-4 p-6 bg-white flex items-center justify-start">

@@ -125,7 +125,7 @@ const CampaignsList = (props) => {
           :
           userAffiliateDetails === null ?
             <div>
-              <LoadingDots />
+              <LoadingDots className='mx-auto my-0' />
             </div>
           : userAffiliateDetails?.length === 0 &&
             <div>

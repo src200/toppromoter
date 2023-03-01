@@ -387,7 +387,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
               </div>
             </div>
 
-            <div className="px-6">
+            <div className="px-6 py-2">
               <div className="sm:col-span-12">
                 <div className="relative flex items-start">
                   <div className="flex items-center h-5">

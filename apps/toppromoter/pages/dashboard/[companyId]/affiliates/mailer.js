@@ -205,9 +205,9 @@ ${activeCompany?.company_name}` }
               </form>
             </div>
           :
-            <div>
-              <LoadingDots />
-            </div>
+            <>
+              <LoadingDots className='mx-auto my-0' />
+            </>
         }
       </div>
     </>

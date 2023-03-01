@@ -428,7 +428,7 @@ export default function HomePage() {
                 </div>
               </>
               : 
-                (loading && <LoadingDots />)
+                (loading && <LoadingDots className='mx-auto my-0'/>)
             }
           </div>
         </div>

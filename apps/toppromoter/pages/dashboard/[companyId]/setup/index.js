@@ -6,7 +6,7 @@ export default function SetupPage() {
 
   return (
     <div className="pt-12 wrapper">
-      <LoadingDots />
+      <LoadingDots className='mx-auto my-0' />
     </div>
   );
 }

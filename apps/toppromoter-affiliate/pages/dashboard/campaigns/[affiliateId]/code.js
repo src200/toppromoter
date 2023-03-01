@@ -80,7 +80,7 @@ const AffiliateCodePage = () => {
       <div className="wrapper">
         {
           affiliateFiltered === null ?
-            <LoadingDots />
+            <LoadingDots className='mx-auto my-0' />
           :
             <form action="#" method="POST" onSubmit={ handleSubmit } className="bg-white rounded-lg mt-5 max-w-3xl border-2 border-gray-100">
               <div className="p-6 sm:p-8">

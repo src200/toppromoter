@@ -680,7 +680,7 @@ export default function StripeSetupPage() {
               </form>
             :
               <div className="py-4">
-                <LoadingDots />
+                <LoadingDots className='mx-auto my-0'/>
               </div>
           }
         </div>

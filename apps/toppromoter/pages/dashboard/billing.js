@@ -251,7 +251,7 @@ export default function BillingPage() {
                         </p>
                     :
                         <div className="my-6">
-                          <LoadingDots />
+                          <LoadingDots className='mx-auto my-0' />
                         </div>
                       
                   }
@@ -307,7 +307,7 @@ export default function BillingPage() {
                   </div>
                 :
                   <div className="flex items-center justify-center mt-24">
-                    <LoadingDots />
+                    <LoadingDots className='mx-auto my-0'/>
                   </div>
               }
             </div>

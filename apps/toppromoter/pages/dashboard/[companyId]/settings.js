@@ -247,7 +247,7 @@ export default function CompanySettingsPage() {
               onChange={ e=>{handleDisableEmails(activeCompany?.disable_emails ? false  : true)} }
               className={ classNames(
                 !activeCompany?.disable_emails ? 'bg-green-600' : 'bg-red-600',
-                'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-md cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200'
+                'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200'
               ) }>
               <span className="sr-only">
                 Use setting
@@ -256,7 +256,7 @@ export default function CompanySettingsPage() {
                 aria-hidden="true"
                 className={ classNames(
                   !activeCompany?.disable_emails ? 'translate-x-5' : 'translate-x-0',
-                  'pointer-events-none inline-block h-5 w-5 rounded-md bg-white shadow transform ring-0 transition ease-in-out duration-200'
+                  'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'
                 ) }
               />
             </Switch>
@@ -287,7 +287,7 @@ export default function CompanySettingsPage() {
                     name="api_key"
                     id="api_key"
                     autoComplete="api_key"
-                    className="flex-1 block w-full min-w-0 h-full focus:outline-none sm:text-md rounded-lg border-2 border-gray-300 p-2 px-3"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                 :
                   <Button

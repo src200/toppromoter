@@ -16,7 +16,7 @@ export default function TeamPage() {
         <div
           className="relative block w-full bg-gray-100 border-2 border-gray-300 border-dashed rounded-lg p-12 text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 max-w-2xl">
           <div className="flex justify-center mb-3">
-            <LoadingDots />
+            <LoadingDots className='mx-auto my-0'/>
           </div>
           <span className="mt-2 block text-base font-medium text-gray-600">
             Team features are coming soon.

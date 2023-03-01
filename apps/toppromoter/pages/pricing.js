@@ -46,7 +46,7 @@ export default function Products() {
                 <Pricing products={ products } />
               :
                 <div className="flex items-center justify-center">
-                  <LoadingDots />
+                  <LoadingDots className='mx-auto my-0' />
                 </div>
             }
           </div>

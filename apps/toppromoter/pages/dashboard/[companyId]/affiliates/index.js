@@ -165,7 +165,7 @@ export default function InnerDashboardPage() {
               </a>
             </div>
           :
-            <LoadingDots />
+            <LoadingDots className='mx-auto my-0'/>
         }
       </div>
     </>

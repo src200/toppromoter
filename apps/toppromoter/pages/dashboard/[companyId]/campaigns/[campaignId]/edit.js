@@ -38,9 +38,9 @@ export default function EditCampaignPage() {
             activeCampaign !== null && activeCampaign !== 'none' ?
               <CampaignForm edit={ activeCampaign } />
             :
-              <div>
-                <LoadingDots />
-              </div>
+              <>
+                <LoadingDots className='mx-auto my-0'/>
+              </>
           }
         </div>
       </div>

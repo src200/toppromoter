@@ -159,7 +159,7 @@ const CommissionsPage = () => {
                 </div>
               </div>
           :
-              <LoadingDots />
+              <LoadingDots className='mx-auto my-0' />
         }
       </div>
     </>
