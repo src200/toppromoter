@@ -120,11 +120,11 @@ const ReferralsPage = () => {
                               <td className="whitespace-nowrap px-3 py-4 text-sm">
                                 {
                                     referral?.referral_converted === true ?
-                                      <div className={ 'bg-secondary-2 text-white inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5' }>
+                                      <div className={ 'bg-success text-white inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5' }>
                                         Converted
                                       </div>
                                     : referral?.referral_reference_email !== null ?
-                                      <div className={ 'bg-orange-400 text-orange-900 inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5' }>
+                                      <div className={ 'bg-orange-400 text-white inline-flex rounded-md px-3 py-1 text-xs font-semibold leading-5' }>
                                         Signed up
                                       </div>
                                     :

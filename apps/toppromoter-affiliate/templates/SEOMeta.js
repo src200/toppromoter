@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 function SEOMeta({ title, description, keywords, img }) {
   let setTitle = title ?? 'Toppromoter: Create a privacy-friendly referral program for your SaaS.';
-  let setDescription = description ?? 'Create a privacy-friendly referral program for your SaaS. GDPR Friendly. Based in the UK. European-owned infrastructure.';
+  let setDescription = description ?? 'Create a privacy-friendly referral program for your SaaS.';
   let setKeywords = keywords ?? 'Toppromoter, Referral software, create referral program, stripe referral program';
   let setImg = img ?? '/og.png';
 

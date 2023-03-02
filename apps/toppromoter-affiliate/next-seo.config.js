@@ -1,6 +1,6 @@
 export default {
   title: 'Toppromoter: Create a privacy-friendly referral program for your SaaS.',
-  description: 'Create a privacy-friendly referral program for your SaaS. GDPR Friendly. Based in the UK. European-owned infrastructure.',
+  description: 'Create a privacy-friendly referral program for your SaaS.',
   keywords: 'Toppromoter, Referral software, create referral program, stripe referral program',
   openGraph: {
     type: 'website',
