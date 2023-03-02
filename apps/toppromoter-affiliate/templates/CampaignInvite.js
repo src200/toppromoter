@@ -58,7 +58,7 @@ export default function CampaignInvite({ publicCampaignData }) {
                   <h1 className="text-3xl mb-2">Sorry, this campaign could not be found</h1>
                   <p className="text-xl">Please <a href="#" className="underline font-bold">let us know</a> if you were expecting something else.</p>
                 </div>
-                <div className="border-t-4 mt-10 pt-8">
+                <div className=" mt-10 pt-8">
                   <a href={`${process.env.NEXT_PUBLIC_SITE_URL}?ref=CampaignNotFound`}>
                     <Logo className="w-36 h-auto mx-auto"/>
                   </a>

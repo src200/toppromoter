@@ -79,7 +79,7 @@ const SettingsPage = () => {
             </div>
           {
             !emailValid && emailValid !== null && emailInput?.length > 4 &&
-            <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+            <div className=" p-6 bg-white flex items-center justify-start">
               <div className="bg-red-600 text-center p-4 rounded-lg">
                 <p className="text-white text-sm font-medium">
                   The email you entered is not valid. Please check it and try again.

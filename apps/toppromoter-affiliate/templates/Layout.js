@@ -100,25 +100,20 @@ function Layout({ children }) {
         reverseOrder={ true }
         gutter={ 20 }
         toastOptions={ {
-          className: '',
-          duration: 5000,
-          style: {
-            background: '#fff',
-            color: '#111827',
-          },
-          // Default options for specific types
-          success: {
-            theme: {
-              primary: 'green',
-              secondary: 'black',
+            className: '',
+            duration: 5000,
+            success: {
+              style: {
+                background: '#F0FDF4',
+                color: '#28A745',
+              },
             },
-          },
-          error: {
-            style: {
-              background: '#DC2626',
-              color: 'white',
+            error: {
+              style: {
+                background: '#FEF2F2',
+                color: '#DC3545',
+              },
             },
-          },
         } }
       />
       {

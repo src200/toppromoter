@@ -200,7 +200,7 @@ export default function StripeSetupPage() {
                 </div>
                 {
                   altPayment !== null &&
-                    <form className="mt-7 pt-5 border-t-4 border-dashed" onSubmit={ handleSubmit }>
+                    <form className="mt-7 pt-5  border-dashed" onSubmit={ handleSubmit }>
                       {
                         altPayment === 'paddle' &&
                         <>

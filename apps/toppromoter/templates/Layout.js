@@ -67,20 +67,16 @@ export default function Layout({ children }) {
         toastOptions={ {
             className: '',
             duration: 5000,
-            style: {
-              background: '#fff',
-              color: '#111827',
-            },
             success: {
-              theme: {
-                primary: 'green',
-                secondary: 'black',
+              style: {
+                background: '#F0FDF4',
+                color: '#28A745',
               },
             },
             error: {
               style: {
-                background: '#DC2626',
-                color: 'white',
+                background: '#FEF2F2',
+                color: '#DC3545',
               },
             },
         } }

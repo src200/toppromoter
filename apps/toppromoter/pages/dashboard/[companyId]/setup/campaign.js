@@ -64,7 +64,7 @@ export default function AddCompany() {
                   Edit campaign
                 </a>
               </div>
-              <div className="pt-8 border-t-4">
+              <div className="pt-8 ">
                 <Button
                   small
                   primary

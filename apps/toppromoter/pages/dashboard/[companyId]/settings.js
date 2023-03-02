@@ -9,6 +9,7 @@ import { classNames, checkValidUrl, slugifyString } from '@/utils/helpers';
 import Button from '@/components/Button'; 
 import Card from '@/components/Card'; 
 import CompanyLogoUpload from '@/components/CompanyLogoUpload'; 
+import Alerts from '@/components/Alerts';
 import toast from 'react-hot-toast';
 
 export default function CompanySettingsPage() {
@@ -152,8 +153,8 @@ export default function CompanySettingsPage() {
               </div>
             </div>
             {
-              websiteUrlInput !== null && websiteUrlInput !== activeCompany?.company_url && urlValid &&
-              <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+             urlValid &&
+              <div className="p-6 px-0 bg-white flex items-center justify-start">
                 <Button
                   small
                   primary
@@ -166,13 +167,9 @@ export default function CompanySettingsPage() {
             }
             {
               !urlValid && urlValid !== null &&
-              <div className="border-t-4 p-6 bg-white flex items-center justify-start">
-                <div className="bg-red-600 text-center p-4 rounded-lg">
-                  <p className="text-white text-sm font-medium">
-                    The URL you entered is not valid. Please check it and try again.
-                  </p>
-                </div>
-              </div>
+              <Alerts type='error'>
+                The URL you entered is not valid. Please check it and try again.
+              </Alerts>
             }
           </form>
         </Card>
@@ -190,7 +187,6 @@ export default function CompanySettingsPage() {
                   </span>
                   <input
                     minLength="3"
-                    maxLength="25"
                     required
                     value={ companyHandleInput !== null ? companyHandleInput : activeCompany?.company_handle && activeCompany?.company_handle }
                     placeholder="companyHandle"
@@ -209,7 +205,7 @@ export default function CompanySettingsPage() {
             </div>
             {
               companyHandleInput !== null && companyHandleInput !== activeCompany?.company_handle &&
-              <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+              <div className=" p-6 px-0 bg-white flex items-center justify-start">
                 <Button
                   small
                   primary
@@ -222,13 +218,9 @@ export default function CompanySettingsPage() {
             }
             {
               !urlValid && urlValid !== null &&
-              <div className="border-t-4 p-6 bg-white flex items-center justify-start">
-                <div className="bg-red-600 text-center p-4 rounded-lg">
-                  <p className="text-white text-sm font-medium">
-                    The URL you entered is not valid. Please check it and try again.
-                  </p>
-                </div>
-              </div>
+               <Alerts type='error'>
+                The URL you entered is not valid. Please check it and try again.
+              </Alerts>
             }
           </form>
         </Card>

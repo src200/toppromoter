@@ -87,7 +87,7 @@ export default function CreateTeam() {
                 </div>
               </div>
             </div>
-            <div className="border-t-4 p-6 bg-white flex items-center justify-start">
+            <div className="p-6 bg-white flex items-center justify-start">
               <Button
                 small
                 primary
