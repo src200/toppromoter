@@ -84,7 +84,7 @@ export default function CampaignCustomizerPage() {
     
     await editCampaignMeta(activeCampaign?.campaign_id, campaignEditData).then((result) => {
       if(result === 'success'){
-        toast.success('Saved');
+        toast.success('Saved customization');
         router.reload();
       } else {
         toast.error('Unable to save data. Please try again later.');
@@ -97,27 +97,26 @@ export default function CampaignCustomizerPage() {
   return (
     <>
       <SEOMeta title="Customize Campaign" />
-      <div className="h-screen overflow-hidden w-full dotted-background">
-        <div className="h-[70px] bg-secondary flex items-center justify-between px-8 border-b-4">
+      <div className="py-8">
+        <div className="wrapper">
+          <Button
+            href={ `/dashboard/${router?.query?.companyId}/campaigns` }
+            className='p-0'
+            small
+            ghost>
+            <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto" />
+            <span>
+              Back to campaigns
+            </span>
+          </Button>
+        </div>
+      </div>
+      <div className='wrapper'>
+        <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Button
-              href={ `/dashboard/${router?.query?.companyId}/campaigns` }
-              small
-              white>
-              <ArrowNarrowLeftIcon className="mr-2 w-6 h-auto" />
-              <span>
-                Back to dashboard
-              </span>
-            </Button>
-            <div className="ml-4">
-              <h1 className="text-xl text-white font-bold">
-                Campaign Page Customizer:
-                { ' ' }
-                <span className="text-gray-200 font-medium">
-                  { activeCampaign?.campaign_name }
-                </span>
-              </h1>
-            </div>
+            <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold mb-6">
+              Customize campaign
+            </h1>
           </div>
           <Button
             onClick={ e=>{saveRequired === true && saveButton()} }
@@ -129,19 +128,19 @@ export default function CampaignCustomizerPage() {
             </span>
           </Button>
         </div>
-        <div className="flex w-full h-full overflow-hidden">
-          <div className="w-[500px] border-r-4 border-gray-200 bg-white overflow-y-scroll">
+        <div className="flex w-full border-2 border-gray-100 rounded-lg overflow-hidden">
+          <div className="w-[500px] border-r-2 border-gray-100 bg-white overflow-y-scroll">
             <div className="flex h-full">
-              <div className="w-14 h-full ">
+              {/* <div className="w-14 h-full ">
                 <div className="pt-4 flex flex-col items-center justify-center space-y-2">
                   <button onClick={ e=>{setTabType('details')} } className={ `${tabType === 'details' && 'bg-white border-gray-300'} w-10 h-10 border-2 rounded-xl flex justify-center items-center` }>
                     <PencilIcon className="w-6 h-6" />
                   </button>
-                  { /* <button onClick={e=>{setTabType("settings")}} className={`${tabType === "settings" && "bg-white border-gray-300"} w-10 h-10 border-2 rounded-xl flex justify-center items-center`}>
+                  <button onClick={e=>{setTabType("settings")}} className={`${tabType === "settings" && "bg-white border-gray-300"} w-10 h-10 border-2 rounded-xl flex justify-center items-center`}>
                     <AdjustmentsIcon className="w-6 h-6"/>
-                  </button> */ }
+                  </button> 
                 </div>
-              </div>
+              </div> */}
               <div className="flex flex-grow">
                 {
                   activeCampaign?.campaign_id ?
@@ -157,7 +156,7 @@ export default function CampaignCustomizerPage() {
                                 <label htmlFor="campaign_welcome_message" className="block font-semibold mb-2">
                                   Campaign Welcome Text
                                 </label>
-                                <div className="flex rounded-lg shadow-sm">
+                                <div className="flex rounded-lg">
                                   <textarea
                                     rows="3"
                                     name="campaign_welcome_message"
@@ -165,7 +164,7 @@ export default function CampaignCustomizerPage() {
                                     defaultValue={ campaignEditData?.campaign_welcome_message }
                                     onInput={ e=>{liveEditForm(e)} }
                                     maxLength="500"
-                                    className="flex-1 block w-full min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300">
+                                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                   </textarea>
                                 </div>
                               </div>
@@ -194,14 +193,14 @@ export default function CampaignCustomizerPage() {
                     </form>
                   :
                     <div className="flex w-full justify-center">
-                      <LoadingDots />
+                      <LoadingDots className='my-5' />
                     </div>
                 }
               </div>
             </div>
           </div>
           <div className="bg-white flex flex-grow items-center justify-center p-8 overflow-y-scroll">
-            <div className="rounded-xl p-8 shadow-xl border-4 border-gray-200 w-full h-full pointer-events-none cursor-not-allowed">
+            <div className="rounded-xl p-8 border-2 border-gray-100 w-full h-full pointer-events-none cursor-not-allowed">
               {
                 <CampaignInvitePageBlock publicCampaignData={ mergedCampaignData } editor={ true } editorData={ campaignEditData } />
               }

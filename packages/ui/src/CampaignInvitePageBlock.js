@@ -57,7 +57,7 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
       <div>
         {
           editor &&
-          <div className="bg-red-400 text-white inline-flex py-1.5 px-4 text-lg font-bold rounded-md">
+          <div className="bg-warning text-white inline-flex py-1.5 px-4 text-md font-bold rounded-md">
             PREVIEW MODE
           </div>
         }
@@ -79,7 +79,7 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
                       { publicCampaignData?.campaign_name }
                     </h2>
                   </div>
-                  <div className="p-8 rounded-xl bg-white shadow-lg border-4 border-gray-200 max-w-2xl mx-auto">
+                  <div className="p-8 rounded-xl bg-white border-2 border-gray-100 max-w-2xl mx-auto">
                     {
                       publicCampaignData?.campaign_public === true &&
                       <div>
@@ -145,7 +145,7 @@ export const CampaignInvitePageBlock = ({ publicCampaignData, campaignAlreadyJoi
             </div>
           : 
             <div>
-              <LoadingDots />
+              <LoadingDots className='mx-auto my-0' />
             </div>
         }
       </div>

@@ -67,7 +67,7 @@ export default function SingleCampaignPage() {
                           className="ml-3"
                           href={ `/dashboard/${router?.query?.companyId}/campaigns/${router?.query?.campaignId}/customize` }
                           small
-                          primary>
+                          secondary>
                           <span>
                             Customize campaign
                           </span>

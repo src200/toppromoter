@@ -43,13 +43,6 @@ export default function Layout({ children }) {
     dashboardPage = true;
   }
   
-  if(router.pathname.indexOf('/dashboard') > -1 && router.pathname.indexOf('/campaigns') > -1 && router.pathname.indexOf('/customize') > -1){
-    defaultPage = false;
-    dashboardPage = false;
-    simplePage = false;
-    campaignCustomizer = true;
-  }
-
   useEffect(() => {
     if(dashboardPage === true){
       if(userFinderLoaded){
@@ -71,12 +64,16 @@ export default function Layout({ children }) {
               style: {
                 background: '#F0FDF4',
                 color: '#28A745',
+                fontSize: '15px',
+                fontWeight: '500'
               },
             },
             error: {
               style: {
                 background: '#FEF2F2',
                 color: '#DC3545',
+                fontSize: '15px',
+                fontWeight: '500'
               },
             },
         } }
@@ -102,16 +99,6 @@ export default function Layout({ children }) {
                     </>
                   </main>
                 </div>
-              </div>
-            </div>
-          : campaignCustomizer === true ?
-            <div className="h-screen flex overflow-hidden">
-              <div className="flex-1 overflow-auto focus:outline-none">
-                <main className="flex-1 relative z-0 overflow-y-auto">
-                  <>
-                    { children }
-                  </>
-                </main>
               </div>
             </div>
           : (

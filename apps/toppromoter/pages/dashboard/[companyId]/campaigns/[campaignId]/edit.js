@@ -15,7 +15,7 @@ export default function EditCampaignPage() {
   return (
     <>
       <SEOMeta title="Edit campaign" />
-      <div>
+      <>
         <div className="py-8">
           <div className="wrapper p-0">
             <Button
@@ -43,7 +43,7 @@ export default function EditCampaignPage() {
               </>
           }
         </div>
-      </div>
+      </>
     </>
   );
 }
