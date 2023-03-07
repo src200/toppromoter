@@ -82,15 +82,12 @@ const CampaignsList = (props) => {
                                       </button>
                                     </CopyToClipboard>
                                   </p>
-                                  <Button
-                                    primary
-                                    small
-                                    href={ `/dashboard/campaigns/${campaign?.affiliate_id}/code` }
-                                    className="mt-4">
+                                  <a href={ `/dashboard/campaigns/${campaign?.affiliate_id}/code` }
+                                    className="mt-4 block underline text-sm font-bold text-primary">
                                     Edit referral code
-                                  </Button>
+                                  </a>
                                 </div> 
-                                <p className="text-gray-700 border-2 border-gray-100 p-3 rounded-lg mt-4 break-all text-sm">
+                                {/* <p className="text-gray-700 border-2 border-gray-100 p-3 rounded-lg mt-4 break-all text-sm">
                                   Tip: You can link to any page, just add
                                   { ' ' }
                                   <span className="font-bold text-secondary-2">
@@ -99,7 +96,7 @@ const CampaignsList = (props) => {
                                   </span>
                                   { ' ' }
                                   to the end of the URL to track your referral.
-                                </p>
+                                </p> */}
                               </td>
                               <td className="whitespace-nowrap p-4 text-sm font-semibold text-center">
                                 { campaign?.company_name }

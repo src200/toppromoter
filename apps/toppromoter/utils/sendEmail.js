@@ -100,5 +100,4 @@ export const sendEmail = async (subject, content, to, type, companyId, customId)
     console.log(error);
     console.log("Could not send email")
   }
-
 };

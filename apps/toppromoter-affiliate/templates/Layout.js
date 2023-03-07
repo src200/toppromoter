@@ -96,7 +96,7 @@ function Layout({ children }) {
   return (
     <>
       <Toaster
-        position="bottom-center"
+        position="top-center"
         reverseOrder={ true }
         gutter={ 20 }
         toastOptions={ {
@@ -124,7 +124,7 @@ function Layout({ children }) {
         : dashboardPage === true ?
           <div>
             <SimpleNav />
-            <div className="h-screen flex overflow-hidden">
+            <div className="flex overflow-auto h-screen" style={ {height: 'calc(100vh - 100px)'} }>
               <AdminDesktopNav/>
               <div className="flex-1 overflow-auto focus:outline-none">
                 <AdminMobileNav/>
