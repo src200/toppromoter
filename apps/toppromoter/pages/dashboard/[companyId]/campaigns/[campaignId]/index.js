@@ -63,15 +63,15 @@ export default function SingleCampaignPage() {
                             Edit campaign
                           </span>
                         </Button>
-                        { /* <Button
+                        <Button
                           className="ml-3"
                           href={ `/dashboard/${router?.query?.companyId}/campaigns/${router?.query?.campaignId}/customize` }
                           small
-                          secondary>
+                          primary>
                           <span>
                             Customize campaign
                           </span>
-                        </Button> */ }
+                        </Button>
                       </div>
                     </div>
                     <div className="mb-8">

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { uploadLogoImage } from '@/utils/useUser';
 import Button from '@/components/Button';
 import { useRouter } from 'next/router';
@@ -9,8 +9,13 @@ import toast from 'react-hot-toast';
 export const CompanyLogoUpload = () => {
   const router = useRouter();
   const { activeCompany } = useCompany();
+  const [logo, setLogo] = useState();
   const [logoError, setLogoError] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setLogo(activeCompany?.company_image);
+  }, [activeCompany?.company_image]);
       
   const handleFileClick = () => {
     if(fileInput.current){
@@ -24,7 +29,8 @@ export const CompanyLogoUpload = () => {
         await uploadLogoImage(router?.query?.companyId, e.target.files[0]).then((result: any) => {
           if(result !== 'error'){
             setLogoError(false);
-            router.replace(window.location.href);
+            setLogo(result?.Key);
+            toast.success('Uploaded company logo successfully');
           } else {
             toast.error('There was an error when uploading your image. Please make sure that it is either a JPG or PNG file and is less than 2mb.');
           }
@@ -36,6 +42,13 @@ export const CompanyLogoUpload = () => {
     }
   };
 
+  const getUpdatedLogo = () => {
+    if(logo) {
+      return <img alt="logo" src={process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL + logo} className="w-10 h-auto mr-4" />
+    }
+    return null;
+  }
+
   return(
     <>
       <h3 className="block font-bold text-gray-700">
@@ -43,10 +56,7 @@ export const CompanyLogoUpload = () => {
       </h3>
       <div>
         <div className="mt-3 flex items-center">
-          {
-            activeCompany?.company_image !== null &&
-            <img alt="Logo" src={ process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL+activeCompany?.company_image } className="w-10 h-auto mr-4" />
-          }
+          {getUpdatedLogo()}
           <input
             onChange={ handleFileUpload }
             type="file"
