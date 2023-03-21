@@ -2,25 +2,10 @@ import { CheckIcon, XIcon } from '@heroicons/react/solid';
 
 export const PricingParams = () => {
   return({
-    "free": {
-      "companies": 1,
-      "campaigns": 1,
-      "affiliates": 50
-    },
-    "indie": {
-      "companies": 2,
-      "campaigns": 2,
-      "affiliates": 500
-    },
-    "pro": {
-      "companies": 4,
-      "campaigns": 8,
-      "affiliates": 2000
-    },
-    "team": {
-      "companies": 10,
-      "campaigns": 30,
-      "affiliates": 5000
+    "standard": {
+      "companies": 'Unlimited',
+      "campaigns": 'Unlimited',
+      "affiliates": 'Unlimited'
     }
   })
 }
@@ -34,17 +19,17 @@ export const PricingFeatures = ({ productName, normal }) => {
   const plans = PricingParams();
 
   const features = {
-    "Free": [
+    "Standard": [
       {
-        text: `${plans?.free?.affiliates} ${plans?.free?.affiliates > 1 ? 'affiliates' : 'affiliate'}`,
+        text: `${plans?.standard?.affiliates} affiliates`,
         type: 'eligible'
       },
       {
-        text: `${plans?.free?.companies} ${plans?.free?.companies > 1 ? 'companies' : 'company'}`,
+        text: `${plans?.standard?.companies} companies`,
         type: 'eligible'
       },
       {
-        text: `${plans?.free?.campaigns} ${plans?.free?.campaigns > 1 ? 'campaigns' : 'campaign'}`,
+        text: `${plans?.standard?.campaigns} campaigns`,
         type: 'eligible'
       },
       {
@@ -61,137 +46,23 @@ export const PricingFeatures = ({ productName, normal }) => {
       },
       {
         text: 'Campaign page customizer',
-        type: 'ineligible'
+        type: 'eligible'
       },    
-      {
-        text: 'Campaign and affiliate analytics',
-        type: 'ineligible'
-      },    
-      {
-        text: 'Invite team members',
-        type: 'ineligible'
-      }
-    ],
-    "Indie": [
-      {
-        text: `${plans?.indie?.affiliates} ${plans?.indie?.affiliates > 1 ? 'affiliates' : 'affiliate'}`,
-        type: 'eligible'
-      },
-      {
-        text: `${plans?.indie?.companies} ${plans?.indie?.companies > 1 ? 'companies' : 'company'}`,
-        type: 'eligible'
-      },
-      {
-        text: `${plans?.indie?.campaigns} ${plans?.indie?.campaigns > 1 ? 'campaigns' : 'campaign'}`,
-        type: 'eligible'
-      },
-      {
-        text: 'Stripe / Paddle Auto Sync',
-        type: 'eligible'
-      },
-      {
-        text: 'Campaign page customizer',
-        type: 'eligible'
-      },
-      {
-        text: 'PayPal Mass Payouts',
-        type: 'eligible'
-      },
-      {
-        text: 'Live chat & email support',
-        type: 'eligible'
-      },
       {
         text: 'Campaign and affiliate analytics',
         type: 'eligible'
       },    
       {
         text: 'Invite team members',
-        type: 'ineligible'
-      }
-    ],
-    "Pro": [
-      {
-        text: `${plans?.pro?.affiliates} ${plans?.pro?.affiliates > 1 ? 'affiliates' : 'affiliate'}`,
         type: 'eligible'
       },
-      {
-        text: `${plans?.pro?.companies} ${plans?.pro?.companies > 1 ? 'companies' : 'company'}`,
-        type: 'eligible'
-      },
-      {
-        text: `${plans?.pro?.campaigns} ${plans?.pro?.campaigns > 1 ? 'campaigns' : 'campaign'}`,
-        type: 'eligible'
-      },
-      {
-        text: '3 team members',
-        type: 'eligible'
-      },
-      {
-        text: 'Stripe / Paddle Auto Sync',
-        type: 'eligible'
-      },
-      {
-        text: 'Campaign page customizer',
-        type: 'eligible'
-      },
-      {
-        text: 'Campaign and affiliate analytics',
-        type: 'eligible'
-      },    
-      {
-        text: 'PayPal Mass Payouts',
-        type: 'eligible'
-      },
-      {
-        text: 'Live chat & email support',
-        type: 'eligible'
-      }
-    ],
-    "Team": [
-      {
-        text: `${plans?.team?.affiliates} ${plans?.team?.affiliates > 1 ? 'affiliates' : 'affiliate'}`,
-        type: 'eligible'
-      },
-      {
-        text: `${plans?.team?.companies} ${plans?.team?.companies > 1 ? 'companies' : 'company'}`,
-        type: 'eligible'
-      },
-      {
-        text: `${plans?.team?.campaigns} ${plans?.team?.campaigns > 1 ? 'campaigns' : 'campaign'}`,
-        type: 'eligible'
-      },
-      {
-        text: '20 team members',
-        type: 'eligible'
-      },
-      {
-        text: 'Stripe / Paddle Auto Sync',
-        type: 'eligible'
-      },
-      {
-        text: 'Campaign page customizer',
-        type: 'eligible'
-      },
-      {
-        text: 'Campaign and affiliate analytics',
-        type: 'eligible'
-      },    
-      {
-        text: 'PayPal Mass Payouts',
-        type: 'eligible'
-      },
-      {
-        text: 'Priority live chat & email support',
-        type: 'eligible'
-      }
     ]
   };
 
   return(
     <ul role="list" className="space-y-3">
       {
-        features[capitalizedName].map((feature, index) => {
+        features[capitalizedName]?.map((feature, index) => {
           return(
             <li key={index} className={`${feature.type === 'ineligible' && 'opacity-50'} flex space-x-2`}>
               {

@@ -82,24 +82,25 @@ export const Pricing = ({ products }) => {
               }).format(product.prices[0].unit_amount / 100);
 
               return (
-                <div key={product?.name} className={`${product?.name === "Pro" ? 'border-primary' : 'bg-white'} border-2 rounded-[22px] relative`}>
+                <div key={product?.name} className={`${product?.name === "Standard" ? 'border-primary' : 'bg-white'} border-2 rounded-[22px] relative`}>
                   <div className="p-6">
-                    <h2 className={`${product?.name === "Pro" ? 'text-primary' : 'text-gray-900'} text-xl leading-6 font-bold`}>
+                    <h2 className={`${product?.name === "Standard" ? 'text-primary' : 'text-gray-900'} text-xl leading-6 font-bold`}>
                       {product?.name}
                     </h2>
                     <p className="mt-8">
                       <span className='text-gray-900 text-4xl font-bold'>{priceString}</span>
-                      <span className='text-medium font-semibold text-gray-600'> /month - <span className="text-base">(0% fee)</span></span>
+                      <span className='text-medium font-semibold text-gray-600'> /month</span><br></br>
+                      <span className="text-base text-gray-400">7-day free trial</span>
                     </p>
                     <Button
                       disabled={planDetails === product?.name}
                       medium
-                      outline={product?.name !== "Pro"}
-                      primary={product?.name === "Pro"}
+                      outline={product?.name !== "Standard"}
+                      primary={product?.name === "Standard"}
                       className='mt-8 w-full'
                       onClick={() => handleCheckout(product?.prices[0].id)}
                     >
-                      {planDetails === product?.name ? 'Current Plan' : priceIdLoading === product?.prices[0].id ? 'Loading...' : `Subscribe to ${product?.name}`}
+                      {planDetails === product?.name ? 'Current Plan' : priceIdLoading === product?.prices[0].id ? 'Loading...' : 'Subscribe'}
                     </Button>
                   </div>
                   <div className="pt-6 pb-8 px-6">
