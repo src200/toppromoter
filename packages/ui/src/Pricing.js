@@ -54,7 +54,7 @@ export const Pricing = ({ products }) => {
       <div>
         <div>
           <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
-            <div key="free" className="border-2 border-gray-100 rounded-[22px] bg-white">
+            {/* <div key="free" className="border-2 border-gray-100 rounded-[22px] bg-white">
               <div className="p-6">
                 <h2 className="text-xl font-bold leading-6 text-gray-900">Free</h2>
                 <p className="mt-8">
@@ -73,7 +73,7 @@ export const Pricing = ({ products }) => {
               <div className="pt-6 pb-8 px-6">
                 <PricingFeatures productName="free"/>
               </div>
-            </div>
+            </div> */}
             {productsSorted?.map((product) => {
               const priceString = new Intl.NumberFormat('en-US', {
                 style: 'currency',
