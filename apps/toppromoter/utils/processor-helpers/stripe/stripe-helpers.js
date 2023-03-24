@@ -290,3 +290,24 @@ export const updateCustomer = async (data) => {
 
   return "error";
 };
+
+export const checkTrialExpiry = async (customerId) => {
+  const customer = await stripe.customers.retrieve(customerId);
+  const subscription = customer.subscriptions.data[0];
+
+  if (subscription.status === 'trialing') {
+    const trialEnd = subscription.trial_end;
+    const today = Math.floor(Date.now() / 1000);
+
+    if (trialEnd < today) {
+      // Trial has expired, take appropriate action here
+      console.log('Trial has expired!');
+    } else {
+      // Trial is still active
+      console.log('Trial is still active');
+    }
+  } else {
+    // Not on a trial
+    console.log('Not on a trial');
+  }
+}

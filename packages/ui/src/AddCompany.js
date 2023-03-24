@@ -16,7 +16,6 @@ export default function AddCompany() {
   const [urlValid, setUrlValid] = useState(null);
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
     if(loading === true){
@@ -43,7 +42,7 @@ export default function AddCompany() {
 
     await newCompany(userDetails, data).then((result) => {
       if(result[0]?.company_id){
-        router.push(`/dashboard/${result[0]?.company_id}`)
+        router.push(`/pricing`)
       } else {
         if(result === 'duplicate'){
           toast.error('This handle already exists. Please try another.');
@@ -67,7 +66,7 @@ export default function AddCompany() {
       <div className="wrapper">
         <div>
           <form className="mt-5 rounded-lg border-2 border-gray-100 max-w-2xl overflow-hidden mx-auto" action="#" method="POST" onSubmit={ handleSubmit }>
-            <div className="py-6 text-center border-b-2">
+            <div className="py-6 text-center">
               <h1 className="text-2xl tracking-tight font-extrabold">
                 Add Company / Brand
               </h1>

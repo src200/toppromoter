@@ -86,7 +86,7 @@ export default function BillingPage() {
     if(usageData === null) return false;
     
     const plans = PricingParams();
-    const usagePercentage = ((usageData[type] / plans[planDetails][type]) * 100).toFixed(0);
+    // const usagePercentage = ((usageData[type] / plans[planDetails][type]) * 100).toFixed(0);
     
     return(
       <div>
@@ -103,12 +103,12 @@ export default function BillingPage() {
             </span>
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2.5">
+        {/* <div className="w-full bg-gray-200 rounded-full h-2.5">
           <div
             className="bg-primary h-2.5 rounded-full"
             style={ { width: `${unlimited === true ? '1%' : usagePercentage > 100 ? '100%' : usagePercentage+'%'}` } }>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -271,7 +271,10 @@ export default function BillingPage() {
               </h2>
             </div>
             <div className="bg-gray-100 rounded-xl p-6">
-              <PricingFeatures normal productName={ planDetails } />
+             {
+                planDetails?.length &&
+                <PricingFeatures normal productName={planDetails}/>
+              }
             </div>
             <div className="mt-6 pt-6 bg-white sm:flex sm:items-center sm:justify-start">
               <Button
@@ -299,9 +302,9 @@ export default function BillingPage() {
               {
                 usageData !== null ?
                   <div className="space-y-10">
-                    <ProgressBar type="companies" />
-                    <ProgressBar type="campaigns" />
-                    <ProgressBar type="affiliates" />
+                    <ProgressBar type="companies" unlimited={ true } />
+                    <ProgressBar type="campaigns" unlimited={ true } />
+                    <ProgressBar type="affiliates" unlimited={ true } />
                     <ProgressBar type="referrals" unlimited={ true } />
                     <ProgressBar type="commissions" unlimited={ true } />
                   </div>

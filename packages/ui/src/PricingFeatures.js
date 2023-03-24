@@ -52,10 +52,6 @@ export const PricingFeatures = ({ productName, normal }) => {
         text: 'Campaign and affiliate analytics',
         type: 'eligible'
       },    
-      {
-        text: 'Invite team members',
-        type: 'eligible'
-      },
     ]
   };
 

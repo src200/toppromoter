@@ -31,6 +31,7 @@ export const UserContextProvider = (props) => {
       authListener.unsubscribe();
     };
   }, []);
+  
   const getTeam = () => supabase.from('teams').select('*').single();
   const getUserDetails = () => supabase.from('users').select('*').eq('id', user?.id).single();
   const getSubscription = () =>
