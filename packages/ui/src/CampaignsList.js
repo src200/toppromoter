@@ -18,10 +18,10 @@ const CampaignsList = (props) => {
         </h2>
       </div> 
       <div>
+        <AffiliateInvites />
         {
           userAffiliateDetails !== null && userAffiliateDetails?.length > 0 ?
             <div>
-              <AffiliateInvites className='py-5' />
               <div className="flex flex-col">
                 <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">

@@ -51,7 +51,7 @@ const AffiliateInvites = (props) => {
     <div className={ props.className || '' }>
       {
           userAffiliateInvites !== null && userAffiliateInvites?.length > 0 ?
-            <div className='bg-primary-3 border-2 border-gray-200 rounded-lg'>
+            <div className='bg-primary-3'>
               {
                 affiliateInvitePage === true ?
                   <div>
