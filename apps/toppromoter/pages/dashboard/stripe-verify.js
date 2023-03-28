@@ -72,7 +72,7 @@ export default function Onboarding() {
         </div>
       </div>
       <div className="wrapper">
-        <div className="rounded-xl bg-white max-w-2xl overflow-hidden shadow-lg border-4 border-gray-300 p-6">
+        <div className="rounded-xl bg-white max-w-2xl overflow-hidden border-2 border-gray-100 p-6">
           <div>
             <LoadingDots className='mx-auto my-0' />
           </div>

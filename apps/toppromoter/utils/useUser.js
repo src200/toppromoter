@@ -31,6 +31,7 @@ export const UserContextProvider = (props) => {
       authListener.unsubscribe();
     };
   }, []);
+
   const getTeam = () => supabase.from('teams').select('*').single();
   const getUserDetails = () => supabase.from('users').select('*').eq('id', user?.id).single();
   const getSubscription = () =>
@@ -168,7 +169,7 @@ export const getAffiliates = async (companyId) => {
   .from('affiliates')
   .select(`
     *,
-    details:invited_user_id (email)
+    details:invited_user_id(email)
   `)
   .eq('company_id', companyId)
 
@@ -205,7 +206,7 @@ export const getReferrals = async (companyId, date, page) => {
     .select(`
         *,
         campaign:campaign_id (campaign_name),
-        affiliate:affiliate_id (details:invited_user_id(email))
+        affiliate:affiliate_id (details:invite_email)
       `, 
       { count: "exact" }
     )

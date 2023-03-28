@@ -141,16 +141,6 @@ export const TopNav = () => {
                     <Menu.Item>
                       { () => (
                         <a
-                          href="#"
-                          onClick={ signOut }
-                          className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
-                          Sign Out
-                        </a>
-                ) }
-                    </Menu.Item>
-                    <Menu.Item>
-                      { () => (
-                        <a
                           href={ process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL }
                           target="_blank"
                           className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2"
@@ -158,7 +148,17 @@ export const TopNav = () => {
                           Affiliate Dashboard 
                           { ' ' }
                         </a>
-                ) }
+                      ) }
+                    </Menu.Item>
+                    <Menu.Item>
+                      { () => (
+                        <a
+                          href="#"
+                          onClick={ signOut }
+                          className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
+                          Sign Out
+                        </a>
+                      ) }
                     </Menu.Item>
                   </div>
                 </Menu.Items>

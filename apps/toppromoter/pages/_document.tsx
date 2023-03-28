@@ -17,7 +17,7 @@ class MyDocument extends Document {
               __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="b408013b-e3ba-4427-8ac8-7ac2f9edccc0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})()`
             }}
           /> */ }
-          <script async src="https://cdn.counter.dev/script.js" data-id="50dee57e-215e-4983-bfc9-6cff6be5468d" data-utcoffset="6"></script>
+          {/* <script async src="https://cdn.counter.dev/script.js" data-id="50dee57e-215e-4983-bfc9-6cff6be5468d" data-utcoffset="6"></script> */}
         </Head>
         <body className="loading">
           <Main />

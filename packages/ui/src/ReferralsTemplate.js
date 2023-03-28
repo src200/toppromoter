@@ -1,23 +1,28 @@
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
-import { getReferrals } from '@/utils/useUser';
+import { useUser, getReferrals } from '@/utils/useUser';
 import { useCompany } from '@/utils/CompanyContext';
 import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button'; 
 import { SEOMeta } from '@/templates/SEOMeta'; 
 import { EmojiSadIcon, ChevronDownIcon  } from '@heroicons/react/solid';
 import { PlusCircleIcon } from '@heroicons/react/outline';
-import { UTCtoString, checkUTCDateExpired, priceString, classNames } from '@/utils/helpers';
+import { UTCtoString, checkUTCDateExpired, priceString, classNames, postData } from '@/utils/helpers';
 import ReactTooltip from 'react-tooltip';
 import Modal from '@/components/Modal';
+import toast from 'react-hot-toast';
 import { Menu, Transition } from '@headlessui/react';
 
 export const ReferralsTemplate = ({ page }) => {
   const router = useRouter();
+  const { session } = useUser();
   const { activeCompany } = useCompany();
   const [referrals, setReferrals] = useState([]);
+  const [refId, setReferralId] = useState(null);
+  const [invoiceTotal, setInvoiceTotal] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [converting, setConverting] = useState(false);
 
   const sortOptions = [
     { name: 'All Referrals', href: `/dashboard/${activeCompany?.company_id}/referrals` },
@@ -62,6 +67,34 @@ export const ReferralsTemplate = ({ page }) => {
     }
   }
 
+  const manualConversion = async () => {
+    try {
+      if (refId) {
+        setConverting(true)
+        await postData({
+          url: `/api/referrals/manual-conversion`,
+          data: { 
+            referralId: refId,
+            invoiceTotal
+          },
+          token: session.access_token
+        });
+        setReferralId(null);
+        setConverting(false);
+        setShowModal(false);
+        toast.success('Sale created manually');
+      } else {
+        console.warn('Select referral id');
+        setConverting(false);
+      }
+    } catch(e) {
+      toast.error('Something went wrong while creating sale');
+    } finally {
+      setConverting(false);
+      setReferralId(null);
+    }
+  }
+
   return (
     <>
       <SEOMeta title="Referrals" />
@@ -90,7 +123,7 @@ export const ReferralsTemplate = ({ page }) => {
       </div>
       <div className="wrapper">
         <div className="mb-5">
-          <Menu as="div" className="relative z-10 inline-block text-left">
+          <Menu as="div" className="relative z-[99] inline-block text-left">
             <div>
               <Menu.Button className="group inline-flex items-center justify-center bg-white rounded-md py-2 px-5 border-2 border-gray-100">
                 <span className="font-bold text-primary">
@@ -174,7 +207,7 @@ export const ReferralsTemplate = ({ page }) => {
                               </td>
                               <td className="whitespace-nowrap px-3 py-4 text-sm">
                                 <span>
-                                  { referral?.affiliate?.details?.email }
+                                  { referral?.affiliate?.details }
                                 </span>
                               </td>
                               <td className="whitespace-nowrap px-3 py-4 text-sm">
@@ -218,8 +251,42 @@ export const ReferralsTemplate = ({ page }) => {
                                   { UTCtoString(referral?.created) }
                                 </div>
                               </td>
+                              <td className="whitespace-nowrap px-3 py-4 text-sm">
+                                <Menu as="div" className="relative">
+                                  <div>
+                                    <Menu.Button className="inline-flex w-full justify-center align-middle items-center">
+                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                      </svg>
+                                    </Menu.Button>
+                                  </div>
+                                  <Transition
+                                    as={ Fragment }
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95">
+                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right border-2 border-gray-100 rounded-md bg-white ">
+                                      <div className="py-1">
+                                        <Menu.Item>
+                                          { () => (
+                                            <a
+                                              href="#"
+                                              onClick={() => {setShowModal(true); setReferralId(referral?.referral_id);} }
+                                              className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
+                                              Manual Conversion
+                                            </a>
+                                          ) }
+                                        </Menu.Item>
+                                      </div>
+                                    </Menu.Items>
+                                  </Transition>
+                                </Menu>
+                              </td>
                             </tr>
-                            )) }
+                          )) }
                         </tbody>
                       </table>
                       <ReactTooltip />
@@ -265,7 +332,39 @@ export const ReferralsTemplate = ({ page }) => {
       {
         showModal && 
         <Modal modalOpen={ showModal } setModalOpen={ setShowModal }>
-
+          <div className="p-6">
+            <label htmlFor="commission_value" className="block text-sm font-bold text-gray-700">
+              Total Amount
+            </label>
+            <div className="mt-1 flex rounded-md shadow-sm items-center justify-between">
+              <span className="mt-1 bg-gray-200 p-2 rounded-md shadow-sm sm:text-sm border border-r-0 focus:outline-none sm:text-md rounded-tr-none rounded-br-none border-gray-300 focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                { activeCompany?.company_currency }
+              </span>
+              <input
+                minLength="1"
+                maxLength="100"
+                required
+                placeholder="1"
+                type="number"
+                name="commission_value"
+                id="commission_value"
+                autoComplete="commission_value"
+                onChange={(e) => setInvoiceTotal(e.target.value)}
+                className="mt-1 block w-full rounded-md rounded-tl-none rounded-bl-none border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+            </div>
+            <div className="bg-white relative text-right my-5">
+              <Button
+                small
+                primary
+                onClick={manualConversion}
+                disabled={ loading }>
+                <span>
+                  { converting ? 'Converting...' : 'Convert' }
+                </span>
+              </Button>
+            </div>
+          </div>
         </Modal>
       }
     </>
