@@ -10,7 +10,7 @@ export default function TrackingSetupPage() {
   const router = useRouter();
   const { activeCompany } = useCompany();
 
-  const embedCode = `<script async src='https://toppromoter.vercel.app/js/toppromoter.min.js' data-toppromoter='${router?.query?.companyId}'></script>`;
+  const embedCode = `<script async src='https://app.toppromoter.io/js/toppromoter.min.js' data-toppromoter='${router?.query?.companyId}'></script>`;
 
   const scriptCode = 
   `<script type="text/javascript">

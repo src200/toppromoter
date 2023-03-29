@@ -67,7 +67,7 @@ export const AdminNavItems = () => {
         <div className="p-5">
           <Link
             passHref
-            href="https://toppromoter-docs.vercel.app"
+            href={ process.env.NEXT_PUBLIC_DOCS_SITE_URL }
             className={ classNames(
               navItemClass
             ) } 
