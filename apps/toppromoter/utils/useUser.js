@@ -32,29 +32,29 @@ export const UserContextProvider = (props) => {
     };
   }, []);
 
-  const getTeam = () => supabase.from('teams').select('*').single();
-  const getUserDetails = () => supabase.from('users').select('*').eq('id', user?.id).single();
+  const getTeam = () => supabase.from('teams').select('*').eq('id', user?.id);
+  const getUserDetails = () => supabase.from('users').select('*').eq('id', user?.id);
   const getSubscription = () =>
     supabase
       .from('subscriptions')
       .select('*, prices(*, products(*))')
       .in('status', ['trialing', 'active'])
-      .single();
+      .eq('user_id', user?.id);
 
   useEffect(() => {
     if (user) {
       Promise.allSettled([getTeam(), getUserDetails(), getSubscription()]).then(
         (results) => {
-          if(results[0].value.data !== null){
-            setTeam(results[0].value.data);
+          if(results[0].value.data.length){
+            setTeam(results[0].value.data?.[0]);
           } else {
             setTeam('none');
           }
-          setUserDetails(results[1].value.data);
-          setSubscription(results[2].value.data);
+          setUserDetails(results[1].value.data?.[0]);
+          setSubscription(results[2].value.data?.[0]);
 
           if(results[2].value.data !== null){
-            setPlanDetails(results[2].value.data.prices.products.name.toLowerCase());
+            setPlanDetails(results[2].value.data?.[0]?.prices?.products?.name?.toLowerCase());
           } else {
             setPlanDetails('free');
           }
@@ -367,9 +367,10 @@ export const newTeam = async (user, form) => {
 export const newCompany = async (user, form) => {
   if(!form?.company_handle || !form?.company_url || !form?.company_name) return "error";
 
+  const { data: team } = await supabase.from('teams').select('*').eq('id', user?.id);
   const { data, error } = await supabase.from('companies').insert({
     id: user?.id,
-    team_id: user?.team_id,
+    team_id: user?.team_id || team?.[0]?.team_id,
     company_name: form?.company_name,
     company_url: form?.company_url,
     company_handle: form?.company_handle,

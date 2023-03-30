@@ -53,7 +53,7 @@ export const Pricing = ({ products }) => {
     return (
       <div>
         <div>
-          <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4">
+          <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0">
             {/* <div key="free" className="border-2 border-gray-100 rounded-[22px] bg-white">
               <div className="p-6">
                 <h2 className="text-xl font-bold leading-6 text-gray-900">Free</h2>
@@ -82,7 +82,10 @@ export const Pricing = ({ products }) => {
               }).format(product.prices[0].unit_amount / 100);
 
               return (
-                <div key={product?.name} className={`${product?.name === "Standard" ? 'border-primary' : 'bg-white'} border-2 rounded-[22px] relative`}>
+                <div key={product?.name} className={`${product?.name === "Standard" ? 'border-primary' : 'bg-white'} border-2 rounded-[22px] w-[50%] mx-auto my-0 relative flex justify-center items-center`}>
+                  <div className="pt-6 pb-8 px-6">
+                    <PricingFeatures productName={product?.name}/>
+                  </div>
                   <div className="p-6">
                     <h2 className={`${product?.name === "Standard" ? 'text-primary' : 'text-gray-900'} text-xl leading-6 font-bold`}>
                       {product?.name}
@@ -102,9 +105,6 @@ export const Pricing = ({ products }) => {
                     >
                       {planDetails === product?.name ? 'Current Plan' : priceIdLoading === product?.prices[0].id ? 'Loading...' : 'Subscribe'}
                     </Button>
-                  </div>
-                  <div className="pt-6 pb-8 px-6">
-                    <PricingFeatures productName={product?.name}/>
                   </div>
                 </div>
               );

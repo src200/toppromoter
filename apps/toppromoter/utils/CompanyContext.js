@@ -5,7 +5,7 @@ import { getCompanies, useUser, newTeam } from './useUser';
 export const CompanyContext = createContext();
 
 export const CompanyContextProvider = (props) => {
-  const { user, team, userFinderLoaded } = useUser();
+  const { user, team, subscription, userFinderLoaded } = useUser();
   const [userCompanyDetails, setUserCompanyDetails] = useState(null);
   const [creatingTeam, setCreatingTeam] = useState(false);
   const router = useRouter();
@@ -23,20 +23,24 @@ export const CompanyContextProvider = (props) => {
     if(team === 'none' && router?.pathname !== '/dashboard/create-team' && creatingTeam === false){
       setCreatingTeam(true);
       newTeam(user, {'team_name': 'My team'}).then((result) => {
-        router.replace('/dashboard/add-company');
+        router.push('/dashboard/add-company');
       });
     }
 
     if(team?.team_id){
-      router.replace('/dashboard/add-company');
+      router.push('/dashboard/add-company');
     }
   }
   
   if(userCompanyDetails !== null && userCompanyDetails?.length > 0 && (router?.asPath === '/dashboard' || router?.asPath === '/dashboard#')){
-    userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 ?      
-      router.replace('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
-    : 
-      router.replace('/dashboard/'+userCompanyDetails[0].company_id+'')
+    if (!subscription || subscription.length <= 0) {
+      router.push('/pricing');
+    } else {
+      userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 ?      
+        router.replace('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
+      : 
+        router.replace('/dashboard/'+userCompanyDetails[0].company_id+'')
+    }
   }
 
   let activeCompany = router?.query?.companyId ? userCompanyDetails?.filter(company => company?.company_id === router?.query?.companyId) : userCompanyDetails?.filter(company => company?.active_company === true)?.length > 0 ? userCompanyDetails?.filter(company => company?.active_company === true) : Array.isArray(userCompanyDetails) ? userCompanyDetails[0] : userCompanyDetails;
