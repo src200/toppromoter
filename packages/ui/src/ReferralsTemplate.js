@@ -5,7 +5,7 @@ import { useCompany } from '@/utils/CompanyContext';
 import LoadingDots from '@/components/LoadingDots';
 import Button from '@/components/Button'; 
 import { SEOMeta } from '@/templates/SEOMeta'; 
-import { EmojiSadIcon, ChevronDownIcon  } from '@heroicons/react/solid';
+import { EmojiSadIcon, ChevronDownIcon, PencilIcon  } from '@heroicons/react/solid';
 import { PlusCircleIcon } from '@heroicons/react/outline';
 import { UTCtoString, checkUTCDateExpired, priceString, classNames, postData } from '@/utils/helpers';
 import ReactTooltip from 'react-tooltip';
@@ -252,38 +252,9 @@ export const ReferralsTemplate = ({ page }) => {
                                 </div>
                               </td>
                               <td className="whitespace-nowrap px-3 py-4 text-sm">
-                                <Menu as="div" className="relative">
-                                  <div>
-                                    <Menu.Button className="inline-flex w-full justify-center align-middle items-center">
-                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                      </svg>
-                                    </Menu.Button>
-                                  </div>
-                                  <Transition
-                                    as={ Fragment }
-                                    enter="transition ease-out duration-100"
-                                    enterFrom="transform opacity-0 scale-95"
-                                    enterTo="transform opacity-100 scale-100"
-                                    leave="transition ease-in duration-75"
-                                    leaveFrom="transform opacity-100 scale-100"
-                                    leaveTo="transform opacity-0 scale-95">
-                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right border-2 border-gray-100 rounded-md bg-white ">
-                                      <div className="py-1">
-                                        <Menu.Item>
-                                          { () => (
-                                            <a
-                                              href="#"
-                                              onClick={() => {setShowModal(true); setReferralId(referral?.referral_id);} }
-                                              className="block text-black font-semibold hover:text-primary-2 hover:bg-primary-3 cursor-pointer px-3 py-2">
-                                              Manual Conversion
-                                            </a>
-                                          ) }
-                                        </Menu.Item>
-                                      </div>
-                                    </Menu.Items>
-                                  </Transition>
-                                </Menu>
+                                <button onClick={ e=>{setShowModal(true); setReferralId(referral?.referral_id);} }>
+                                  <PencilIcon className="w-5 h-auto" />
+                                </button>
                               </td>
                             </tr>
                           )) }
@@ -332,7 +303,11 @@ export const ReferralsTemplate = ({ page }) => {
       {
         showModal && 
         <Modal modalOpen={ showModal } setModalOpen={ setShowModal }>
-          <div className="p-6">
+          <h1 className='font-semibold text-2xl'>Update Referral Status(to &quot;Converted&quot;)</h1>
+          <div className="pt-6">
+            <p className='py-5'>
+              <span className='font-bold'>Note: </span>Use this feature only when needed, most of it is done automatically once a customer purchases a product on your platform.
+            </p>
             <label htmlFor="commission_value" className="block text-sm font-bold text-gray-700">
               Total Amount
             </label>
@@ -344,7 +319,7 @@ export const ReferralsTemplate = ({ page }) => {
                 minLength="1"
                 maxLength="100"
                 required
-                placeholder="1"
+                placeholder="Enter the price of the product, we will calculate commission automatically"
                 type="number"
                 name="commission_value"
                 id="commission_value"
@@ -353,7 +328,7 @@ export const ReferralsTemplate = ({ page }) => {
                 className="mt-1 block w-full rounded-md rounded-tl-none rounded-bl-none border-gray-300 shadow-sm sm:text-sm focus:border-primary-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
-            <div className="bg-white relative text-right my-5">
+            <div className="bg-white relative text-right mt-5">
               <Button
                 small
                 primary
