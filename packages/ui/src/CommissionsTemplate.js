@@ -206,7 +206,7 @@ export const CommissionsTemplate = ({ page }) => {
                       disabled={ payingCommissions }
                       onClick={ e=>{markAsPaid()} }
                       small
-                      red
+                      primary
                       className="mb-3 sm:mr-3 sm:mb-0">
                       { payingCommissions ? 'Marking' : 'Mark' } 
                       { ' ' }
@@ -261,12 +261,12 @@ export const CommissionsTemplate = ({ page }) => {
                           <tr>
                             {
                                 page === 'due' &&
-                                <th scope="col" className="pr-3 sm:pl-6 px-3 py-3.5 text-left text-sm font-bold">
+                                <th scope="col" className="pl-4 pr-3 text-left text-sm font-bold">
                                   <input
                                     id="campaign_public"
                                     name="campaign_public"
                                     type="checkbox"
-                                    className={ 'bg-white focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-lg cursor-pointer' }
+                                    className="focus:ring-primary h-5 w-5 text-primary rounded-md cursor-pointer"
                                     onClick={ (e) => {
                                       checkAllItems()
                                     } } 
@@ -336,7 +336,7 @@ export const CommissionsTemplate = ({ page }) => {
                                         id="campaign_public"
                                         name="campaign_public"
                                         type="checkbox"
-                                        className={ 'disabled: disabled:cursor-not-allowed focus:ring-primary h-7 w-7 text-secondary border-2 border-gray-300 rounded-lg cursor-pointer' }
+                                        className='focus:ring-primary h-5 w-5 text-primary rounded-md cursor-pointer'
                                         onClick={ (e) => {
                                           checkedItems.includes(sale?.commission_id) ?
                                             setCheckedItems([...checkedItems.filter(item => item !== sale?.commission_id)]) 

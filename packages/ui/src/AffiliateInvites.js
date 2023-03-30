@@ -51,7 +51,7 @@ const AffiliateInvites = (props) => {
     <div className={ props.className || '' }>
       {
           userAffiliateInvites !== null && userAffiliateInvites?.length > 0 ?
-            <div className='bg-primary-3'>
+            <div className='bg-primary-3 rounded-lg'>
               {
                 affiliateInvitePage === true ?
                   <div>
@@ -71,7 +71,7 @@ const AffiliateInvites = (props) => {
                     }
                   </div>
                 :
-                  <div className="space-y-4">
+                  <div className="space-y-4 rounded-lg">
                     { userAffiliateInvites?.map(invite => {
                       return(
                         <div className="rounded-lg border-2 border-gray-100 p-2 my-2">
