@@ -11,7 +11,9 @@ const createCheckoutSession = async (req, res) => {
 
     try {
       const user = await getUser(token, teamId);
-      console.log(user);
+      console.log('====================user===================', user.id);
+      console.log('====================team===========', user?.team_id);
+      console.log('===============url=======', getURL());
       const customer = await createOrRetrieveCustomer({
         id: user.id,
         teamId: user.team_id,
