@@ -41,7 +41,7 @@ export const CampaignForm = ({ edit, setupMode }) => {
     if(edit){
       await editCampaign(userDetails, edit?.campaign_id, data).then((result) => {
         if(result === 'success'){
-          router.replace(`/dashboard/${router?.query?.companyId}/campaigns/${edit?.campaign_id}`)
+          router.push(`/dashboard/${router?.query?.companyId}/campaigns/${edit?.campaign_id}`)
         } else {
           toast.error('There was an error when creating your campaign, please try again later.');
         }
@@ -54,9 +54,9 @@ export const CampaignForm = ({ edit, setupMode }) => {
       await newCampaign(userDetails, data, router?.query?.companyId).then((result) => {
         if(result === 'success'){
           if(setupMode){
-            router.replace(`/dashboard/${router?.query?.companyId}/setup/add`)
+            router.push(`/dashboard/${router?.query?.companyId}/setup/add`)
           } else {
-            router.replace(`/dashboard/${router?.query?.companyId}/campaigns`)
+            router.push(`/dashboard/${router?.query?.companyId}/campaigns`)
           }
         } else {
           toast.error('There was an error when creating your campaign, please try again later.');

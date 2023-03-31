@@ -33,7 +33,7 @@ export default function StripeSetupPage() {
     await editCurrency(router?.query?.companyId, data).then((result) => {
       if(result === 'success'){
         setErrorMessage(false);
-        router.replace(`/dashboard/${router?.query?.companyId}/setup/campaign`);
+        router.push(`/dashboard/${router?.query?.companyId}/setup/campaign`);
       } else {
         setErrorMessage(true);
       }

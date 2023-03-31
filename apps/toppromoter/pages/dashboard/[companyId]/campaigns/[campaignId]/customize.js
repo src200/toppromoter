@@ -27,7 +27,7 @@ export default function CampaignCustomizerPage() {
   let mergedCampaignData = null;
 
   if(activeCampaign !== 'none' && !activeCampaign?.campaign_id){
-    router.replace('/dashboard');
+    router.push('/dashboard');
   }
 
   if(activeCampaign?.campaign_id && activeCompany?.company_id){

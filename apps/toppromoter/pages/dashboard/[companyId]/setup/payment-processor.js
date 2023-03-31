@@ -36,7 +36,7 @@ export default function StripeSetupPage() {
       const status = await continueWithoutProcessor(activeCompany?.company_id);
 
       if(status === 'success'){
-        router.replace(`/dashboard/${router?.query?.companyId}/setup/currency`)
+        router.push(`/dashboard/${router?.query?.companyId}/setup/currency`)
       } else {
         toast.error('There was an error when trying to continue. Please contact support.');
       }

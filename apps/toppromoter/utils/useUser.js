@@ -41,6 +41,18 @@ export const UserContextProvider = (props) => {
       .in('status', ['trialing', 'active'])
       .eq('user_id', user?.id);
 
+  const updateUserDetails = (updatedUserDetails) => {
+    setUserDetails(updatedUserDetails);
+  };
+
+  const updateTeam = (updatedTeam) => {
+    setTeam(updatedTeam);
+  };
+
+  const updateSubscription = (updatedSubscription) => {
+    setSubscription(updatedSubscription);
+  };
+
   useEffect(() => {
     if (user) {
       Promise.allSettled([getTeam(), getUserDetails(), getSubscription()]).then(
@@ -75,6 +87,9 @@ export const UserContextProvider = (props) => {
     subscription,
     userFinderLoaded,
     planDetails,
+    updateUserDetails,
+    updateTeam,
+    updateSubscription,
     signIn: (options) => supabase.auth.signIn({email: options.email}, {shouldCreateUser: options.shouldCreateUser, redirectTo: options.redirectTo}),
     signInWithPassword: (options) => supabase.auth.signIn({email: options.email, password: options.password}, {shouldCreateUser: options.shouldCreateUser, redirectTo: options.redirectTo}),
     signUp: (options) => supabase.auth.signUp({email: options.email, password: options.password}, {redirectTo: options.redirectTo}),
@@ -332,6 +347,17 @@ export const payCommissions = async (companyId, checkedCommissions, eligibleComm
   }
 };
 
+export const updateUserDetailsWithTeam = async (user, team) => {
+  const { data, error } = await supabase
+    .from('users')
+    .update({
+      team_id: team?.team_id
+    })
+    .eq('id', user?.id);
+
+  return error ? error : data;
+};
+
 //Create company
 export const newTeam = async (user, form) => {
   if(!form?.team_name) return "error";
@@ -340,28 +366,30 @@ export const newTeam = async (user, form) => {
 
   if(getTeam?.data?.length > 0){
     console.log("Team already exists");
-    return "error";
+    return getTeam?.data;
   }
 
-  const { data } = await supabase.from('teams').insert({
+  const { data, error } = await supabase.from('teams').insert({
     id: user?.id,
     team_name: form?.team_name
   });
 
-  if(data && data[0]?.team_id){
-    const userUpdate = await supabase
-      .from('users')
-      .update({
-        team_id: data[0]?.team_id
-      })
-      .eq('id', user?.id);
+  return error ? error : data;
 
-      if(userUpdate?.data && userUpdate?.data !== null){
-        return "success";
-      }
-  }
+  // if(data && data[0]?.team_id){
+  //   const userUpdate = await supabase
+  //     .from('users')
+  //     .update({
+  //       team_id: data[0]?.team_id
+  //     })
+  //     .eq('id', user?.id);
 
-  return "error";
+  //     if(userUpdate?.data && userUpdate?.data !== null){
+  //       return "success";
+  //     }
+  // }
+
+  // return "error";
 };
 
 export const newCompany = async (user, form) => {

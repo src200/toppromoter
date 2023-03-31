@@ -64,7 +64,7 @@ export default function ReferralCreatePage() {
           toast.success('Referral and commission successfully created');
         }
 
-        router.replace(`/dashboard/${router?.query?.companyId}/referrals`);
+        router.push(`/dashboard/${router?.query?.companyId}/referrals`);
       }
 
       setErrorMessage(true);

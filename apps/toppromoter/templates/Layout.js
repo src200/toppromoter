@@ -46,7 +46,7 @@ export default function Layout({ children }) {
   useEffect(() => {
     if(dashboardPage === true){
       if(userFinderLoaded){
-        if (!user) router.replace('/signin');
+        if (!user) router.push('/signin');
       }
     }
   }, [userFinderLoaded, user, dashboardPage]);
@@ -59,7 +59,7 @@ export default function Layout({ children }) {
         gutter={ 20 }
         toastOptions={ {
             className: '',
-            duration: 5000,
+            duration: 9000,
             success: {
               style: {
                 background: '#F0FDF4',

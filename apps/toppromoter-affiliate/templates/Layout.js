@@ -40,7 +40,7 @@ function Layout({ children }) {
 
   if(dashboardPage === true){
     if(userFinderLoaded){
-      if (!user) router.replace('/signin');
+      if (!user) router.push('/signin');
     }
   }
   
@@ -61,13 +61,13 @@ function Layout({ children }) {
       
       if(status === 'success'){
         setInviteLoading(false);
-        router.replace(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
+        router.push(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
         localStorage.removeItem('join_campaign_details');
       }
   
     } catch (error) {
       setInviteLoading(false);
-      router.replace(`/invite/${details?.campaign_handle}/${details?.campaign_id}?campaignRedirect=true`);
+      router.push(`/invite/${details?.campaign_handle}/${details?.campaign_id}?campaignRedirect=true`);
     }
   };
 
@@ -101,7 +101,7 @@ function Layout({ children }) {
         gutter={ 20 }
         toastOptions={ {
             className: '',
-            duration: 5000,
+            duration: 9000,
             success: {
               style: {
                 background: '#F0FDF4',

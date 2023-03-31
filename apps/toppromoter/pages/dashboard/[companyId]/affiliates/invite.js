@@ -57,7 +57,7 @@ export default function AffiliateInvitePage() {
       if(response === 'success'){
         setLoading(false);
         setErrorMessage(false);
-        router.replace(`/dashboard/${router?.query?.companyId}/affiliates`);
+        router.push(`/dashboard/${router?.query?.companyId}/affiliates`);
       }
 
       if(response === 'limit reached'){

@@ -39,9 +39,8 @@ export default function Onboarding() {
 
       if(tokenConfirm?.stripe_id){
         const addStripeAccount = await newStripeAccount(tokenConfirm?.stripe_id, companyId);
-
         if(addStripeAccount === 'success'){
-          router.replace(`/dashboard/${activeCompany?.company_id}/setup/currency`);
+          router.push(`/dashboard/${activeCompany?.company_id}/setup/currency`);
         } else {
           if(addStripeAccount === 'error'){
             setError('There was an error when connecting your Stripe account. Please try again later.')

@@ -11,7 +11,7 @@ export default function setupStepCheck(type) {
     if(router.asPath === `/dashboard/${router?.query?.companyId}${url}`) return false;
     if(router.asPath.includes('/dashboard/stripe-verify')) return false;
 
-    router.replace(`/dashboard/${router?.query?.companyId}${url}`);
+    router.push(`/dashboard/${router?.query?.companyId}${url}`);
   }
 
   if(activeCompany?.company_id){
