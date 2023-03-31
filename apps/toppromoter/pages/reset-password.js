@@ -58,7 +58,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (user && router?.asPath?.indexOf('?passwordReset=true&access_token=') === -1) {
-      router.replace('/dashboard');
+      router.push('/dashboard');
     }
   }, [router, user]);
 

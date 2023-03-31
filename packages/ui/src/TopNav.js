@@ -24,7 +24,7 @@ export const TopNav = () => {
 
     await handleActiveCompany(companyId).then((result) => {
       if(result === 'success'){
-        router.replace(`/dashboard/${companyId}`);
+        router.push(`/dashboard/${companyId}`);
       }
     });
   };

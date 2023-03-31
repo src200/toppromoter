@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect, createContext, useContext } from 'react';
-import { getCompanies, useUser, newTeam } from './useUser';
+import { getCompanies, useUser, newTeam, updateUserDetailsWithTeam } from './useUser';
 
 export const CompanyContext = createContext();
 
 export const CompanyContextProvider = (props) => {
-  const { user, team, subscription, userFinderLoaded } = useUser();
+  const { user, team, subscription, userFinderLoaded, updateTeam, updateUserDetails } = useUser();
   const [userCompanyDetails, setUserCompanyDetails] = useState(null);
   const [creatingTeam, setCreatingTeam] = useState(false);
   const router = useRouter();
@@ -22,8 +22,12 @@ export const CompanyContextProvider = (props) => {
   if(userCompanyDetails !== null && userCompanyDetails?.length === 0 && !router?.asPath?.includes('add-company') && router?.pathname !== '/dashboard/create-team'){
     if(team === 'none' && router?.pathname !== '/dashboard/create-team' && creatingTeam === false){
       setCreatingTeam(true);
-      newTeam(user, {'team_name': 'My team'}).then((result) => {
-        router.push('/dashboard/add-company');
+      newTeam(user, {'team_name': 'My team'}).then((newTeam) => {
+        updateTeam(newTeam?.[0]);
+        updateUserDetailsWithTeam(user, newTeam?.[0]).then((updatedUser) => {
+          updateUserDetails(updatedUser?.[0]);
+          router.push('/dashboard/add-company');
+        });
       });
     }
 
@@ -37,9 +41,9 @@ export const CompanyContextProvider = (props) => {
       router.push('/pricing');
     } else {
       userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 ?      
-        router.replace('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
+        router.push('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
       : 
-        router.replace('/dashboard/'+userCompanyDetails[0].company_id+'')
+        router.push('/dashboard/'+userCompanyDetails[0].company_id+'')
     }
   }
 

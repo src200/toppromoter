@@ -63,7 +63,7 @@ export default function CompanySettingsPage() {
 
     await editCompanyWebsite(router?.query?.companyId, data).then((result) => {
       if(result === 'success'){
-        router.replace(window.location.href);
+        router.push(window.location.href);
 
       } else {
         toast.error('There was an error saving your changes.');
@@ -93,7 +93,7 @@ export default function CompanySettingsPage() {
 
     await editCompanyHandle(router?.query?.companyId, data).then((result) => {
       if(result === 'success'){
-        router.replace(window.location.href);
+        router.push(window.location.href);
 
       } else {
         if(result === 'duplicate'){

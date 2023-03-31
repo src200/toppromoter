@@ -63,7 +63,7 @@ const AffiliateCodePage = () => {
     if(userAffiliateDetails?.filter(campaign=>campaign?.affiliate_id === router.query.affiliateId)?.length){
       affiliateFiltered = userAffiliateDetails?.filter(campaign=>campaign?.affiliate_id === router.query.affiliateId)[0];
     } else {
-      router.replace('/dashboard/campaigns')
+      router.push('/dashboard/campaigns')
     }
   }
 

@@ -41,7 +41,7 @@ export default function CreateTeam() {
   };
 
   if(team !== null && team?.id && team?.team_name){
-    router.replace('/dashboard');
+    router.push('/dashboard');
   }
 
   return (

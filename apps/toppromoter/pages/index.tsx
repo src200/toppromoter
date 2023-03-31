@@ -11,9 +11,9 @@ export default function Index() {
 
     useEffect(() => {
         if (user) {
-            router.replace('/dashboard');
+            router.push('/dashboard');
         } else {
-            router.replace('/signup');
+            router.push('/signup');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);

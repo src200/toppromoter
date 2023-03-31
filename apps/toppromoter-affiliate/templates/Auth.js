@@ -15,7 +15,7 @@ const AuthTemplate = ({ type }) => {
 
   useEffect(() => {
     if (user) {
-      router.replace('/dashboard/campaigns');
+      router.push('/dashboard/campaigns');
     }
   }, [user]);
 

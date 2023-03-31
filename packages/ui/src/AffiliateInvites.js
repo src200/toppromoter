@@ -37,7 +37,7 @@ const AffiliateInvites = (props) => {
 
       if(status === 'success'){
         setLoading(false);
-        router.replace(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
+        router.push(process.env.NEXT_PUBLIC_AFFILIATE_SITE_URL+'?inviteRefresh=true');
         toast.success(type === 'accept' ? 'Congratulations! The invitation was accepted.' : 'The invitation was declined.')
       }
   

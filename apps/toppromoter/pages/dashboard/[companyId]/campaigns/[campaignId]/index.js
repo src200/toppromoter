@@ -17,7 +17,7 @@ export default function SingleCampaignPage() {
   const { activeCampaign } = useCampaign();
 
   if(activeCampaign === null){
-    router.replace(`/dashboard/${router?.query?.companyId}/campaigns`)
+    router.push(`/dashboard/${router?.query?.companyId}/campaigns`)
   }
 
   return (
