@@ -11,15 +11,13 @@ const createCheckoutSession = async (req, res) => {
 
     try {
       const user = await getUser(token, teamId);
-      console.log('====================user===================', user.id);
-      console.log('====================team===========', user?.team_id);
-      console.log('===============url=======', getURL());
       const customer = await createOrRetrieveCustomer({
         id: user.id,
         teamId: user.team_id,
         email: user.email
       });
 
+       console.log('===============url=======', getURL());
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         billing_address_collection: 'required',
@@ -42,6 +40,7 @@ const createCheckoutSession = async (req, res) => {
 
       return res.status(200).json({ sessionId: session.id });
     } catch (err) {
+      console.log('===============url=======', getURL());
       console.log(err);
       res
         .status(500)
