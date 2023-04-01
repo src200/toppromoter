@@ -8,17 +8,15 @@ const createCheckoutSession = async (req, res) => {
   if (req.method === 'POST') {
     const token = req.headers.token;
     const { price, teamId, quantity = 1, metadata = {} } = req.body;
-
+    const _user = await getUser(token, teamId);
     try {
       const user = await getUser(token, teamId);
-       console.log('===============user=======',user, teamId);
       const customer = await createOrRetrieveCustomer({
         id: user.id,
         teamId: user.team_id,
         email: user.email
       });
 
-       console.log('===============url=======', `${getURL()}/dashboard`);
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         billing_address_collection: 'required',
@@ -41,7 +39,7 @@ const createCheckoutSession = async (req, res) => {
 
       return res.status(200).json({ sessionId: session.id });
     } catch (err) {
-      console.log('===============url=======', getURL());
+      console.log('========================', _user);
       console.log(err);
       res
         .status(500)

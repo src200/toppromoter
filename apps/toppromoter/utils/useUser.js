@@ -76,7 +76,7 @@ export const UserContextProvider = (props) => {
         }
       );
     }
-  }, [user, team]);
+  }, [user]);
 
   const value = {
     session,
