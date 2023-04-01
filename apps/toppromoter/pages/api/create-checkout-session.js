@@ -8,7 +8,7 @@ const createCheckoutSession = async (req, res) => {
   if (req.method === 'POST') {
     const token = req.headers.token;
     const { price, teamId, quantity = 1, metadata = {} } = req.body;
-    const _user = await getUser(token, teamId);
+
     try {
       const user = await getUser(token, teamId);
       const customer = await createOrRetrieveCustomer({
@@ -39,7 +39,6 @@ const createCheckoutSession = async (req, res) => {
 
       return res.status(200).json({ sessionId: session.id });
     } catch (err) {
-      console.log('========================', _user);
       console.log(err);
       res
         .status(500)

@@ -49,10 +49,6 @@ export const UserContextProvider = (props) => {
     setTeam(updatedTeam);
   };
 
-  const updateSubscription = (updatedSubscription) => {
-    setSubscription(updatedSubscription);
-  };
-
   useEffect(() => {
     if (user) {
       Promise.allSettled([getTeam(), getUserDetails(), getSubscription()]).then(
@@ -89,7 +85,6 @@ export const UserContextProvider = (props) => {
     planDetails,
     updateUserDetails,
     updateTeam,
-    updateSubscription,
     signIn: (options) => supabase.auth.signIn({email: options.email}, {shouldCreateUser: options.shouldCreateUser, redirectTo: options.redirectTo}),
     signInWithPassword: (options) => supabase.auth.signIn({email: options.email, password: options.password}, {shouldCreateUser: options.shouldCreateUser, redirectTo: options.redirectTo}),
     signUp: (options) => supabase.auth.signUp({email: options.email, password: options.password}, {redirectTo: options.redirectTo}),
@@ -123,6 +118,13 @@ export const resetPassword = async (token, password) => {
     return data
   }
 };
+
+export const getSubscription = (user) =>
+    supabase
+      .from('subscriptions')
+      .select('*, prices(*, products(*))')
+      .in('status', ['trialing', 'active'])
+      .eq('user_id', user?.id);
 
 //Get user account
 export const getCompanies = async (userId) => {
