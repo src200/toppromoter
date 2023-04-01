@@ -18,7 +18,7 @@ const createCheckoutSession = async (req, res) => {
         email: user.email
       });
 
-       console.log('===============url=======', getURL());
+       console.log('===============url=======', `${getURL()}/dashboard`);
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         billing_address_collection: 'required',
