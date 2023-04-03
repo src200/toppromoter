@@ -6,7 +6,7 @@
 
 <p align="center">Create an affiliate program for your SaaS in minutes, from $0/month.</p>
 
-<p align="center"><a href="https://toppromoter.com?ref=Github">Toppromoter &raquo;</a></p>
+<p align="center"><a href="https://toppromoter.io?ref=Github">Toppromoter &raquo;</a></p>
 
 > NOTE: Toppromoter is under active development and is currently in <strong>public beta</strong>.
 
@@ -15,7 +15,7 @@ Toppromoter puts digital privacy first and is proudly open-source. All referrals
 **🚨 NEW: Toppromoter now supports Paddle as a payment integration 🚨**
 
 <div align="center">
-  <img style="width: 100%; height: auto; margin: 0 auto; display: block;" src="https://toppromoter.com/platform-screenshot.webp" alt="Toppromoter Dashboard Screenshot"/>
+  <img style="width: 100%; height: auto; margin: 0 auto; display: block;" src="https://toppromoter.io/platform-screenshot.webp" alt="Toppromoter Dashboard Screenshot"/>
 </div>
 
 ## Features / USPs

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import SetupProgress from '@/components/SetupProgress'; 
 import Button from '@/components/Button'; 
-import { useUser, continueWithoutProcessor, addPaymentIntegration, removePaymentIntegration } from '@/utils/useUser';
+import { useUser, continueWithoutProcessor, addPaymentIntegration, removePaymentIntegration, getCompanies } from '@/utils/useUser';
 import { StripeConnect } from '@/components/Icons/StripeConnect'; 
 import { useCompany } from '@/utils/CompanyContext';
 import { SEOMeta } from '@/templates/SEOMeta'; 
@@ -11,10 +11,16 @@ import toast from 'react-hot-toast';
 
 export default function StripeSetupPage() {
   const router = useRouter();
-  const { session } = useUser();
-  const { activeCompany } = useCompany();
+  const { user, session } = useUser();
+  const { activeCompany, setUserCompanyDetails } = useCompany();
   const [loading, setLoading] = useState(false);
   const [altPayment, setAltPayment] = useState(null);
+
+  useEffect(() => {
+    getCompanies(user?.id).then(results => {
+      setUserCompanyDetails(Array.isArray(results) ? results : [results])
+    });
+  }, []);
 
   const removeProcessor = async () => {
     setLoading(true);
@@ -142,11 +148,11 @@ export default function StripeSetupPage() {
                         <p className="text-lg font-semibold mb-1">
                           Your unique Paddle webhook URL:
                         </p>
-                        <CopyToClipboard text={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
+                        <CopyToClipboard text={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
                           <input 
                             type="text"
                             className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                            value={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
+                            value={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
                           />
                         </CopyToClipboard>
                       </div>
@@ -184,7 +190,7 @@ export default function StripeSetupPage() {
                     rel="noreferrer">
                     <StripeConnect className="w-60 h-auto" />
                   </a>
-                  <button type="button" onClick={ e=>{setAltPayment('paddle')} } className="py-3 px-5 bg-black text-white rounded-md flex items-center">
+                  {/* <button type="button" onClick={ e=>{setAltPayment('paddle')} } className="py-3 px-5 bg-black text-white rounded-md flex items-center">
                     <span className="text-lg font-semibold">
                       Connect with &nbsp;
                     </span>
@@ -196,7 +202,7 @@ export default function StripeSetupPage() {
                       <path d="M847.37 249.43V0H877.31V249.43H847.37Z" />
                       <path d="M988.05 78.15C1045.58 78.15 1073.18 123.05 1073.18 177.93H929.52C934.17 210.18 958.12 231.14 988.05 231.14C1008.67 231.14 1024.63 221.82 1036.6 203.53H1068.86C1057.55 229.14 1027.96 254.42 988.05 254.42C937.83 254.42 898.92 214.17 898.92 166.29C898.92 118.41 937.83 78.15 988.05 78.15ZM1043.25 154.65C1043.25 127.37 1019.97 101.43 988.05 101.43C958.12 101.43 934.17 122.43 929.52 154.65H1043.25Z" />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
                 {
                   altPayment !== null &&
@@ -336,11 +342,11 @@ export default function StripeSetupPage() {
                                 { ' ' }
                                 section, add the below URL as a new endpoint. This is your unique Paddle webhook URL.
                               </p>
-                              <CopyToClipboard text={ `https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
+                              <CopyToClipboard text={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
                                 <input 
                                   type="text"
                                   className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                                  value={ `https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
+                                  value={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
                                 />
                               </CopyToClipboard>
                             </div>

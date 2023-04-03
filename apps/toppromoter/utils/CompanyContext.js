@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect, createContext, useContext } from 'react';
-import { getCompanies, useUser, newTeam, updateUserDetailsWithTeam } from './useUser';
+import { getCompanies, useUser, newTeam, updateUserDetailsWithTeam, getSubscription } from './useUser';
 
 export const CompanyContext = createContext();
 
@@ -38,7 +38,15 @@ export const CompanyContextProvider = (props) => {
   
   if(userCompanyDetails !== null && userCompanyDetails?.length > 0 && (router?.asPath === '/dashboard' || router?.asPath === '/dashboard#')){
     if (!subscription || subscription.length <= 0) {
-      router.push('/pricing');
+      getSubscription(user).then((subDetails) => {
+        if (subDetails) {
+          userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 
+          ? router.push('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
+          : router.push('/dashboard/'+userCompanyDetails[0].company_id+'')
+        } else {
+          router.push('/pricing');
+        }
+      })
     } else {
       userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 ?      
         router.push('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
@@ -54,7 +62,8 @@ export const CompanyContextProvider = (props) => {
 
   value = {
     activeCompany,
-    userCompanyDetails
+    userCompanyDetails,
+    setUserCompanyDetails
   };
 
   return <CompanyContext.Provider value={ value } { ...props }  />;

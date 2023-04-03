@@ -3,7 +3,7 @@ export default function emailBuilderInner(parsedDoc, type, logoUrl, subject, con
 
   let templateEmail = parsedDoc.serialize(parsedDoc);
 
-  templateEmail = templateEmail.replace(/{{logoUrl}}/g, logoUrl !== null ? logoUrl : 'https://toppromoter.com/toppromoter-logo.png');
+  templateEmail = templateEmail.replace(/{{logoUrl}}/g, logoUrl !== null ? logoUrl : 'https://app.toppromoter.io/tpr-logo.svg');
   templateEmail = templateEmail.replace(/{{subject}}/g, subject);
   templateEmail = templateEmail.replace(/{{content}}/g, content);
 

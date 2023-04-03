@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { editCurrency } from '@/utils/useUser';
+import { useUser, editCurrency, getCompanies } from '@/utils/useUser';
 import SetupProgress from '@/components/SetupProgress'; 
 import Button from '@/components/Button'; 
 import { useCompany } from '@/utils/CompanyContext';
@@ -9,7 +9,8 @@ import LoadingDots from '@/components/LoadingDots';
 
 export default function StripeSetupPage() {
   const router = useRouter();
-  const { activeCompany } = useCompany();
+  const { user } = useUser();
+  const { activeCompany, setUserCompanyDetails } = useCompany();
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +34,10 @@ export default function StripeSetupPage() {
     await editCurrency(router?.query?.companyId, data).then((result) => {
       if(result === 'success'){
         setErrorMessage(false);
-        router.push(`/dashboard/${router?.query?.companyId}/setup/campaign`);
+        getCompanies(user?.id).then(results => {
+          setUserCompanyDetails(Array.isArray(results) ? results : [results]);
+          router.push(`/dashboard/${router?.query?.companyId}/setup/campaign`);
+        });
       } else {
         setErrorMessage(true);
       }
