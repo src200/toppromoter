@@ -34,8 +34,8 @@ export default function Onboarding() {
 
       if (!tokenConfirm.ok) {
         const err = await tokenConfirm.json();
-        setError(err.message || err.statusText)
-        throw new Error(err.message || err.statusText);
+        setError(err?.message)
+        throw new Error(err?.message);
       }
 
       const stripeRes = await tokenConfirm.json();
@@ -52,7 +52,6 @@ export default function Onboarding() {
       }
       
     } catch (error) {
-      console.log(error);
       toast.error(error?.message || 'Something went wrong, please try again');
     }
   };
@@ -87,10 +86,10 @@ export default function Onboarding() {
             <div>
               <div className="bg-red-500 py-4 px-6 rounded-lg mt-6 text-center">
                 <p className="text-white">
-                  { error }
+                  { error || 'Something went wrong, please try again' }
                 </p>  
               </div>
-              <a className="mt-6 underline block" href="/add-account">
+              <a className="mt-6 underline block" href={`${activeCompany?.company_id}/setup/payment-processor`}>
                 Try again
               </a>
             </div>
