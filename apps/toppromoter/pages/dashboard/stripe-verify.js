@@ -52,7 +52,8 @@ export default function Onboarding() {
       }
       
     } catch (error) {
-      toast.error(error);
+      console.log(error);
+      toast.error(error?.message || 'Something went wrong, please try again');
     }
   };
 
