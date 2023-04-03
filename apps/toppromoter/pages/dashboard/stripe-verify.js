@@ -30,15 +30,18 @@ export default function Onboarding() {
         body: JSON.stringify({
           stripeCode: stripeId
         })
-      }).then(function(response) {
-        return response.json();
-    
-      }).then(function(data) {
-        return data;
       });
 
-      if(tokenConfirm?.stripe_id){
-        const addStripeAccount = await newStripeAccount(tokenConfirm?.stripe_id, companyId);
+      if (!tokenConfirm.ok) {
+        const err = await tokenConfirm.json();
+        setError(err?.message)
+        throw new Error(err?.message);
+      }
+
+      const stripeRes = await tokenConfirm.json();
+
+      if(stripeRes?.stripe_id){
+        const addStripeAccount = await newStripeAccount(stripeRes?.stripe_id, companyId);
         if(addStripeAccount === 'success'){
           router.push(`/dashboard/${activeCompany?.company_id}/setup/currency`);
         } else {
@@ -49,7 +52,7 @@ export default function Onboarding() {
       }
       
     } catch (error) {
-      toast.error(error);
+      toast.error(error?.message || 'Something went wrong, please try again');
     }
   };
 
@@ -69,7 +72,7 @@ export default function Onboarding() {
             Verifying stripe account...
           </h1>
           <p className='text-sm'>
-            This may take while, please wait...
+            This may take a while, please wait...
           </p>
         </div>
       </div>
@@ -83,10 +86,10 @@ export default function Onboarding() {
             <div>
               <div className="bg-red-500 py-4 px-6 rounded-lg mt-6 text-center">
                 <p className="text-white">
-                  { error }
+                  { error || 'Something went wrong, please try again' }
                 </p>  
               </div>
-              <a className="mt-6 underline block" href="/add-account">
+              <a className="mt-6 underline block" href={`${activeCompany?.company_id}/setup/payment-processor`}>
                 Try again
               </a>
             </div>

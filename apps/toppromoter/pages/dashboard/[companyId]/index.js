@@ -9,7 +9,7 @@ export default function InnerDashboardPage() {
   const { activeCompany } = useCompany();
 
   useEffect(() => {
-    if(activeCompany?.payment_integration_type === null){
+    if(activeCompany?.payment_integration_type === null) {
       router.push(`/dashboard/${router?.query?.companyId}/setup`);
     } else {
       router.push(`/dashboard/${router?.query?.companyId}/analytics`);

@@ -15,11 +15,18 @@ export default function StripeSetupPage() {
   const { activeCompany, setUserCompanyDetails } = useCompany();
   const [loading, setLoading] = useState(false);
   const [altPayment, setAltPayment] = useState(null);
+  const [stripeRedirectURI, setStripeRedirectURI] = useState('');
 
   useEffect(() => {
     getCompanies(user?.id).then(results => {
       setUserCompanyDetails(Array.isArray(results) ? results : [results])
     });
+
+    if (process.env.NEXT_PUBLIC_SITE_URL.includes('localhost')) {
+      setStripeRedirectURI(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write&redirect_uri=${process.env.NEXT_PUBLIC_SITE_URL}/dashboard/stripe-verify`)
+    } else {
+      setStripeRedirectURI(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write`)
+    }
   }, []);
 
   const removeProcessor = async () => {
@@ -185,7 +192,7 @@ export default function StripeSetupPage() {
               <div>
                 <div className="flex items-center space-x-5">
                   <a 
-                    href={ `https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write` }
+                    href={ stripeRedirectURI }
                     target="_blank"
                     rel="noreferrer">
                     <StripeConnect className="w-60 h-auto" />
