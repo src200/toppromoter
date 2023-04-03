@@ -18,7 +18,7 @@ export default function BillingPage() {
   const [loadingUsageData, setLoadingUsageData] = useState(false);
   const [commissions, setCommissions] = useState([]);
   const [receivedInvoiceUrl, setReceivedInvoiceUrl] = useState(null);
-  console.log(subscription)
+ 
   const redirectToCustomerPortal = async () => {
     setLoading(true);
     const { url, error } = await postData({
@@ -155,37 +155,39 @@ export default function BillingPage() {
               <h2 className="text-xl leading-6 font-semibold text-gray-900">
                 Current Plan:
                 { ' ' }
-                <span className="capitalize font-medium">
+                {planDetails?.length && <span className="capitalize font-medium">
                   { planDetails } <span className='text-sm'>{subscription?.status === 'trialing' &&  `(Free trial - ${subscription?.canceled_at ? 'Cancelled' : 'Active'})`}</span>
-                </span>
+                </span>}
+                {(!planDetails || planDetails?.length) && <span className='text-sm'>Not subscribed</span>}
               </h2>
-              
             </div>
             <p className='mb-4 text-sm'>
               {subscription?.status === 'trialing' && !subscription?.canceled_at && `You will be billed automatically from ${new Date(subscription.trial_end)}`}
             </p>
-            <div className="bg-gray-100 rounded-xl p-6">
-             {
-                planDetails?.length &&
-                <PricingFeatures normal productName={planDetails}/>
-              }
+            {(planDetails || planDetails?.length) && <div className="bg-gray-100 rounded-xl p-6">
+             { planDetails?.length && <PricingFeatures normal productName={planDetails}/> }
             </div>
+            }
             <div className="mt-6 pt-6 bg-white sm:flex sm:items-center sm:justify-start">
-              {/* <Button
-                small
-                mobileFull
-                primary
-                href="/pricing">
-                Upgrade Plan
-              </Button> */}
-              <Button
-                className="mt-3 ml-0 sm:ml-3 sm:mt-0"
-                mobileFull
-                small
-                primary
-                onClick={ e=>{redirectToCustomerPortal()} }>
-                { loading ? 'Loading...' : 'Manage Billing' }
-              </Button>
+              {(!planDetails || planDetails?.length) &&  
+                <Button
+                  small
+                  mobileFull
+                  primary
+                  href="/pricing">
+                  Upgrade Plan
+                </Button>
+              }
+              { planDetails?.length &&
+                <Button
+                  className="mt-3 ml-0 sm:ml-3 sm:mt-0"
+                  mobileFull
+                  small
+                  primary
+                  onClick={ e=>{redirectToCustomerPortal()} }>
+                  { loading ? 'Loading...' : 'Manage Billing' }
+                </Button>
+              }
             </div>
           </Card>
           {/* <Card>
