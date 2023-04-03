@@ -142,11 +142,11 @@ export default function StripeSetupPage() {
                         <p className="text-lg font-semibold mb-1">
                           Your unique Paddle webhook URL:
                         </p>
-                        <CopyToClipboard text={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
+                        <CopyToClipboard text={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
                           <input 
                             type="text"
                             className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                            value={ `https://toppromoter.com/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
+                            value={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
                           />
                         </CopyToClipboard>
                       </div>
@@ -336,11 +336,11 @@ export default function StripeSetupPage() {
                                 { ' ' }
                                 section, add the below URL as a new endpoint. This is your unique Paddle webhook URL.
                               </p>
-                              <CopyToClipboard text={ `https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
+                              <CopyToClipboard text={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` } onCopy={ () => toast.success('URL copied to clipboard') }>
                                 <input 
                                   type="text"
                                   className="flex w-full cursor-pointer min-w-0 p-3 rounded-xl focus:outline-none sm:text-md border-2 border-gray-300 bg-white"
-                                  value={ `https://toppromoter.vercel.app/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
+                                  value={ `https://app.toppromoter.io/api/payments/paddle/${activeCompany?.company_id}/webhooks` }
                                 />
                               </CopyToClipboard>
                             </div>

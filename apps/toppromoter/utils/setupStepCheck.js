@@ -25,6 +25,7 @@ export default function setupStepCheck(type) {
       }
 
     } else {
+      console.log(activeCompany);
       if(activeCompany?.payment_integration_type === null){
         replaceUrl('/setup/payment-processor');
       }

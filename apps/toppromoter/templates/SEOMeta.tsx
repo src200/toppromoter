@@ -41,10 +41,10 @@ export const SEOMeta: React.FC<SEOMetaProps> = ({ title, description, keywords, 
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" key="twcard" />
-      <meta name="twitter:image" content={`https://toppromoter.com${setImg}`}/>
+      <meta name="twitter:image" content={`https://toppromoter.io${setImg}`}/>
 
       {/* Open Graph */}
-      <meta property="og:url" content="https://toppromoter.com" key="ogurl" />
+      <meta property="og:url" content="https://toppromoter.io" key="ogurl" />
       <meta property="og:image" content={setImg} key="ogimage" />
       <meta property="og:site_name" content="Toppromoter" key="ogsitename" />
       <meta property="og:title" content={setTitle} key="ogtitle" />
