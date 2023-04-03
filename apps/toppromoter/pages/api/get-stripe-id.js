@@ -2,6 +2,10 @@ import { stripe } from '@/utils/stripe';
 import { withSentry } from '@sentry/nextjs';
 
 const getAccountIdFromToken = async (req, res) => {
+  const server = req.socket.server;
+  // Set the timeout to 60 seconds
+  server.setTimeout(60000);
+
   if (req.method === 'POST') {
     try {
       const response = await stripe.oauth.token({
