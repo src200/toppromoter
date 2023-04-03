@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { OfficeBuildingIcon, CreditCardIcon, CurrencyDollarIcon, CollectionIcon, ClipboardCheckIcon, BadgeCheckIcon } from '@heroicons/react/outline';
 
-const Step = ({ step }) => (
+const Step = ({ step, current }) => (
   <div className="w-full">
     <a href={ step.href }>
       <div className="relative mb-2">
@@ -18,7 +18,7 @@ const Step = ({ step }) => (
             </div>
           </div> 
         }
-        <div className={ classNames('w-12 h-12 mx-auto rounded-full border-2 border-gray-100 text-lg flex items-center justify-center', { 'bg-primary text-white': step.status === 'complete' }) }>
+        <div className={ classNames('w-12 h-12 mx-auto rounded-full border-2 border-gray-100 text-lg flex items-center justify-center', { 'bg-primary text-white': step.status === 'complete', 'animate-pulse border-primary': current }) }>
           <step.icon className='h-6 w-6' />
         </div>
       </div>
@@ -73,7 +73,7 @@ export const SetupProgress = () => {
   return (
     <div className="w-full">
       <div className="flex">
-        { activeCompany ? steps?.map((step, index) => <Step key={ `${step?.name}-${index}` } step={ step } />) : <LoadingDots /> }  
+        { activeCompany ? steps?.map((step, index) => <Step key={ `${step?.name}-${index}` } step={ step } current={router.asPath === step.href} />) : <LoadingDots /> }  
       </div>
     </div>
   )

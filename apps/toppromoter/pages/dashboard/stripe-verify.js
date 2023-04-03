@@ -33,11 +33,12 @@ export default function Onboarding() {
       });
 
       if (!tokenConfirm.ok) {
-        toast.error(error);
-        router.push(`/dashboard/${activeCompany?.company_id}/setup/payment-processor`);
+        const err = await tokenConfirm.json();
+        setError(err.message || err.statusText)
+        throw new Error(err.message || err.statusText);
       }
 
-      const stripeRes = await response.json();
+      const stripeRes = await tokenConfirm.json();
 
       if(stripeRes?.stripe_id){
         const addStripeAccount = await newStripeAccount(stripeRes?.stripe_id, companyId);
