@@ -62,7 +62,8 @@ export const CompanyContextProvider = (props) => {
 
   value = {
     activeCompany,
-    userCompanyDetails
+    userCompanyDetails,
+    setUserCompanyDetails
   };
 
   return <CompanyContext.Provider value={ value } { ...props }  />;
