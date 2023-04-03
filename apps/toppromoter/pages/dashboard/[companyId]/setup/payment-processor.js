@@ -25,7 +25,7 @@ export default function StripeSetupPage() {
     if (process.env.NEXT_PUBLIC_SITE_URL.includes('localhost')) {
       setStripeRedirectURI(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write&redirect_uri=${process.env.NEXT_PUBLIC_SITE_URL}/dashboard/stripe-verify`)
     } else {
-      setStripeRedirectURI(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write}`)
+      setStripeRedirectURI(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&scope=read_write`)
     }
   }, []);
 

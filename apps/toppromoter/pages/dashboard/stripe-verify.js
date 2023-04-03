@@ -30,15 +30,17 @@ export default function Onboarding() {
         body: JSON.stringify({
           stripeCode: stripeId
         })
-      }).then(function(response) {
-        return response.json();
-    
-      }).then(function(data) {
-        return data;
       });
 
-      if(tokenConfirm?.stripe_id){
-        const addStripeAccount = await newStripeAccount(tokenConfirm?.stripe_id, companyId);
+      if (!tokenConfirm.ok) {
+        toast.error(error);
+        router.push(`/dashboard/${activeCompany?.company_id}/setup/payment-processor`);
+      }
+
+      const stripeRes = await response.json();
+
+      if(stripeRes?.stripe_id){
+        const addStripeAccount = await newStripeAccount(stripeRes?.stripe_id, companyId);
         if(addStripeAccount === 'success'){
           router.push(`/dashboard/${activeCompany?.company_id}/setup/currency`);
         } else {
@@ -69,7 +71,7 @@ export default function Onboarding() {
             Verifying stripe account...
           </h1>
           <p className='text-sm'>
-            This may take while, please wait...
+            This may take a while, please wait...
           </p>
         </div>
       </div>
