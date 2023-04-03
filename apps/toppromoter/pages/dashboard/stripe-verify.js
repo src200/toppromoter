@@ -68,6 +68,9 @@ export default function Onboarding() {
           <h1 className="text-2xl sm:text-3xl tracking-tight font-extrabold">
             Verifying stripe account...
           </h1>
+          <p className='text-sm'>
+            This may take while, please wait...
+          </p>
         </div>
       </div>
       <div className="wrapper">
