@@ -49,5 +49,5 @@ export default function setupStepCheck(type) {
         }
       }
     }
-  }, [activeCompany]);
+  }, [activeCompany, router.asPath]);
 }

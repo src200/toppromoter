@@ -37,21 +37,23 @@ export const CompanyContextProvider = (props) => {
   }
   
   if(userCompanyDetails !== null && userCompanyDetails?.length > 0 && (router?.asPath === '/dashboard' || router?.asPath === '/dashboard#')){
+    const activeComp = userCompanyDetails?.filter(company=>company?.active_company === true);
     if (!subscription || subscription.length <= 0) {
       getSubscription(user).then((subDetails) => {
         if (subDetails) {
-          userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 
-          ? router.push('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
-          : router.push('/dashboard/'+userCompanyDetails[0].company_id+'')
+          activeComp?.length > 0 
+          ? router.push(`/dashboard/${activeComp[0].company_id}/setup`)
+          : router.push(`/dashboard/${userCompanyDetails[0].company_id}/setup`)
         } else {
           router.push('/pricing');
         }
       })
     } else {
-      userCompanyDetails?.filter(company=>company?.active_company === true)?.length > 0 ?      
-        router.push('/dashboard/'+userCompanyDetails?.filter(company=>company?.active_company === true)[0].company_id+'')
-      : 
-        router.push('/dashboard/'+userCompanyDetails[0].company_id+'')
+      if (activeComp?.length > 0 && activeComp?.[0]?.payment_integration_type === null) {
+        router.push(`/dashboard/${activeComp[0].company_id}/setup`);
+      } else {
+        router.push(`/dashboard/${userCompanyDetails[0].company_id}/setup`);
+      }
     }
   }
 
