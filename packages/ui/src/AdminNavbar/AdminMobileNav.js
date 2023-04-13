@@ -3,7 +3,7 @@ import {
   MenuAlt1Icon,
   XIcon,
 } from '@heroicons/react/outline';
-import { LogoOriginal } from '@/components/Icons/LogoOriginal';
+import { Logo } from '@/components/Icons/Logo';
 import Link from 'next/link';
 import { Dialog, Transition } from '@headlessui/react';
 import { AdminNavItems } from './AdminNavItems';
@@ -59,7 +59,7 @@ export const AdminMobileNav = () => {
               </Transition.Child>
               <div className="flex-shrink-0 flex items-center px-4">
                 <Link href="/dashboard">
-                  <LogoOriginal className="h-6 w-full" />
+                  <Logo className="h-6 w-full" />
                 </Link>
               </div>
               <AdminNavItems />
@@ -83,10 +83,9 @@ export const AdminMobileNav = () => {
         <div className="flex justify-center lg:justify-end w-full px-6">
           <div className="flex-shrink-0 flex lg:hidden items-center px-4">
             <Link href="/dashboard">
-              <LogoOriginal className="h-7 w-full" />
+              <Logo className="h-7 w-full" />
             </Link>
           </div>
-
         </div>
       </div>
     </>
