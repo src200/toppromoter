@@ -52,7 +52,7 @@ export default function CampaignInvite({ publicCampaignData }) {
                 session={session}
               />
             :
-              <div className="p-8 rounded-xl bg-white shadow-lg border-4 border-gray-200 max-w-2xl mx-auto text-center">
+              <div className="p-8 rounded-md bg-white shadow-md border-2 border-gray-100 max-w-2xl mx-auto text-center">
                 <div className="mb-4">
                   <p className="text-5xl mb-3">🤔</p>
                   <h1 className="text-3xl mb-2">Sorry, this campaign could not be found</h1>
