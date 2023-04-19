@@ -24,17 +24,21 @@ export const CompanyLogoUpload = () => {
   }
 
   const handleFileUpload = async (e: any) => {
-    if(e.target.files[0].size < 2000000){
+    if(e.target.files[0].size < 2000000) {
       if(e.target.files[0].name?.includes('jpg') || e.target.files[0].name?.includes('jpeg') || e.target.files[0].name?.includes('png')){
-        await uploadLogoImage(router?.query?.companyId, e.target.files[0]).then((result: any) => {
-          if(result !== 'error'){
-            setLogoError(false);
-            setLogo(result?.Key);
-            toast.success('Uploaded company logo successfully');
-          } else {
-            toast.error('There was an error when uploading your image. Please make sure that it is either a JPG or PNG file and is less than 2mb.');
-          }
-        });
+        try {
+          await uploadLogoImage(router?.query?.companyId, e.target.files[0]).then((result: any) => {
+            if(result !== 'error'){
+              setLogoError(false);
+              setLogo(result?.Key);
+              toast.success('Uploaded company logo successfully');
+            } else {
+              toast.error('There was an error when uploading your image. Please make sure that it is either a JPG or PNG file and is less than 2mb.');
+            }
+          });
+        } catch(e) {
+          toast.error('There was an error when uploading your image. Please make sure that it is either a JPG or PNG file and is less than 2mb.');
+        }
       }
     } else {
       setLogoError(true);
