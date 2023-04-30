@@ -158,7 +158,7 @@ export default function BillingPage() {
                 {planDetails?.length && <span className="capitalize font-medium">
                   { planDetails } <span className='text-sm'>{subscription?.status === 'trialing' &&  `(Free trial - ${subscription?.canceled_at ? 'Cancelled' : 'Active'})`}</span>
                 </span>}
-                {(!planDetails || planDetails?.length) && <span className='text-sm'>Not subscribed</span>}
+                {!planDetails && <span className='text-sm'>Not subscribed</span>}
               </h2>
             </div>
             <p className='mb-4 text-sm'>
@@ -183,7 +183,7 @@ export default function BillingPage() {
                   className="mt-3 ml-0 sm:ml-3 sm:mt-0"
                   mobileFull
                   small
-                  primary
+                  secondary
                   onClick={ e=>{redirectToCustomerPortal()} }>
                   { loading ? 'Loading...' : 'Manage Billing' }
                 </Button>

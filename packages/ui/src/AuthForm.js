@@ -179,7 +179,7 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
               </div>
           }
 
-          <div className="text-center">
+          {/* <div className="text-center">
             <button
               type="button"
               className="text-sm text-accents-1 font-bold hover:underline"
@@ -191,7 +191,7 @@ export const AuthForm = ({ type, campaignId, companyId, campaignHandle, affiliat
                 showPasswordInput ? 'magic link' : 'password'
               }.` }
             </button>
-          </div>
+          </div> */}
           { /* 
           <div className="mb-6 space-y-2">
             <button
