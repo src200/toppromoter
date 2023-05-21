@@ -40,12 +40,12 @@ export const CompanyContextProvider = (props) => {
     const activeComp = userCompanyDetails?.filter(company=>company?.active_company === true);
     if (!subscription || subscription.length <= 0) {
       getSubscription(user).then((subDetails) => {
-        if (subDetails) {
+        if (!subDetails || subDetails?.data?.length <= 0 || subDetails.error) { 
+          router.push('/pricing');
+        } else {
           activeComp?.length > 0 
           ? router.push(`/dashboard/${activeComp[0].company_id}/setup`)
           : router.push(`/dashboard/${userCompanyDetails[0].company_id}/setup`)
-        } else {
-          router.push('/pricing');
         }
       })
     } else {
